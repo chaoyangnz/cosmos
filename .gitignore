@@ -1,3 +1,5 @@
 .idea
 *.o
 *.bin
+*.elf
+*.exe

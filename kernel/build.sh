@@ -1,9 +1,13 @@
 #!/bin/sh
 
-rm *.o *.bin
-nasm -f elf multiboot.asm
-nasm -f elf kernel.asm
+BUILD_DIR=./bin
 
-ld -o kernel.bin -T linker.ld multiboot.o kernel.o
+rm ${BUILD_DIR}/*
+nasm -f elf arch/i386/multiboot.asm -o ${BUILD_DIR}/multiboot.o
+nasm -f elf arch/i386/kernel.asm -o ${BUILD_DIR}/kernel.o
 
-qemu-system-i386 -kernel kernel.bin
+i386-elf-gcc -c main.c -o ${BUILD_DIR}/main.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+
+i386-elf-ld -o ${BUILD_DIR}/kernel.bin -T linker.ld ${BUILD_DIR}/multiboot.o ${BUILD_DIR}/kernel.o ${BUILD_DIR}/main.o
+
+qemu-system-i386 -kernel ${BUILD_DIR}/kernel.bin

@@ -3,6 +3,7 @@
 # see also https://articles.jaredcamins.com/building-a-kernel-for-a-toy-os-on-os-x-6002ea8a69b4
 # and https://os.phil-opp.com/cross-compile-binutils/
 # https://wiki.osdev.org/GCC_Cross-Compiler
+# https://github.com/nativeos/i386-elf-toolchain
 
 export PREFIX="/usr/local/i386-elf"
 export TARGET=i386-elf

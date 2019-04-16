@@ -1,0 +1,46 @@
+"/Users/chaoyang/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/local/bin/i386-elf-gcc -DCMAKE_CXX_COMPILER=/usr/local/bin/i386-elf-g++ -G "CodeBlocks - Unix Makefiles" /Users/chaoyang/Work/x/kernel
+-- The C compiler identification is GNU 8.2.0
+-- The CXX compiler identification is GNU 8.2.0
+-- Checking whether C compiler has -isysroot
+-- Checking whether C compiler has -isysroot - yes
+-- Checking whether C compiler supports OSX deployment target flag
+-- Checking whether C compiler supports OSX deployment target flag - no
+-- Check for working C compiler: /usr/local/bin/i386-elf-gcc
+-- Check for working C compiler: /usr/local/bin/i386-elf-gcc -- broken
+CMake Error at /Users/chaoyang/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeTestCCompiler.cmake:52 (message):
+  The C compiler
+
+    "/usr/local/bin/i386-elf-gcc"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: /Users/chaoyang/Work/x/kernel/cmake-build-debug/CMakeFiles/CMakeTmp
+    
+    Run Build Command:"/usr/local/bin/gmake" "cmTC_6de2f/fast"
+    /usr/local/bin/gmake -f CMakeFiles/cmTC_6de2f.dir/build.make CMakeFiles/cmTC_6de2f.dir/build
+    gmake[1]: Entering directory '/Users/chaoyang/Work/x/kernel/cmake-build-debug/CMakeFiles/CMakeTmp'
+    Building C object CMakeFiles/cmTC_6de2f.dir/testCCompiler.c.o
+    /usr/local/bin/i386-elf-gcc   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk   -o CMakeFiles/cmTC_6de2f.dir/testCCompiler.c.o   -c /Users/chaoyang/Work/x/kernel/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+    Linking C executable cmTC_6de2f
+    "/Users/chaoyang/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_6de2f.dir/link.txt --verbose=1
+    /usr/local/bin/i386-elf-gcc   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/libressl/lib  CMakeFiles/cmTC_6de2f.dir/testCCompiler.c.o  -o cmTC_6de2f 
+    /usr/local/opt/i386-elf-binutils/bin/i386-elf-ld: cannot find crt0.o: No such file or directory
+    /usr/local/opt/i386-elf-binutils/bin/i386-elf-ld: cannot find -lc
+    collect2: error: ld returned 1 exit status
+    gmake[1]: *** [CMakeFiles/cmTC_6de2f.dir/build.make:87: cmTC_6de2f] Error 1
+    gmake[1]: Leaving directory '/Users/chaoyang/Work/x/kernel/cmake-build-debug/CMakeFiles/CMakeTmp'
+    gmake: *** [Makefile:121: cmTC_6de2f/fast] Error 2
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/chaoyang/Work/x/kernel/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/chaoyang/Work/x/kernel/cmake-build-debug/CMakeFiles/CMakeError.log".

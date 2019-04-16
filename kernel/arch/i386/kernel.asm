@@ -8,16 +8,15 @@ VGA_SIZE    equ 80 * 25                         ; console size
 section .text
 bits 32
 start:
-        ;The bootloader has loaded us into 32-bit protected mode on a x86
-        ;machine. Interrupts are disabled. Paging is disabled. The processor
-        ;state is as defined in the multiboot standard. The kernel has full
-        ;control of the CPU. The kernel can only make use of hardware features
-        ;and any code it provides as part of itself. There's no printf
-        ;function, unless the kernel provides its own <stdio.h> header and a
-        ;printf implementation. There are no security restrictions, no
-        ;safeguards, no debugging mechanisms, only what the kernel provides
-        ;itself. It has absolute and complete power over the
-        ;machine.
+        ; The bootloader has loaded us into 32-bit protected mode on a x86
+        ; machine. Interrupts are disabled. Paging is disabled. The processor
+        ; state is as defined in the multiboot standard. The kernel has full
+        ; control of the CPU. The kernel can only make use of hardware features
+        ; and any code it provides as part of itself. There's no printf
+        ; function, unless the kernel provides its own <stdio.h> header and a
+        ; printf implementation. There are no security restrictions, no
+        ; safeguards, no debugging mechanisms, only what the kernel provides
+        ; itself. It has absolute and complete power over the machine.
 
         ; set up stack
         mov esp, stack_top

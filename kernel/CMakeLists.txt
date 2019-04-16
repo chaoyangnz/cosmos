@@ -18,4 +18,4 @@ set(CMAKE_LINKER /usr/local/bin/i386-elf-ld)
 set(CMAKE_C_LINK_FLAGS "-T linker.ld")
 
 include_directories( . )
-add_executable(kernel main.c console.c arch/i386/kernel.asm arch/i386/multiboot.asm)
+add_executable(kernel main.c console.c arch/i386/eden.asm arch/i386/multiboot.asm)

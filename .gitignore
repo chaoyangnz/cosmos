@@ -4,3 +4,4 @@
 *.bin
 *.elf
 *.exe
+cmake-build-*

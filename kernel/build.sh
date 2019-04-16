@@ -8,11 +8,11 @@ VM="qemu-system-i386 -s -S"
 
 rm ${BUILD_DIR}/*
 ${ASM} arch/i386/multiboot.asm -o ${BUILD_DIR}/multiboot.o
-${ASM} arch/i386/kernel.asm -o ${BUILD_DIR}/kernel.o
+${ASM} arch/i386/eden.asm -o ${BUILD_DIR}/eden.o
 
 ${CC} -c console.c -o ${BUILD_DIR}/console.o
 ${CC} -c main.c -o ${BUILD_DIR}/main.o
 
-${LD} -o ${BUILD_DIR}/kernel.bin ${BUILD_DIR}/multiboot.o ${BUILD_DIR}/kernel.o ${BUILD_DIR}/console.o ${BUILD_DIR}/main.o
+${LD} -o ${BUILD_DIR}/cosmos.bin ${BUILD_DIR}/multiboot.o ${BUILD_DIR}/eden.o ${BUILD_DIR}/console.o ${BUILD_DIR}/main.o
 
-${VM} -kernel ${BUILD_DIR}/kernel.bin
+${VM} -kernel ${BUILD_DIR}/cosmos.bin

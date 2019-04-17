@@ -1,0 +1,3 @@
+set(ISA_ASM_FLAGS "")
+set(ISA_C_FLAGS "")
+set(ISA_LINKER_FLAGS "")

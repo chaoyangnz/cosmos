@@ -42,6 +42,7 @@ size_t strlen(const char* str)
     return len;
 }
 
+static const uint32_t VGA_BASE = 0xB8000;
 static const size_t VGA_WIDTH = 80;
 static const size_t VGA_HEIGHT = 25;
 
@@ -55,7 +56,8 @@ void terminal_initialize(void)
     terminal_row = 0;
     terminal_column = 0;
     terminal_color = vga_entry_color(VGA_COLOR_CYAN, VGA_COLOR_BLACK);
-    terminal_buffer = (uint16_t*) 0xB8000;
+    terminal_buffer = (uint16_t*) VGA_BASE;
+    // clear
     for (size_t y = 0; y < VGA_HEIGHT; y++) {
         for (size_t x = 0; x < VGA_WIDTH; x++) {
             const size_t index = y * VGA_WIDTH + x;
@@ -64,34 +66,44 @@ void terminal_initialize(void)
     }
 }
 
-void terminal_setcolor(uint8_t color)
+void terminal_set_color(uint8_t color)
 {
     terminal_color = color;
 }
 
-void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
+void terminal_put_entry_at(char c, uint8_t color, size_t x, size_t y)
 {
     const size_t index = y * VGA_WIDTH + x;
     terminal_buffer[index] = vga_entry(c, color);
 }
 
-void terminal_putchar(char c)
+void terminal_put_char(char c)
 {
-    terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
-    if (++terminal_column == VGA_WIDTH) {
+    if(c == '\n') {
         terminal_column = 0;
-        if (++terminal_row == VGA_HEIGHT)
+        terminal_row++;
+        if(terminal_row == VGA_HEIGHT) {
             terminal_row = 0;
+        }
+    } else {
+        terminal_put_entry_at(c, terminal_color, terminal_column, terminal_row);
+        terminal_column++;
+        if(terminal_column == VGA_WIDTH) {
+            terminal_row++;
+            if(terminal_row == VGA_HEIGHT) {
+                terminal_row = 0;
+            }
+        }
     }
 }
 
 void terminal_write(const char* data, size_t size)
 {
     for (size_t i = 0; i < size; i++)
-        terminal_putchar(data[i]);
+        terminal_put_char(data[i]);
 }
 
-void terminal_writestring(const char* data)
+void terminal_write_string(const char *data)
 {
     terminal_write(data, strlen(data));
 }

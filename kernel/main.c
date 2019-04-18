@@ -16,5 +16,5 @@ void kernel_main(void)
     terminal_initialize();
 
     /* Newline support is left as an exercise. */
-    terminal_writestring("Hello, Cosmos!");
+    terminal_write_string("Hello, Cosmos!\n");
 }

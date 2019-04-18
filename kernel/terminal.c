@@ -1,4 +1,4 @@
-#include "console.h"
+#include "terminal.h"
 
 #include <stdbool.h>
 #include <stddef.h>

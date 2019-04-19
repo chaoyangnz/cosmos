@@ -13,6 +13,27 @@ brew install qemu cmake
 brew install i386-elf-binutils i386-elf-gcc i386-elf-gdb i386-elf-grub
 ```
 
+## Build oskit libraries for cosmos
+
+Assume the files:
+|- cosmos
+|- oskit
+
+```
+COSMOS_DIR=`pwd`
+cd ../oskit
+./configure --enable-modulefile=${COSMOS_DIR}/modules.x86.pc.cosmos --host=i386-elf --build=i386-mach --prefix=${COSMOS_DIR}/oskit --enable-debug
+
+```
+
+- fcntl.h
+- math.h
+- signal.h
+- stdio.h
+- stdlib.h: exit, abort, panic, getenv; abs, atio, atof, qsort, rand, srand
+- termios.h
+- utime.h
+
 ## Build & Run
 
 ```

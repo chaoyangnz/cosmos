@@ -6,3 +6,4 @@
 *.exe
 cmake-build-*
 bin
+.DS_Store

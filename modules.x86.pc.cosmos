@@ -1,0 +1,39 @@
+##
+## OSKit Module configuration file.
+##
+## Comments are ignored, non-commented words should be
+## OSKit directories to include in the build.
+##
+## Libraries are built in the order defined in this
+## file.
+##
+## Specify this file with the --with-modulesfile=<x>
+## option to configure.  By default the file 'modules'
+## in the OSKit source directory is used.
+##
+
+### Always include this module (the header files)
+oskit
+
+### The flask module must be compiled before
+### most of the other modules.
+### It is currently a required module.
+flask
+
+### --- Required components
+
+### The C Runtime (the magic that calls 'main') (required)
+#crt
+
+### Various bits of kernel magic (required)
+kern
+
+### --- C Libraries
+
+### A minimal standard C library
+libc
+
+### --- Miscellaneous utility libraries
+
+### Exec library for loading linked executables
+#exec

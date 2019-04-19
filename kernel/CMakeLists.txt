@@ -52,7 +52,7 @@ set(CMAKE_LINKER /usr/local/bin/i386-elf-ld)
 set(CMAKE_EXE_LINKER_FLAGS "-Wl,-T${PLATFORM_LAYOUT}")
 
 
-include_directories( . )
+include_directories( . ../oskit/include/oskit/c )
 add_executable(${CMAKE_PROJECT_NAME} ${PLATFORM_SRCS} ${ISA_SRCS} ${GENERIC_SRCS})
 
 # RUN KERNEL IN QEMU

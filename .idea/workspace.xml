@@ -14,128 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Profile.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Toolchain.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/assert.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/compiler.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/ctype.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/errno.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/float.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/limits.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/math.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/setjmp.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/stdarg.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/stdbool.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/stddef.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/stdlib.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/sys/console.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/sys/i386/types.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/time.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libc/stdio/_doprnt.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libc/stdio/_doscan.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/chaoyang.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/chaoyang.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/arch/i386/eden.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/arch/i386/eden.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/arch/i386/flags.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/arch/i386/flags.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/terminal.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/console.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/terminal.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/assert.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/ctype.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/errno.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/float.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/limits.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/math.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/oskit/boolean.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/oskit/compiler.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/oskit/console.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/oskit/error.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/oskit/types.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/oskit/x86/types.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/setjmp.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/signal.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/signal.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/stdarg.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/stddef.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/stdio.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/stdio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/stdlib.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/string.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/string.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/time.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/include/unistd.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/unistd.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/doprnt.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/_doprnt.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/doprnt.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/doscan.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/_doscan.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/doscan.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fclose.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fclose.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fflush.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fflush.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fgetc.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fgetc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fgets.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fgets.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fopen.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fopen.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fprintf.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fprintf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fputc.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fputc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fputs.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fputs.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fread.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fread.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fscanf.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fscanf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fseek.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fseek.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/ftell.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/ftell.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fwrite.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fwrite.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/getchar.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/getchar.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/gets.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/gets.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/perror.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/perror.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/printf.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/printf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/putchar.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/putchar.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/puts.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/puts.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/rewind.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/rewind.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/sprintf.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/sprintf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/sscanf.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/sscanf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/stdio.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/stdio.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/vfprintf.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/vfprintf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/abort.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/abort.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/atexit.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/atexit.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/atol.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/atol.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/environ.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/environ.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/errno.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/errno.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/exit.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/getenv.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/getenv.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/getopt.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/getopt.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/strtod.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/strtod.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/strtol.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/strtol.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdlib/strtoul.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdlib/strtoul.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/bcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/bcmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/memchr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/memchr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/memcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/memcmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/memset.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/memset.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/rindex.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/rindex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strcasecmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strcasecmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strcat.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strcat.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strchr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strchr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strcmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strcpy.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strcpy.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strcspn.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strcspn.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strerror.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strerror.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strlen.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strlen.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strncat.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strncat.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strncmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strncmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strncpy.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strncpy.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strpbrk.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strpbrk.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strrchr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strrchr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strspn.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strspn.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strstr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strstr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strtok.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strtok.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/string/strtok_r.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/string/strtok_r.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/GNUmakerules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/bcopy.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/bcopy16.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/bzero.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/gcc.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/mcount_md.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/memset.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/ntoh.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/setjmp.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/sigcontext_dump.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/i386/sigcontext_dump.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/x86/stack_trace.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/i386/stack_trace.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -156,38 +35,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/stddef.h">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/stdio.h">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/stdlib.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#43#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/string.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#43#62#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="504">
+              <caret line="28" column="60" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -208,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kernel/main.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
@@ -216,6 +68,25 @@
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Profile.cmake">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules.x86.pc.cosmos">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -325,7 +196,6 @@
         <option value="$PROJECT_DIR$/libc/string/strlen.c" />
         <option value="$PROJECT_DIR$/Layout.cmake" />
         <option value="$PROJECT_DIR$/Toolchain.cmake" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/libc/stdio/fflush.c" />
         <option value="$PROJECT_DIR$/libc/stdio/fgets.c" />
         <option value="$PROJECT_DIR$/libc/stdio/fscanf.c" />
@@ -346,6 +216,7 @@
         <option value="$PROJECT_DIR$/include/stdbool.h" />
         <option value="$PROJECT_DIR$/include/signal.h" />
         <option value="$PROJECT_DIR$/kernel/main.c" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -377,48 +248,18 @@
             <path>
               <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="sys" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="sys" type="462c0819:PsiDirectoryNode" />
-              <item name="i386" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
               <item name="kernel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-              <item name="libc" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="arch" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="cosmos" type="462c0819:PsiDirectoryNode" />
               <item name="libc" type="462c0819:PsiDirectoryNode" />
-              <item name="i386" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-              <item name="libc" type="462c0819:PsiDirectoryNode" />
-              <item name="stdlib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-              <item name="libc" type="462c0819:PsiDirectoryNode" />
-              <item name="string" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -524,34 +365,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/libc/stdio/fprintf.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libc/stdio/fopen.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libc/stdio/fputc.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libc/stdio/fputs.c">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -661,13 +474,6 @@
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -837,6 +643,26 @@
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Profile.cmake">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.x86.pc.cosmos">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="60" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="60" />
         </state>
       </provider>
     </entry>

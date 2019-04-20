@@ -6,17 +6,21 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 include("Profile.cmake")
 
+# headers path
 include_directories(include)
 load_profile("i386" "pc")
 
+# tool chain definition
 include("Toolchain.cmake")
 
+# libc for kernel only
 add_library(c STATIC ${LIBC_SRCS})
 
+# kernel
 add_executable(${CMAKE_PROJECT_NAME} ${PLATFORM_SRCS} ${ISA_SRCS} ${GENERIC_SRCS})
 target_link_libraries(${CMAKE_PROJECT_NAME} c)
 
-# RUN KERNEL IN QEMU
+# run kernel in QEMU
 if(CMAKE_BUILD_TYPE MATCHES Debug)
     set(QEMU_FLAGS "-s;-S")
 endif()

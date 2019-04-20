@@ -14,7 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Toolchain.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Toolchain.cmake" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -35,18 +35,22 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" column="60" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="60" />
+            <state relative-caret-position="270">
+              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/unistd.h">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Toolchain.cmake">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -85,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+            <state relative-caret-position="216">
+              <caret line="12" column="70" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -110,8 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>console.h</find>
-      <find>console_</find>
       <find>console_putbytes</find>
       <find>include</find>
       <find>terminal_</find>
@@ -138,8 +140,10 @@
       <find>sys/</find>
       <find>u_char</find>
       <find>u_char_t</find>
-      <find>A3FE 20F6 F13C EF78 07E3 8965 EB94 13BD D395 A3E3</find>
       <find>sys/x86/</find>
+      <find>A3FE 20F6 F13C EF78 07E3 8965 EB94 13BD D395 A3E3</find>
+      <find>sfd</find>
+      <find>.. I find the annotat</find>
     </findStrings>
     <replaceStrings>
       <replace>fil</replace>
@@ -195,7 +199,6 @@
         <option value="$PROJECT_DIR$/kernel/console.c" />
         <option value="$PROJECT_DIR$/libc/string/strlen.c" />
         <option value="$PROJECT_DIR$/Layout.cmake" />
-        <option value="$PROJECT_DIR$/Toolchain.cmake" />
         <option value="$PROJECT_DIR$/libc/stdio/fflush.c" />
         <option value="$PROJECT_DIR$/libc/stdio/fgets.c" />
         <option value="$PROJECT_DIR$/libc/stdio/fscanf.c" />
@@ -206,7 +209,6 @@
         <option value="$PROJECT_DIR$/libc/stdio/sprintf.c" />
         <option value="$PROJECT_DIR$/libc/i386/sigcontext_dump.c" />
         <option value="$PROJECT_DIR$/libc/i386/stack_trace.c" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/libc/string/memchr.c" />
         <option value="$PROJECT_DIR$/libc/string/memcmp.c" />
         <option value="$PROJECT_DIR$/libc/string/memset.c" />
@@ -217,6 +219,8 @@
         <option value="$PROJECT_DIR$/include/signal.h" />
         <option value="$PROJECT_DIR$/kernel/main.c" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Toolchain.cmake" />
       </list>
     </option>
   </component>
@@ -255,6 +259,13 @@
               <item name="cosmos" type="462c0819:PsiDirectoryNode" />
               <item name="kernel" type="462c0819:PsiDirectoryNode" />
               <item name="arch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="arch" type="462c0819:PsiDirectoryNode" />
+              <item name="i386" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
@@ -324,7 +335,7 @@
     <frame x="779" y="-1417" width="1280" height="1362" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20492454" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20492454" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -335,7 +346,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4988086" visible="true" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4988086" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50119144" side_tool="true" weight="0.38339624" />
       <window_info anchor="bottom" id="CMake" order="10" sideWeight="0.49980307" weight="0.32913387" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32981133" />
@@ -365,15 +376,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/libc/stdio/fputs.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libc/stdio/fread.c">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -654,15 +656,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+        <state relative-caret-position="216">
+          <caret line="12" column="70" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="60" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="60" />
+        <state relative-caret-position="270">
+          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Toolchain.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
         </state>
       </provider>
     </entry>

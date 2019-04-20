@@ -11,12 +11,6 @@ brew install qemu cmake
 
 # install cross build toolchain
 brew install i386-elf-binutils i386-elf-gcc i386-elf-gdb i386-elf-grub
-
-cd /usr/local/bin
-ln -s i386-elf-ar ar
-ln -s i386-elf-ranlib ranlib
-ln -s i386-elf-nm nm
-ln -s i386-elf-objdump objdump
 ```
 
 ## Build & Run

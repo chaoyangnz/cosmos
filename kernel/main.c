@@ -1,4 +1,6 @@
-#include "terminal.h"
+#include <stdio.h>
+#include <sys/console.h>
+#include <string.h>
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
@@ -13,8 +15,9 @@
 void kernel_main(void)
 {
     /* Initialize terminal interface */
-    terminal_initialize();
+    console_initialize();
 
-    /* Newline support is left as an exercise. */
-    terminal_write_string("Hello, Cosmos!\n");
+    /* Newline support. */
+    printf("%s", "   ___   ___    __  ___  ___   ___    __ \n  //    // \\\\  (( \\ ||\\\\//||  // \\\\  (( \\\n ((    ((   ))  \\\\  || \\/ || ((   ))  \\\\ \n  \\\\__  \\\\_//  \\_)) ||    ||  \\\\_//  \\_))\n\n");
+    printf("%s", "               Hello, Cosmos!\n");
 }

@@ -1,0 +1,23 @@
+##################### CROSS TOOL CHAIN ############################
+set(_CMAKE_TOOLCHAIN_PREFIX "i386-elf")
+
+# NASM ASSEMBLER SETTINGS
+enable_language(ASM_NASM)
+set(CMAKE_ASM_NASM_COMPILER /usr/local/bin/nasm)
+set(CMAKE_ASM_NASM_OBJECT_FORMAT "elf")
+if(CMAKE_BUILD_TYPE MATCHES Debug)
+    set(CMAKE_ASM_NASM_FLAGS "-g -F dwarf")
+endif()
+set(CMAKE_ASM_NASM_COMPILE_OBJECT "<CMAKE_ASM_NASM_COMPILER> ${CMAKE_ASM_NASM_FLAGS} ${ISA_ASM_FLAGS} ${PLATFORM_ASM_FLAGS} -o <OBJECT> <SOURCE>")
+
+# C COMPILER SETTINGS
+enable_language(C)
+set(CMAKE_C_COMPILER /usr/local/bin/i386-elf-gcc)
+set(CMAKE_C_SYSROOT_FLAG "")
+set(CMAKE_C_FLAGS "${ISA_C_FLAGS} ${PLATFORM_C_FLAGS}")
+set(CMAKE_C_LINK_FLAGS "")
+set(CMAKE_CXX_COMPILER /usr/local/bin/i386-elf-g++)
+
+# LINKER SETTINGS
+set(CMAKE_LINKER /usr/local/bin/i386-elf-ld)
+set(CMAKE_EXE_LINKER_FLAGS "-Wl,-T${PLATFORM_LAYOUT}")

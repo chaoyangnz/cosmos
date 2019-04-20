@@ -8,7 +8,7 @@ VGA_SIZE    equ 80 * 25                         ; console size
 section .text
 bits 32
 start:
-        ; The bootloader has loaded us into 32-bit protected mode on a x86
+        ; The bootloader has loaded us into 32-bit protected mode on a i386
         ; machine. Interrupts are disabled. Paging is disabled. The processor
         ; state is as defined in the multiboot standard. The kernel has full
         ; control of the CPU. The kernel can only make use of hardware features

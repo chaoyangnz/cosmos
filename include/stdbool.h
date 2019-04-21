@@ -1,7 +1,13 @@
 #ifndef _C_STDBOOL_H
 #define _C_STDBOOL_H
 
-#include <sys/i386/types.h>
+/*
+ * Just yer ordinary boolean type.
+ * On the i386, bytes are fast, so we use it;
+ * on other architectures this will generally be an int.
+ */
+typedef unsigned char		bool_t;
+
 /*
  *	Define the basic boolean constants if not defined already.
  */

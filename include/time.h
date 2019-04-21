@@ -2,11 +2,7 @@
 #define _C_TIME_H
 
 #include "compiler.h"
-/* Include <oskit/c/sys/types.h> for `time_t', used in prototypes below. */
-#include <sys/i386/types.h>
-
-
-
+/* Include <oskit/c/kernel/types.h> for `time_t', used in prototypes below. */
 time_t time(time_t *t);
 
 

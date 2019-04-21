@@ -2,7 +2,6 @@
 #define _C_STDLIB_H_
 
 #include <stddef.h>
-#include <sys/i386/types.h>
 #include "compiler.h"
 
 

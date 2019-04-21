@@ -4,20 +4,23 @@ project(cosmos C)
 
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_VERBOSE_MAKEFILE ON)
-include("Profile.cmake")
+
+file(GLOB_RECURSE KERNEL_SRCS "kernel/*.c" "kernel/*.asm")
+file(GLOB_RECURSE LIBC_SRCS "libc/*.c" "libc/*.asm")
+message(STATUS "DFDFD" ${KERNEL_SRCS})
 
 # headers path
 include_directories(include)
-load_profile("i386" "pc")
 
 # tool chain definition
+include("flags.cmake")
 include("Toolchain.cmake")
 
 # libc for kernel only
 add_library(c STATIC ${LIBC_SRCS})
 
 # kernel
-add_executable(${CMAKE_PROJECT_NAME} ${PLATFORM_SRCS} ${ISA_SRCS} ${GENERIC_SRCS})
+add_executable(${CMAKE_PROJECT_NAME} ${KERNEL_SRCS})
 target_link_libraries(${CMAKE_PROJECT_NAME} c)
 
 # run kernel in QEMU

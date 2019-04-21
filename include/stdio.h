@@ -1,8 +1,9 @@
 #ifndef _C_STDIO_H
 #define _C_STDIO_H
 
-#include "sys/i386/types.h"
+#include "kernel/i386/types.h"
 #include "compiler.h"
+#include "stdarg.h"
 
 /* This is a very naive standard I/O implementation
    which simply chains to the low-level I/O routines
@@ -58,7 +59,7 @@ typedef	struct __sFILE {
 
 	/* Unix stdio files get aligned to block boundaries on fseek() */
 	int	_blksize;	/* stat.st_blksize (may be != _bf._size) */
-	fpos_t	_offset;	/* current lseek offset (see WARNING) */
+	fpos_t	_offset;	/* current lseek gdt_address (see WARNING) */
 } FILE;
 
 extern FILE __sF[];
@@ -98,11 +99,11 @@ extern FILE __sF[];
 int putchar(int __c);
 int puts(const char *__str);
 int printf(const char *__format, ...);
-int vprintf(const char *__format, va_list_t __vl);
+int vprintf(const char *__format, va_list __vl);
 int sprintf(char *__dest, const char *__format, ...);
 int snprintf(char *__dest, int __size, const char *__format, ...);
-int vsprintf(char *__dest, const char *__format, va_list_t __vl);
-int vsnprintf(char *__dest, int __size, const char *__format, va_list_t __vl);
+int vsprintf(char *__dest, const char *__format, va_list __vl);
+int vsnprintf(char *__dest, int __size, const char *__format, va_list __vl);
 int getchar(void);
 char *gets(char *__str);
 char *fgets(char *__str, int __size, FILE *__stream);
@@ -116,7 +117,7 @@ int fputc(int __c, FILE *__stream);
 int fputs(const char *str, FILE *stream);
 int fgetc(FILE *__stream);
 int fprintf(FILE *__stream, const char *__format, ...);
-int vfprintf(FILE *__stream, const char *__format, va_list_t __vl);
+int vfprintf(FILE *__stream, const char *__format, va_list __vl);
 int fscanf(FILE *__stream, const char *__format, ...);
 int sscanf(const char *__str, const char *__format, ...);
 int fseek(FILE *__stream, long __offset, int __whence);
@@ -134,7 +135,7 @@ void perror(const char *__string);
 struct sys_stream;		/* see <oskit/com/stream.h> */
 int com_printf(struct sys_stream *__stream, const char *__format, ...);
 int com_vprintf(struct sys_stream *__stream, const char *__format,
-		va_list_t __vl);
+		va_list __vl);
 
 
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <sys/console.h>
+#include <kernel/console.h>
 #include "_doprnt.h"
 
 /* This version of printf is implemented in terms of putchar and puts.  */

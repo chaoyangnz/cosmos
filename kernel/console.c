@@ -1,8 +1,7 @@
-#include "sys/console.h"
+#include "kernel/console.h"
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <sys/i386/types.h>
 #include <string.h>
 
 /* Hardware text mode color constants. */

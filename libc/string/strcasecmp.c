@@ -1,8 +1,6 @@
 #include <stddef.h>
 #include <string.h>
 #include <ctype.h>
-#include <sys/i386/types.h>
-
 int
 strcasecmp(s1, s2)
 	const char *s1, *s2;

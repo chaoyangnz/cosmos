@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <sys/console.h>
+#include <kernel/console.h>
 
 /*
  * Note dependency on the kernel library.

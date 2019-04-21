@@ -1,7 +1,8 @@
 #ifndef _C_UNISTD_H_
 #define _C_UNISTD_H_
 
-#include "sys/i386/types.h"
+#include <stddef.h>
+#include <kernel/i386/types.h>
 #include "compiler.h"
 
 #ifndef _SIZE_T

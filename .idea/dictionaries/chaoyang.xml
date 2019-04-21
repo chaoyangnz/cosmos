@@ -2,6 +2,7 @@
   <dictionary name="chaoyang">
     <words>
       <w>dcmake</w>
+      <w>eflags</w>
       <w>strlen</w>
     </words>
   </dictionary>

@@ -1,13 +1,11 @@
 #ifndef _SYS_C_STDARG_H_
 #define _SYS_C_STDARG_H_
 
-#include <sys/i386/types.h>
-
 #define __va_size(type) ((sizeof(type)+3) & ~0x3)
 
 #ifndef _VA_LIST_
 #define _VA_LIST_
-typedef	va_list_t va_list;
+typedef	char * va_list;
 #endif
 
 #define	va_start(pvar, lastarg)			\

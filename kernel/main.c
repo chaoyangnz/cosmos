@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include <sys/console.h>
+#include <kernel/console.h>
 #include <string.h>
+#include <kernel/i386/segment.h>
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
@@ -20,4 +21,6 @@ void kernel_main(void)
     /* Newline support. */
     printf("%s", "   ___   ___    __  ___  ___   ___    __ \n  //    // \\\\  (( \\ ||\\\\//||  // \\\\  (( \\\n ((    ((   ))  \\\\  || \\/ || ((   ))  \\\\ \n  \\\\__  \\\\_//  \\_)) ||    ||  \\\\_//  \\_))\n\n");
     printf("%s", "               Hello, Cosmos!\n");
+    gdt_init();
+    gdt_load();
 }

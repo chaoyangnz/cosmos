@@ -1,4 +1,3 @@
-#include <sys/i386/types.h>
 #include <string.h>
 
 /*

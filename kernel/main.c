@@ -4,6 +4,7 @@
 #include <kernel/i386/segment.h>
 #include <kernel/i386/multiboot.h>
 #include <kernel/i386/util.h>
+#include <kernel/i386/register.h>
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
@@ -29,9 +30,12 @@ void kernel_main(void)
     printf("Memory: 0 - %dK **** 1M - %dM \n", mbi->mem_lower + 1, 1 + (mbi->mem_upper/1024) + 1);
     printf("Video: 0x%x %d x %d %d\n", mbi->framebuffer_addr, mbi->framebuffer_width, mbi->framebuffer_height, mbi->framebuffer_type);
 
-
-    multiboot_memory_map_t* mmap = mbi->mmap_addr;
-    printf("size: %#x len: %lx, addr: %#lx \n", mmap->size, mmap->len, mmap->addr);
+    printf("Memory map: %#x (%d)", mbi->mmap_addr, mbi->mmap_length);
+    volatile multiboot_memory_map_t* mmap = mbi->mmap_addr;
+    for(size_t i = 0; i < 7; i++) {
+        mmap = (void*)mmap + mmap->size + 4;
+        printf("size: %#x len: %lx, addr: %#lx \n", mmap->size, mmap->len, mmap->addr);
+    }
 
     /* Segments setting */
     gdt_init();

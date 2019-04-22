@@ -108,7 +108,7 @@ gdt_load() {
     set_fs(segment_selector(SEG_INDEX_NULL, 0, 0));
     set_gs(segment_selector(SEG_INDEX_NULL, 0, 0));
 
-    printf("GDT: 0x%x CS: 0x%x DS: 0x%x ES: 0x%x SS: 0x%x FS: 0x%x GS: 0x%x \n", \
+    printf("GDT: %#x CS: %#xx DS: %#xx ES: %#xx SS: %#xx FS: %#xx GS: %#xx \n", \
             &gdt, get_cs(), get_ds(), get_es(), get_ss(), get_fs(), get_gs());
 }
 

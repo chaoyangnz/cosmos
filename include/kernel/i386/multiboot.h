@@ -1,165 +1,241 @@
 #ifndef _COSMOS_X86_MULTIBOOT_H_
 #define _COSMOS_X86_MULTIBOOT_H_
 
-#ifndef ASSEMBLER
-#include <oskit/x86/types.h>
+#include <stddef.h>
+#include <kernel/i386/types.h>
 
-/* For a.out kernel boot images, the following header must appear
-   somewhere in the first 8192 bytes of the kernel image file.  */
+/* How many bytes from the start of the file we search for the header.  */
+#define MULTIBOOT_SEARCH			8192
+#define MULTIBOOT_HEADER_ALIGN			4
+
+/* The magic field should contain this.  */
+#define MULTIBOOT_HEADER_MAGIC			0x1BADB002
+
+/* This should be in %eax.  */
+#define MULTIBOOT_BOOTLOADER_MAGIC		0x2BADB002
+
+/* Alignment of multiboot modules.  */
+#define MULTIBOOT_MOD_ALIGN			0x00001000
+
+/* Alignment of the multiboot info structure.  */
+#define MULTIBOOT_INFO_ALIGN			0x00000004
+
+/* Flags set in the 'flags' member of the multiboot header.  */
+
+/* Align all boot modules on i386 page (4KB) boundaries.  */
+#define MULTIBOOT_PAGE_ALIGN			0x00000001
+
+/* Must pass memory information to OS.  */
+#define MULTIBOOT_MEMORY_INFO			0x00000002
+
+/* Must pass video information to OS.  */
+#define MULTIBOOT_VIDEO_MODE			0x00000004
+
+/* This flag indicates the use of the address fields in the header.  */
+#define MULTIBOOT_AOUT_KLUDGE			0x00010000
+
+/* Flags to be set in the 'flags' member of the multiboot info structure.  */
+
+/* is there basic lower/upper memory information? */
+#define MULTIBOOT_INFO_MEMORY			0x00000001
+/* is there a boot device set? */
+#define MULTIBOOT_INFO_BOOTDEV			0x00000002
+/* is the command-line defined? */
+#define MULTIBOOT_INFO_CMDLINE			0x00000004
+/* are there modules to do something with? */
+#define MULTIBOOT_INFO_MODS			0x00000008
+
+/* These next two are mutually exclusive */
+
+/* is there a symbol table loaded? */
+#define MULTIBOOT_INFO_AOUT_SYMS		0x00000010
+/* is there an ELF section header table? */
+#define MULTIBOOT_INFO_ELF_SHDR			0X00000020
+
+/* is there a full memory map? */
+#define MULTIBOOT_INFO_MEM_MAP			0x00000040
+
+/* Is there drive info?  */
+#define MULTIBOOT_INFO_DRIVE_INFO		0x00000080
+
+/* Is there a config table?  */
+#define MULTIBOOT_INFO_CONFIG_TABLE		0x00000100
+
+/* Is there a boot loader name?  */
+#define MULTIBOOT_INFO_BOOT_LOADER_NAME		0x00000200
+
+/* Is there a APM table?  */
+#define MULTIBOOT_INFO_APM_TABLE		0x00000400
+
+/* Is there video information?  */
+#define MULTIBOOT_INFO_VBE_INFO		        0x00000800
+#define MULTIBOOT_INFO_FRAMEBUFFER_INFO	        0x00001000
+
+typedef unsigned char		multiboot_uint8_t;
+typedef unsigned short		multiboot_uint16_t;
+typedef unsigned int		multiboot_uint32_t;
+typedef unsigned long long	multiboot_uint64_t;
+
 struct multiboot_header
 {
-	/* Must be MULTIBOOT_MAGIC */
-	unsigned		magic;
+    /* Must be MULTIBOOT_MAGIC - see above.  */
+    multiboot_uint32_t magic;
 
-	/* Feature flags - see below.  */
-	unsigned		flags;
+    /* Feature flags.  */
+    multiboot_uint32_t flags;
 
-	/* Checksum: magic + flags + checksum == 0 */
-	unsigned		checksum;
+    /* The above fields plus this one must equal 0 mod 2^32. */
+    multiboot_uint32_t checksum;
 
-	/* These are only valid if MULTIBOOT_AOUT_KLUDGE is set.  */
-	oskit_addr_t		header_addr;
-	oskit_addr_t		load_addr;
-	oskit_addr_t		load_end_addr;
-	oskit_addr_t		bss_end_addr;
-	oskit_addr_t		entry;
+    /* These are only valid if MULTIBOOT_AOUT_KLUDGE is set.  */
+    multiboot_uint32_t header_addr;
+    multiboot_uint32_t load_addr;
+    multiboot_uint32_t load_end_addr;
+    multiboot_uint32_t bss_end_addr;
+    multiboot_uint32_t entry_addr;
+
+    /* These are only valid if MULTIBOOT_VIDEO_MODE is set.  */
+    multiboot_uint32_t mode_type;
+    multiboot_uint32_t width;
+    multiboot_uint32_t height;
+    multiboot_uint32_t depth;
 };
 
-#endif /* not defined ASSEMBLER */
+/* The symbol table for a.out.  */
+struct multiboot_aout_symbol_table
+{
+    multiboot_uint32_t tabsize;
+    multiboot_uint32_t strsize;
+    multiboot_uint32_t addr;
+    multiboot_uint32_t reserved;
+};
+typedef struct multiboot_aout_symbol_table multiboot_aout_symbol_table_t;
 
-/* The entire multiboot_header must be contained
-   within the first MULTIBOOT_SEARCH bytes of the kernel image.  */
-#define MULTIBOOT_SEARCH	8192
+/* The section header table for ELF.  */
+struct multiboot_elf_section_header_table
+{
+    multiboot_uint32_t num;
+    multiboot_uint32_t size;
+    multiboot_uint32_t addr;
+    multiboot_uint32_t shndx;
+};
+typedef struct multiboot_elf_section_header_table multiboot_elf_section_header_table_t;
 
-/* Magic value identifying the multiboot_header.  */
-#define MULTIBOOT_MAGIC		0x1badb002
-
-/* Features flags for 'flags'.
-   If a boot loader sees a flag in MULTIBOOT_MUSTKNOW set
-   and it doesn't understand it, it must fail.  */
-#define MULTIBOOT_MUSTKNOW	0x0000ffff
-
-/* Align all boot modules on page (4KB) boundaries.  */
-#define MULTIBOOT_PAGE_ALIGN	0x00000001
-
-/* Must be provided memory information in multiboot_info structure */
-#define MULTIBOOT_MEMORY_INFO	0x00000002
-
-/* Use the load address fields above instead of the ones in the a.out header
-   to figure out what to load where, and what to do afterwards.
-   This should only be needed for a.out kernel images
-   (ELF and other formats can generally provide the needed information).  */
-#define MULTIBOOT_AOUT_KLUDGE	0x00010000
-
-/* The boot loader passes this value in register EAX to signal the kernel
-   that the multiboot method is being used */
-#define MULTIBOOT_VALID         0x2badb002
-
-/* The boot loader passes this data structure to the kernel in
-   register EBX on entry.  */
-#ifndef ASSEMBLER
 struct multiboot_info
 {
-	/* These flags indicate which parts of the multiboot_info are valid;
-	   see below for the actual flag bit definitions.  */
-	unsigned		flags;
+    /* Multiboot info version number */
+    multiboot_uint32_t flags;
 
-	/* Lower/Upper memory installed in the machine.
-	   Valid only if MULTIBOOT_MEMORY is set in flags word above.  */
-	oskit_size_t		mem_lower;
-	oskit_size_t		mem_upper;
+    /* Available memory from BIOS */
+    multiboot_uint32_t mem_lower;
+    multiboot_uint32_t mem_upper;
 
-	/* BIOS disk device the kernel was loaded from.
-	   Valid only if MULTIBOOT_BOOT_DEVICE is set in flags word above.  */
-	unsigned char		boot_device[4];
+    /* "root" partition */
+    multiboot_uint32_t boot_device;
 
-	/* Command-line for the OS kernel: a null-terminated ASCII string.
-	   Valid only if MULTIBOOT_CMDLINE is set in flags word above.  */
-	oskit_addr_t		cmdline;
+    /* Kernel command line */
+    multiboot_uint32_t cmdline;
 
-	/* List of boot modules loaded with the kernel.
-	   Valid only if MULTIBOOT_MODS is set in flags word above.  */
-	unsigned		mods_count;
-	oskit_addr_t		mods_addr;
+    /* Boot-Module list */
+    multiboot_uint32_t mods_count;
+    multiboot_uint32_t mods_addr;
 
-	/* Symbol information for a.out or ELF executables. */
-	union
-	{
-	  struct
-	  {
-	    /* a.out symbol information valid only if MULTIBOOT_AOUT_SYMS
-	       is set in flags word above.  */
-	    oskit_size_t		tabsize;
-	    oskit_size_t		strsize;
-	    oskit_addr_t		addr;
-	    unsigned		reserved;
-	  } a;
+    union
+    {
+        multiboot_aout_symbol_table_t aout_sym;
+        multiboot_elf_section_header_table_t elf_sec;
+    } u;
 
-	  struct
-	  {
-	    /* ELF section header information valid only if
-	       MULTIBOOT_ELF_SHDR is set in flags word above.  */
-	    unsigned		num;
-	    oskit_size_t		size;
-	    oskit_addr_t		addr;
-	    unsigned		shndx;
-	  } e;
-	} syms;
+    /* Memory Mapping buffer */
+    multiboot_uint32_t mmap_length;
+    multiboot_uint32_t mmap_addr;
 
-	/* Memory map buffer.
-	   Valid only if MULTIBOOT_MEM_MAP is set in flags word above.  */
-	oskit_size_t		mmap_count;
-	oskit_addr_t		mmap_addr;
+    /* Drive Info buffer */
+    multiboot_uint32_t drives_length;
+    multiboot_uint32_t drives_addr;
+
+    /* ROM configuration table */
+    multiboot_uint32_t config_table;
+
+    /* Boot Loader Name */
+    multiboot_uint32_t boot_loader_name;
+
+    /* APM table */
+    multiboot_uint32_t apm_table;
+
+    /* Video */
+    multiboot_uint32_t vbe_control_info;
+    multiboot_uint32_t vbe_mode_info;
+    multiboot_uint16_t vbe_mode;
+    multiboot_uint16_t vbe_interface_seg;
+    multiboot_uint16_t vbe_interface_off;
+    multiboot_uint16_t vbe_interface_len;
+
+    multiboot_uint64_t framebuffer_addr;
+    multiboot_uint32_t framebuffer_pitch;
+    multiboot_uint32_t framebuffer_width;
+    multiboot_uint32_t framebuffer_height;
+    multiboot_uint8_t framebuffer_bpp;
+#define MULTIBOOT_FRAMEBUFFER_TYPE_INDEXED 0
+#define MULTIBOOT_FRAMEBUFFER_TYPE_RGB     1
+#define MULTIBOOT_FRAMEBUFFER_TYPE_EGA_TEXT	2
+    multiboot_uint8_t framebuffer_type;
+    union
+    {
+        struct
+        {
+            multiboot_uint32_t framebuffer_palette_addr;
+            multiboot_uint16_t framebuffer_palette_num_colors;
+        };
+        struct
+        {
+            multiboot_uint8_t framebuffer_red_field_position;
+            multiboot_uint8_t framebuffer_red_mask_size;
+            multiboot_uint8_t framebuffer_green_field_position;
+            multiboot_uint8_t framebuffer_green_mask_size;
+            multiboot_uint8_t framebuffer_blue_field_position;
+            multiboot_uint8_t framebuffer_blue_mask_size;
+        };
+    };
 };
+typedef struct multiboot_info multiboot_info_t;
 
-#define MULTIBOOT_MEMORY	(1L<<0)
-#define MULTIBOOT_BOOT_DEVICE	(1L<<1)
-#define MULTIBOOT_CMDLINE	(1L<<2)
-#define MULTIBOOT_MODS		(1L<<3)
-#define MULTIBOOT_AOUT_SYMS	(1L<<4)
-#define MULTIBOOT_ELF_SHDR	(1L<<5)
-#define MULTIBOOT_MEM_MAP	(1L<<6)
-
-/* For use with printf's %b format. */
-#define MULTIBOOT_FLAGS_FORMAT \
-  "\20\1MEMORY\2BOOT_DEVICE\3CMDLINE\4MODS\5AOUT_SYMS\6ELF_SHDR\7MEM_MAP"
-
-/* The mods_addr field above contains the physical address of the first
-   of 'mods_count' multiboot_module structures.  */
-struct multiboot_module
+struct multiboot_color
 {
-	/* Physical start and end addresses of the module data itself.  */
-	oskit_addr_t		mod_start;
-	oskit_addr_t		mod_end;
-
-	/* Arbitrary ASCII string associated with the module.  */
-	oskit_addr_t		string;
-
-	/* Boot loader must set to 0; OS must ignore.  */
-	unsigned		reserved;
+    multiboot_uint8_t red;
+    multiboot_uint8_t green;
+    multiboot_uint8_t blue;
 };
 
-
-/* The mmap_addr field above contains the physical address of the first
-   of the AddrRangeDesc structure.  "size" represents the size of the
-   rest of the structure and optional padding.  The offset to the beginning
-   of the next structure is therefore "size + 4".  */
-struct AddrRangeDesc
+struct multiboot_mmap_entry
 {
-  unsigned long size;
-  unsigned long BaseAddrLow;
-  unsigned long BaseAddrHigh;
-  unsigned long LengthLow;
-  unsigned long LengthHigh;
-  unsigned long Type;
+    multiboot_uint32_t size;
+    multiboot_uint64_t addr;
+    multiboot_uint64_t len;
+#define MULTIBOOT_MEMORY_AVAILABLE		1
+#define MULTIBOOT_MEMORY_RESERVED		2
+#define MULTIBOOT_MEMORY_ACPI_RECLAIMABLE       3
+#define MULTIBOOT_MEMORY_NVS                    4
+#define MULTIBOOT_MEMORY_BADRAM                 5
+    multiboot_uint32_t type;
+} __attribute__((packed));
+typedef struct multiboot_mmap_entry multiboot_memory_map_t;
 
-  /* unspecified optional padding... */
+struct multiboot_mod_list
+{
+    /* the memory used goes from bytes 'mod_start' to 'mod_end-1' inclusive */
+    multiboot_uint32_t mod_start;
+    multiboot_uint32_t mod_end;
+
+    /* Module command line */
+    multiboot_uint32_t cmdline;
+
+    /* padding to take it to 16 bytes (must be zero) */
+    multiboot_uint32_t pad;
 };
+typedef struct multiboot_mod_list multiboot_module_t;
 
-#endif /* ifndef ASSEMBLER */
 
-/* usable memory "Type", all others are reserved.  */
-#define MB_ARD_MEMORY       1
-
+extern multiboot_info_t* get_multiboot_info();
 
 #endif /* _COSMOS_X86_MULTIBOOT_H_ */

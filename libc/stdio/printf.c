@@ -54,9 +54,10 @@ printf_char(arg, c)
  */
 int vprintf(const char *fmt, va_list args)
 {
-	struct printf_state state;
-
-	state.index = 0;
+	struct printf_state state = {
+        .buf = {0},
+        .index = 0
+	};
 	_doprnt(fmt, args, 0, (void (*)())printf_char, (char *) &state);
 
 	if (state.index != 0)

@@ -1,9 +1,20 @@
 global start
 extern kernel_main
 
-RED         equ 0x04
-VGA_BASE    equ 0xb8000                         ; VGA area base
-VGA_SIZE    equ 80 * 25                         ; console size
+MULTIBOOT_PAGE_ALIGN    equ     1<<0
+MULTIBOOT_MEMORY_INFO   equ     1<<1
+MULTIBOOT_VIDEO_MODE    equ     1<<2
+MULTIBOOT_INFO_FRAMEBUFFER_INFO  equ       0x00001000
+MULTIBOOT_INFO_MEM_MAP  equ     0x00000040
+MULTIBOOT_FLAGS         equ     MULTIBOOT_PAGE_ALIGN | MULTIBOOT_MEMORY_INFO | MULTIBOOT_VIDEO_MODE | MULTIBOOT_INFO_FRAMEBUFFER_INFO | MULTIBOOT_INFO_MEM_MAP
+MULTIBOOT_MAGIC         equ     0x1BADB002
+MULTIBOOT_CHECKSUM      equ     -(MULTIBOOT_MAGIC + MULTIBOOT_FLAGS)
+
+section .multiboot
+align 4
+    dd MULTIBOOT_MAGIC                                ; magic number (multiboot 2)
+    dd MULTIBOOT_FLAGS
+    dd MULTIBOOT_CHECKSUM
 
 section .text
 bits 32
@@ -11,51 +22,16 @@ start:
         ; The bootloader has loaded us into 32-bit protected mode on a i386
         ; machine. Interrupts are disabled. Paging is disabled. The processor
         ; state is as defined in the multiboot standard. The kernel has full
-        ; control of the CPU. The kernel can only make use of hardware features
-        ; and any code it provides as part of itself. There's no printf
-        ; function, unless the kernel provides its own <stdio.h> header and a
-        ; printf implementation. There are no security restrictions, no
-        ; safeguards, no debugging mechanisms, only what the kernel provides
-        ; itself. It has absolute and complete power over the machine.
+        ; control of the CPU.
 
         ; set up stack
         mov esp, stack_top
-
-        ; Clear screen
-        call clear
-
-        ; Print hello
-        mov esi, msg
-        call print
 
         call kernel_main
 
         hlt
 
-clear:
-        mov ecx, VGA_SIZE ;
-        mov dx, 0x0020                         ;  space symbol (0x20) on black background
-.next   mov [VGA_BASE + ecx * 2], dx
-        dec ecx
-        cmp ecx, -1
-        jnz clear.next
-        ret
-
-print:
-        mov ecx, 0
-.next   mov al, [esi + ecx]
-        test al, al
-        jz print.end
-        mov ah, RED
-        mov [VGA_BASE + ecx * 2], ax
-        inc ecx
-        jmp print.next
-.end    ret
-
-section .data
-    msg db 'Hello, World!', 0
-
 section .bss
 align 16
-    stack_bottom: resb 16384                    ; 16k
+    stack_bottom: resb 0x100000                    ; 1M
     stack_top:

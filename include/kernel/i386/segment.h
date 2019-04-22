@@ -60,17 +60,27 @@
 #define USERMODE(s, f)          (ISPL(s) == SEL_PL_U || ((f) & EFL_VM) != 0)
 #define KERNELMODE(s, f)        (ISPL(s) == SEL_PL_K && ((f) & EFL_VM) == 0)
 
-#define NULL_SEGMENT  0x00
-#define KERNEL_CODE	0x08
-#define KERNEL_DATA	0x10	/* Kernel's PL0 code segment */
-#define USER_CODE	0x18	/* Kernel's PL0 data segment */
-#define USER_DATA	0x20	/* 16-bit version of KERNEL_CS */
+#define SEG_INDEX_NULL          0x00
+#define SEG_INDEX_KERNEL_CODE	0x01
+#define SEG_INDEX_KERNEL_DATA	0x02	/* Kernel's PL0 code segment */
+#define SEG_INDEX_USER_CODE	    0x03	/* Kernel's PL0 data segment */
+#define SEG_INDEX_USER_DATA 	0x04	/* 16-bit version of KERNEL_CS */
+
+typedef struct  segment_selector_t {
+    uint16_t rpl                 :2,
+             table_indicator     :1,
+             index               :13
+} segment_selector_t;
+
+#define segment_selector(index, table_indicator, rpl) \
+    ((index) << 3 | (table_indicator) << 2 | rpl)
+
 
 /* Leave a little additional room beyond this for customization */
 #define GDT_SIZE		(0x28/8) /* 5 GTP entries */
 
 
-typedef struct segment_descriptor {
+typedef struct segment_descriptor_t {
     uint32_t	limit_low       :16,	/* size 0..15 */
                 base_low        :16,	/* base  0..15 */
                 base_med        :8,	/* base  16..23 */
@@ -78,31 +88,31 @@ typedef struct segment_descriptor {
                 limit_high      :4,	/* size 16..19 */
                 granularity     :4,	/* granularity */
                 base_high       :8;	/* base 24..31 */
-} segment_descriptor;
+} segment_descriptor_t;
 
 /*
  * Trap, interrupt, or call gate.
  */
-typedef struct x86_gate{
+typedef struct x86_gate_t {
     uint32_t	offset_low      :16,	/* gdt_address 0..15 */
                 selector        :16,
                 word_count      :8,
                 access          :8,
                 offset_high     :16;	/* gdt_address 16..31 */
-} x86_gate;
+} x86_gate_t;
 
 /* Format of a "gdt-descriptor", used for loading the IDT and GDT.  */
-typedef struct gdt_descriptor
+typedef struct gdt_descriptor_t
 {
     short pad;
     uint16_t limit;
     uint32_t base;
-} gdt_descriptor;
+} gdt_descriptor_t;
 
-extern void fill_segment_descriptor(segment_descriptor *desc, uint32_t base, uint32_t limit, uint8_t access, uint8_t sizebits);
-extern void fill_descriptor_base(segment_descriptor *desc, uint32_t base);
-extern void fill_descriptor_limit(segment_descriptor *desc, uint32_t limit);
-extern void fill_gate(x86_gate *gate, uint32_t offset, uint16_t selector, uint8_t access, uint8_t word_count);
+extern void fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limit, uint8_t access, uint8_t sizebits);
+extern void fill_descriptor_base(segment_descriptor_t *desc, uint32_t base);
+extern void fill_descriptor_limit(segment_descriptor_t *desc, uint32_t limit);
+extern void fill_gate(x86_gate_t *gate, uint32_t offset, uint16_t selector, uint8_t access, uint8_t word_count);
 
 /* Initialize the base GDT descriptors with sensible defaults.  */
 extern void gdt_init(void);

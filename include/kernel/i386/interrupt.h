@@ -1,7 +1,6 @@
 #ifndef _COSMOS_X86_BASE_IDT_H_
 #define _COSMOS_X86_BASE_IDT_H_
 
-#include <oskit/compiler.h>
 #include <oskit/x86/seg.h>
 
 
@@ -18,10 +17,8 @@ extern struct x86_gate base_idt[IDTSZ];
    Inititalizing hardware interrupt vectors is platform-specific.  */
 
 
-OSKIT_BEGIN_DECLS
 /* Load the base IDT into the CPU.  */
-extern void base_idt_load(void);
-OSKIT_END_DECLS
+extern void base_idt_load();
 
 
 #endif /* _COSMOS_X86_BASE_IDT_H_ */

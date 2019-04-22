@@ -5,6 +5,7 @@
 #define	_COSMOS_X86_PROC_REG_H_
 
 #include <compiler.h>
+#include <stdint.h>
 
 /*
  * CR0
@@ -35,30 +36,30 @@
 #define CR4_PGE	0x00000080		/* page global extensions */
 #define CR4_PCE	0x00000100		/* enable read perf counter instr */
 
-inline unsigned get_eflags(void);
+inline unsigned get_eflags();
 inline void set_eflags(unsigned eflags);
-inline void cli(void);
-inline void sti(void);
-inline void cld(void);
+inline void cli();
+inline void sti();
+inline void cld();
 #ifndef __cplusplus
-inline void std(void);
+inline void std();
 #endif
-inline void clts(void);
-inline unsigned short get_cs(void);
-inline unsigned short get_ds(void);
+inline void clts();
+inline uint16_t get_cs();
+inline uint16_t get_ds();
 #define set_cs(cs) \
     asm volatile("ljmp	%0,$1f \n " \
                  "1: \n" : : "i" (cs))
 
-inline void set_ds(unsigned short ds);
-inline unsigned short get_es(void);
-inline void set_es(unsigned short es);
-inline unsigned short get_fs(void);
-inline void set_fs(unsigned short fs);
-inline unsigned short get_gs(void);
-inline void set_gs(unsigned short gs);
-inline unsigned short get_ss(void);
-inline void set_ss(unsigned short ss);
+inline void set_ds(uint16_t ds);
+inline uint16_t get_es();
+inline void set_es(uint16_t es);
+inline uint16_t get_fs();
+inline void set_fs(uint16_t fs);
+inline uint16_t get_gs();
+inline void set_gs(uint16_t gs);
+inline uint16_t get_ss();
+inline void set_ss(uint16_t ss);
 
 /* Some processors, notably my Am386DX/40,
    seem to have some rather subtle pipeline- or timing-related bugs
@@ -69,7 +70,7 @@ inline void set_ss(unsigned short ss);
    For whatever bizzare reason, using the jmp-next-instruction hack
    sometimes causes a trap 15 to occur on the popfl instruction on a
    Pentium Pro 200.  Maybe the pushf's and popf's are too far apart...  */
-inline unsigned get_eflags(void)
+inline unsigned get_eflags()
 {
     unsigned eflags;
     asm volatile(
@@ -85,7 +86,7 @@ inline void set_eflags(unsigned eflags)
     "	popfl" : : "r" (eflags));
 }
 #else
-inline unsigned get_eflags(void)
+inline unsigned get_eflags()
 {
 	unsigned eflags;
 	asm volatile(
@@ -115,75 +116,69 @@ inline void set_eflags(unsigned eflags)
 }
 #endif
 
-inline void cli(void) { asm("cli"); }
-inline void sti(void) { asm("sti"); }
-inline void cld(void) { asm("cld"); }
-#ifdef __cplusplus
-/* in C++, std is a reserved keyword -- so we use a function macro instead */
-#define std() asm("std")
-#else
-inline void std(void) { asm("std"); }
-#endif
-inline void clts(void) { asm("clts"); }
+inline void cli() { asm("cli"); }
+inline void sti() { asm("sti"); }
+inline void cld() { asm("cld"); }
+inline void clts() { asm("clts"); }
 
-inline unsigned short get_cs(void)
+inline uint16_t get_cs()
 {
-    unsigned short cs;
+    uint16_t cs;
     asm volatile("movw %%cs,%w0" : "=r" (cs));
     return cs;
 }
 
-inline unsigned short get_ds(void)
+inline uint16_t get_ds()
 {
-    unsigned short ds;
+    uint16_t ds;
     asm volatile("movw %%ds,%w0" : "=r" (ds));
     return ds;
 }
-inline void set_ds(unsigned short ds)
+inline void set_ds(uint16_t ds)
 {
     asm volatile("movw %w0,%%ds" : : "r" (ds));
 }
 
-inline unsigned short get_es(void)
+inline uint16_t get_es()
 {
-    unsigned short es;
+    uint16_t es;
     asm volatile("movw %%es,%w0" : "=r" (es));
     return es;
 }
-inline void set_es(unsigned short es)
+inline void set_es(uint16_t es)
 {
     asm volatile("movw %w0,%%es" : : "r" (es));
 }
 
-inline unsigned short get_fs(void)
+inline uint16_t get_fs()
 {
-    unsigned short fs;
+    uint16_t fs;
     asm volatile("movw %%fs,%w0" : "=r" (fs));
     return fs;
 }
-inline void set_fs(unsigned short fs)
+inline void set_fs(uint16_t fs)
 {
     asm volatile("movw %w0,%%fs" : : "r" (fs));
 }
 
-inline unsigned short get_gs(void)
+inline uint16_t get_gs()
 {
-    unsigned short gs;
+    uint16_t gs;
     asm volatile("movw %%gs,%w0" : "=r" (gs));
     return gs;
 }
-inline void set_gs(unsigned short gs)
+inline void set_gs(uint16_t gs)
 {
     asm volatile("movw %w0,%%gs" : : "r" (gs));
 }
 
-inline unsigned short get_ss(void)
+inline uint16_t get_ss()
 {
-    unsigned short ss;
+    uint16_t ss;
     asm volatile("movw %%ss,%w0" : "=r" (ss));
     return ss;
 }
-inline void set_ss(unsigned short ss)
+inline void set_ss(uint16_t ss)
 {
     asm volatile("movw %w0,%%ss" : : "r" (ss));
 }
@@ -296,7 +291,7 @@ inline void set_ss(unsigned short ss)
 
 #define get_msw() \
     ({ \
-	unsigned short _msw__; \
+	uint16_t _msw__; \
 	asm volatile("smsw %0" : "=r" (_msw__)); \
 	_msw__; \
     })
@@ -329,17 +324,24 @@ inline void set_ss(unsigned short ss)
 
 #define	get_tr() \
     ({ \
-	unsigned short _seg__; \
+	uint16_t _seg__; \
 	asm volatile("str %0" : "=rm" (_seg__) ); \
 	_seg__; \
     })
 
 #define	set_tr(seg) \
-	asm volatile("ltr %0" : : "rm" ((unsigned short)(seg)) )
+	asm volatile("ltr %0" : : "rm" ((uint16_t)(seg)) )
 
-//extern void set_gdt(unsigned int base, unsigned short limit);
-#define set_gdt(gdt_desc) \
-	asm volatile("lgdt %0" : : "m" ((gdt_desc)->limit))
+//extern void set_gdtr(unsigned int base, uint16_t limit);
+#define set_gdtr(gdt_desc) \
+    ({ \
+	asm volatile("lgdt %0" : : "m" ((gdt_desc)->limit)); \
+    })
+
+//#define get_gdt() \
+//    ({ \
+//    unsigned int
+//    })
 
 #define set_idt(pseudo_desc) \
     ({ \
@@ -348,13 +350,13 @@ inline void set_ss(unsigned short ss)
 
 #define	get_ldt() \
     ({ \
-	unsigned short _seg__; \
+	uint16_t _seg__; \
 	asm volatile("sldt %0" : "=rm" (_seg__) ); \
 	_seg__; \
     })
 
 #define	set_ldt(seg) \
-	asm volatile("lldt %0" : : "rm" ((unsigned short)(seg)) )
+	asm volatile("lldt %0" : : "rm" ((uint16_t)(seg)) )
 
 /*
  * Read the 64-bit timestamp counter (TSC) register.

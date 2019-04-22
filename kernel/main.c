@@ -21,6 +21,7 @@ void kernel_main(void)
     /* Newline support. */
     printf("%s", "   ___   ___    __  ___  ___   ___    __ \n  //    // \\\\  (( \\ ||\\\\//||  // \\\\  (( \\\n ((    ((   ))  \\\\  || \\/ || ((   ))  \\\\ \n  \\\\__  \\\\_//  \\_)) ||    ||  \\\\_//  \\_))\n\n");
     printf("%s", "               Hello, Cosmos!\n");
+    console_set_color(VGA_COLOR_BROWN);
     gdt_init();
     gdt_load();
 }

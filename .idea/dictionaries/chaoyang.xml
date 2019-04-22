@@ -3,6 +3,8 @@
     <words>
       <w>dcmake</w>
       <w>eflags</w>
+      <w>gdtr</w>
+      <w>lgdt</w>
       <w>strlen</w>
     </words>
   </dictionary>

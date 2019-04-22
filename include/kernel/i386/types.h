@@ -3,8 +3,6 @@
 
 #include <stdint.h>
 
-typedef unsigned int        addr_t;
-
 /*
  * Integer types the size of a general-purpose processor register.
  * Generally the same size as addr_t and size_t.

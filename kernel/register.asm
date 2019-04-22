@@ -1,11 +1,11 @@
-;global set_gdt
+;global set_gdtr
 ;global set_cs
 
 gdtr:
     DW 0 ; For limit storage
     DD 0 ; For base storage
 
-;set_gdt: ; base_addr, size
+;set_gdtr: ; base_addr, size
 ;   MOV   EAX, [esp + 4]   ; base_address => EAX
 ;   MOV   [gdtr + 2], EAX  ;
 ;   MOV   AX, [ESP + 8]    ;

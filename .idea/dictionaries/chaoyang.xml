@@ -9,6 +9,8 @@
       <w>lgdt</w>
       <w>multiboot</w>
       <w>mustknow</w>
+      <w>sreg</w>
+      <w>stdfloat</w>
       <w>strlen</w>
     </words>
   </dictionary>

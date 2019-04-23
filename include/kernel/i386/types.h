@@ -1,5 +1,5 @@
-#ifndef	_SYS_X86_TYPES_H_
-#define _SYS_X86_TYPES_H_
+#ifndef	_COSMOS_X86_TYPES_H_
+#define _COSMOS_X86_TYPES_H_
 
 #include <stdint.h>
 
@@ -24,4 +24,4 @@ typedef uint16_t	f_mode_t;	/* File type and access permissions */
 typedef int64_t	    f_offset_t;	/* File gdt_address */
 
 
-#endif	/* _SYS_X86_TYPES_H_ */
+#endif	/* _COSMOS_X86_TYPES_H_ */

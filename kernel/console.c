@@ -38,9 +38,14 @@ void console_initialize(void)
     }
 }
 
-void console_set_color(uint8_t color)
+void console_set_fg(enum vga_color fg)
 {
-    console_color = color;
+    console_color = ( console_color & 0xF0 ) | fg;
+}
+
+void console_set_bg(enum vga_color bg)
+{
+    console_color = (console_color & 0x0F ) | bg << 4;
 }
 
 void console_put_entry_at(char c, uint8_t color, size_t x, size_t y)

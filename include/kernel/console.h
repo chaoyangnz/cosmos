@@ -28,7 +28,8 @@ enum vga_color {
  * to be defined for simple console output to work.
  */
 extern void console_initialize();
-extern void console_set_color(uint8_t color);
+extern void console_set_fg(enum vga_color fg);
+extern void console_set_bg(enum vga_color bg);
 extern int	console_putchar(char c);
 extern int	console_getchar();
 extern int	console_puts(const char *s);

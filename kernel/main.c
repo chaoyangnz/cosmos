@@ -23,7 +23,7 @@ void kernel_main(void)
     /* Welcome screen */
     printf("%s", "   ___   ___    __  ___  ___   ___    __ \n  //    // \\\\  (( \\ ||\\\\//||  // \\\\  (( \\\n ((    ((   ))  \\\\  || \\/ || ((   ))  \\\\ \n  \\\\__  \\\\_//  \\_)) ||    ||  \\\\_//  \\_))\n\n");
     printf("%s", "               Hello, Cosmos!\n");
-    console_set_color(VGA_COLOR_BROWN);
+    console_set_fg(VGA_COLOR_BROWN);
 
     /* Multiboot Info */
     multiboot_info_t* mbi = get_multiboot_info();

@@ -13,7 +13,7 @@ include_directories(include)
 
 # tool chain definition
 include("flags.cmake")
-include("Toolchain.cmake")
+include("toolchain.cmake")
 
 # libc for kernel only
 add_library(c STATIC ${LIBC_SRCS})

@@ -96,47 +96,41 @@ extern FILE __sF[];
 
 
 
-int putchar(int __c);
-int puts(const char *__str);
-int printf(const char *__format, ...);
-int vprintf(const char *__format, va_list __vl);
-int sprintf(char *__dest, const char *__format, ...);
-int snprintf(char *__dest, int __size, const char *__format, ...);
-int vsprintf(char *__dest, const char *__format, va_list __vl);
-int vsnprintf(char *__dest, int __size, const char *__format, va_list __vl);
-int getchar(void);
-char *gets(char *__str);
-char *fgets(char *__str, int __size, FILE *__stream);
-FILE *fopen(const char *__path, const char *__mode);
-FILE *fdopen(int fd, const char *__mode);
-int fflush(FILE *stream);
-int fclose(FILE *__stream);
-int fread(void *__buf, int __size, int __count, FILE *__stream);
-int fwrite(void *__buf, int __size, int __count, FILE *__stream);
-int fputc(int __c, FILE *__stream);
-int fputs(const char *str, FILE *stream);
-int fgetc(FILE *__stream);
-int fprintf(FILE *__stream, const char *__format, ...);
-int vfprintf(FILE *__stream, const char *__format, va_list __vl);
-int fscanf(FILE *__stream, const char *__format, ...);
-int sscanf(const char *__str, const char *__format, ...);
-int fseek(FILE *__stream, long __offset, int __whence);
-long ftell(FILE *__stream);
-void rewind(FILE *__stream);
-int rename(const char *__from, const char *__to);
-int remove(const char *__path);
+extern int putchar(int __c);
+extern int puts(const char *__str);
+extern int printf(const char *__format, ...);
+extern int vprintf(const char *__format, va_list __vl);
+extern int sprintf(char *__dest, const char *__format, ...);
+extern int snprintf(char *__dest, int __size, const char *__format, ...);
+extern int vsprintf(char *__dest, const char *__format, va_list __vl);
+extern int vsnprintf(char *__dest, int __size, const char *__format, va_list __vl);
+extern int getchar(void);
+extern char *gets(char *__str);
+extern char *fgets(char *__str, int __size, FILE *__stream);
+extern FILE *fopen(const char *__path, const char *__mode);
+extern FILE *fdopen(int fd, const char *__mode);
+extern int fflush(FILE *stream);
+extern int fclose(FILE *__stream);
+extern int fread(void *__buf, int __size, int __count, FILE *__stream);
+extern int fwrite(void *__buf, int __size, int __count, FILE *__stream);
+extern int fputc(int __c, FILE *__stream);
+extern int fputs(const char *str, FILE *stream);
+extern int fgetc(FILE *__stream);
+extern int fprintf(FILE *__stream, const char *__format, ...);
+extern int vfprintf(FILE *__stream, const char *__format, va_list __vl);
+extern int fscanf(FILE *__stream, const char *__format, ...);
+extern int sscanf(const char *__str, const char *__format, ...);
+extern int fseek(FILE *__stream, long __offset, int __whence);
+extern long ftell(FILE *__stream);
+extern void rewind(FILE *__stream);
+extern int rename(const char *__from, const char *__to);
+extern int remove(const char *__path);
 void dohexdump(void *__base, void *__buf, int __len, int __bytes);
 #define hexdumpb(base, buf, nbytes) dohexdump(base, buf, nbytes, 0)
 #define hexdumpw(base, buf, nwords) dohexdump(base, buf, nwords, 1)
 void perror(const char *__string);
 
 #define putc(c, stream) fputc(c, stream)
-
-struct sys_stream;		/* see <oskit/com/stream.h> */
-int com_printf(struct sys_stream *__stream, const char *__format, ...);
-int com_vprintf(struct sys_stream *__stream, const char *__format,
-		va_list __vl);
-
 
 
 #endif /* _C_STDIO_H */

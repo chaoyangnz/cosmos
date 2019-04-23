@@ -4,8 +4,8 @@
 #include <stddef.h>
 #include <stdio.h>
 
-static segment_descriptor_t gdt[GDT_SIZE];
-//static gdt_descriptor_t gdt_desc;
+segment_descriptor_t gdt[GDT_SIZE];
+//static descriptor_table_descriptor_t gdt_desc;
 
 /* Fill a segment descriptor.  */
 void
@@ -86,7 +86,7 @@ gdt_init()
 
 void
 gdt_load() {
-    gdt_descriptor_t gdt_desc = {
+    descriptor_table_descriptor_t gdt_desc = {
        .base = (addr_t)(&gdt),
        .limit = GDT_SIZE * 8 - 1
     };
@@ -107,9 +107,6 @@ gdt_load() {
      */
     set_fs(segment_selector(SEG_INDEX_NULL, 0, 0));
     set_gs(segment_selector(SEG_INDEX_NULL, 0, 0));
-
-    printf("GDT: %#x CS: %#xx DS: %#xx ES: %#xx SS: %#xx FS: %#xx GS: %#xx \n", \
-            &gdt, get_cs(), get_ds(), get_es(), get_ss(), get_fs(), get_gs());
 }
 
 

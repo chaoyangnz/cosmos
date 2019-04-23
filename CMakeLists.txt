@@ -7,7 +7,6 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 file(GLOB_RECURSE KERNEL_SRCS "kernel/*.c" "kernel/*.asm")
 file(GLOB_RECURSE LIBC_SRCS "libc/*.c" "libc/*.asm")
-message(STATUS "DFDFD" ${KERNEL_SRCS})
 
 # headers path
 include_directories(include)

@@ -102,12 +102,14 @@ typedef struct x86_gate_t {
 } x86_gate_t;
 
 /* Format of a "gdt-descriptor", used for loading the IDT and GDT.  */
-typedef struct gdt_descriptor_t
+typedef struct descriptor_table_descriptor_t
 {
     short pad;
     uint16_t limit;
     uint32_t base;
-} gdt_descriptor_t;
+} descriptor_table_descriptor_t;
+
+extern segment_descriptor_t gdt[GDT_SIZE];
 
 extern void fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limit, uint8_t access, uint8_t sizebits);
 extern void fill_descriptor_base(segment_descriptor_t *desc, uint32_t base);

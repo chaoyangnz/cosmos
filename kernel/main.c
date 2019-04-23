@@ -40,4 +40,6 @@ void kernel_main(void)
     /* Segments setting */
     gdt_init();
     gdt_load();
+    printf("GDT: %#x CS: %#xx DS: %#xx ES: %#xx SS: %#xx FS: %#xx GS: %#xx \n", \
+        &gdt, get_cs(), get_ds(), get_es(), get_ss(), get_fs(), get_gs());
 }

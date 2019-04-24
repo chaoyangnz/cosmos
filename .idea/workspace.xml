@@ -15,24 +15,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flags.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/flags.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/compiler.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/compiler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/kernel/i386/register.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/i386/register.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/kernel/i386/segment.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/i386/segment.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/stdarg.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/stdarg.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/stdint.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/stdint.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/stdio.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/stdio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/eden.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/eden.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/kernel/console.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/vga.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/console.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/vga.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/register.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/register.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/segment.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/segment.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/_doprnt.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/_doprnt.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/fprintf.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/fprintf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/printf.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/printf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/sprintf.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/vfprintf.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/vfprintf.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libc/stdio/getchar.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/getchar.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libc/stdio/putchar.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/putchar.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -55,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kernel/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+            <state relative-caret-position="316">
+              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -72,6 +59,36 @@
               <folding>
                 <element signature="e#1720#1738#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/vga.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="52" column="42" lean-forward="true" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libc/stdio/putchar.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/kernel/vga.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -138,7 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get_cs</find>
       <find>set_eflags</find>
       <find>sgdt</find>
       <find>uint32_t</find>
@@ -166,11 +182,11 @@
       <find>true</find>
       <find>long</find>
       <find>putchar</find>
-      <find>*__</find>
       <find>set_cs</find>
+      <find>*__</find>
+      <find>console_</find>
     </findStrings>
     <replaceStrings>
-      <replace>SYS_</replace>
       <replace>console_</replace>
       <replace>sys_</replace>
       <replace>sys/x86/types.h</replace>
@@ -200,6 +216,7 @@
       <replace>, FILE</replace>
       <replace>uint32_t</replace>
       <replace>*</replace>
+      <replace>vga_</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -208,9 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/kernel/gdt.c" />
-        <option value="$PROJECT_DIR$/include/kernel/i386/seg.h" />
-        <option value="$PROJECT_DIR$/include/kernel/i386/base_irq.h" />
         <option value="$PROJECT_DIR$/include/kernel/i386/base_tss.h" />
         <option value="$PROJECT_DIR$/include/kernel/i386/cpu.h" />
         <option value="$PROJECT_DIR$/include/kernel/i386/segment.asm" />
@@ -258,6 +272,9 @@
         <option value="$PROJECT_DIR$/kernel/register.c" />
         <option value="$PROJECT_DIR$/include/kernel/i386/register.h" />
         <option value="$PROJECT_DIR$/include/kernel/i386/segment.h" />
+        <option value="$PROJECT_DIR$/kernel/vga.c" />
+        <option value="$PROJECT_DIR$/include/kernel/vga.h" />
+        <option value="$PROJECT_DIR$/libc/stdio/putchar.c" />
         <option value="$PROJECT_DIR$/kernel/main.c" />
       </list>
     </option>
@@ -286,11 +303,6 @@
             <path>
               <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-release" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
@@ -393,7 +405,7 @@
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3154717" />
-      <window_info anchor="bottom" id="CMake" order="7" sideWeight="0.49980307" weight="0.32834646" />
+      <window_info anchor="bottom" id="CMake" order="7" sideWeight="0.49980307" weight="0.32830188" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.32226416" />
       <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4988086" visible="true" weight="0.34792453" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50119144" side_tool="true" weight="0.38339624" />
@@ -605,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/console.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/iso/boot/grub/menu.lst">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -679,16 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/console.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -792,28 +787,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libc/stdio/putchar.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/stdint.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/stdio.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="126" column="18" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
-          <folding>
-            <element signature="e#39#58#0" expanded="true" />
-            <element signature="e#2437#2493#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -864,10 +841,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/vga.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/stdio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="126" column="18" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
+          <folding>
+            <element signature="e#39#58#0" expanded="true" />
+            <element signature="e#2437#2493#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libc/stdio/putchar.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/vga.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="52" column="42" lean-forward="true" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kernel/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        <state relative-caret-position="316">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

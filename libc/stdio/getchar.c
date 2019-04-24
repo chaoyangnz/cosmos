@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <kernel/console.h>
+#include <kernel/vga.h>
 
 /*
  * Note dependency on the kernel library.

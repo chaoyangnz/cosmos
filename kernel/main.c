@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <kernel/console.h>
+#include <kernel/vga.h>
 #include <string.h>
 #include <kernel/i386/segment.h>
 #include <kernel/i386/multiboot.h>
@@ -19,11 +19,11 @@
 void kernel_main(void)
 {
     /* Initialize terminal interface */
-    console_initialize();
+    vga_initialize();
     /* Welcome screen */
     printf("%s", "   ___   ___    __  ___  ___   ___    __ \n  //    // \\\\  (( \\ ||\\\\//||  // \\\\  (( \\\n ((    ((   ))  \\\\  || \\/ || ((   ))  \\\\ \n  \\\\__  \\\\_//  \\_)) ||    ||  \\\\_//  \\_))\n\n");
     printf("%s", "               Hello, Cosmos!\n");
-    console_set_fg(VGA_COLOR_BROWN);
+    vga_set_fg(VGA_COLOR_BROWN);
 
     /* Multiboot Info */
     multiboot_info_t* mbi = get_multiboot_info();

@@ -14,12 +14,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/kernel/console.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/vga.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/console.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/vga.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/kernel/i386/register.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/i386/register.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/kernel/i386/segment.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/i386/segment.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/getchar.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/getchar.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libc/stdio/putchar.c" beforeDir="false" afterPath="$PROJECT_DIR$/libc/stdio/putchar.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/register.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/register.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/segment.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/segment.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -42,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kernel/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+            <state relative-caret-position="546">
+              <caret line="35" column="63" selection-start-line="35" selection-start-column="63" selection-end-line="35" selection-end-column="63" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -108,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kernel/register.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="242" column="1" selection-start-line="242" selection-start-column="1" selection-end-line="242" selection-end-column="1" />
+            <state relative-caret-position="700">
+              <caret line="244" column="9" selection-start-line="244" selection-start-column="9" selection-end-line="244" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -117,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/kernel/i386/register.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
+            <state relative-caret-position="519">
+              <caret line="100" column="18" lean-forward="true" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
               <folding>
                 <element signature="e#114#135#0" expanded="true" />
               </folding>
@@ -129,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/kernel/i386/segment.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="113" column="59" selection-start-line="113" selection-start-column="59" selection-end-line="113" selection-end-column="59" />
+            <state relative-caret-position="475">
+              <caret line="114" column="18" lean-forward="true" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
               <folding>
                 <element signature="e#56#75#0" expanded="true" />
               </folding>
@@ -182,9 +181,9 @@
       <find>true</find>
       <find>long</find>
       <find>putchar</find>
-      <find>set_cs</find>
       <find>*__</find>
       <find>console_</find>
+      <find>set_cs</find>
     </findStrings>
     <replaceStrings>
       <replace>console_</replace>
@@ -215,8 +214,8 @@
       <replace>extern</replace>
       <replace>, FILE</replace>
       <replace>uint32_t</replace>
-      <replace>*</replace>
       <replace>vga_</replace>
+      <replace>*</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -269,12 +268,12 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/include/stdio.h" />
         <option value="$PROJECT_DIR$/kernel/segment.c" />
-        <option value="$PROJECT_DIR$/kernel/register.c" />
-        <option value="$PROJECT_DIR$/include/kernel/i386/register.h" />
-        <option value="$PROJECT_DIR$/include/kernel/i386/segment.h" />
         <option value="$PROJECT_DIR$/kernel/vga.c" />
         <option value="$PROJECT_DIR$/include/kernel/vga.h" />
         <option value="$PROJECT_DIR$/libc/stdio/putchar.c" />
+        <option value="$PROJECT_DIR$/kernel/register.c" />
+        <option value="$PROJECT_DIR$/include/kernel/i386/register.h" />
+        <option value="$PROJECT_DIR$/include/kernel/i386/segment.h" />
         <option value="$PROJECT_DIR$/kernel/main.c" />
       </list>
     </option>
@@ -814,33 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/register.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="242" column="1" selection-start-line="242" selection-start-column="1" selection-end-line="242" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/i386/register.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
-          <folding>
-            <element signature="e#114#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/i386/segment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="113" column="59" selection-start-line="113" selection-start-column="59" selection-end-line="113" selection-end-column="59" />
-          <folding>
-            <element signature="e#56#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/kernel/vga.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -876,10 +848,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/i386/segment.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="114" column="18" lean-forward="true" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
+          <folding>
+            <element signature="e#56#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/i386/register.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="100" column="18" lean-forward="true" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
+          <folding>
+            <element signature="e#114#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/register.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="244" column="9" selection-start-line="244" selection-start-column="9" selection-end-line="244" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kernel/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        <state relative-caret-position="546">
+          <caret line="35" column="63" selection-start-line="35" selection-start-column="63" selection-end-line="35" selection-end-column="63" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

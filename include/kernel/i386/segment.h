@@ -107,7 +107,13 @@ typedef struct
 {
     uint16_t limit;
     uint32_t base;
-} PACKED descriptor_table_desc_t;
+} PACKED gdt_desc_t;
+
+typedef struct
+{
+    uint16_t limit;
+    uint32_t base;
+} PACKED idt_desc_t;
 
 extern segment_descriptor_t gdt[GDT_SIZE];
 

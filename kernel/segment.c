@@ -14,12 +14,12 @@ fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limi
     if (limit > 0xfffff)
     {
         limit >>= 12;
-        sizebits |= SZ_G;
+        sizebits |= SEG_SZ_GRANULARITY;
     }
     desc->limit_low = limit & 0xffff;
     desc->base_low = base & 0xffff;
     desc->base_med = (base >> 16) & 0xff;
-    desc->access = access | ACC_P;
+    desc->access = access | SEG_DESC_ACC_P;
     desc->limit_high = limit >> 16;
     desc->granularity = sizebits;
     desc->base_high = base >> 24;
@@ -41,10 +41,10 @@ fill_descriptor_limit(segment_descriptor_t *desc, uint32_t limit)
     if (limit > 0xfffff)
     {
         limit >>= 12;
-        desc->granularity |= SZ_G;
+        desc->granularity |= SEG_SZ_GRANULARITY;
     }
     else
-        desc->granularity &= ~SZ_G;
+        desc->granularity &= ~SEG_SZ_GRANULARITY;
     desc->limit_low = limit & 0xffff;
     desc->limit_high = limit >> 16;
 }
@@ -57,7 +57,7 @@ fill_gate(x86_gate_t *gate, uint32_t offset, uint16_t selector,
     gate->offset_low = offset & 0xffff;
     gate->selector = selector;
     gate->word_count = word_count;
-    gate->access = access | ACC_P;
+    gate->access = access | SEG_DESC_ACC_P;
     gate->offset_high = (offset >> 16) & 0xffff;
 }
 
@@ -68,18 +68,18 @@ gdt_init()
        to point to the base of the kernel linear space region.  */
     fill_segment_descriptor(&gdt[SEG_INDEX_KERNEL_CODE],
                             0x00000000, 0xffffffff,
-                            ACC_PL_K | ACC_CODE_R, SZ_32);
+                            SEG_DESC_ACC_PL_K | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
     fill_segment_descriptor(&gdt[SEG_INDEX_KERNEL_DATA],
                             0x00000000, 0xffffffff,
-                            ACC_PL_K | ACC_DATA_W, SZ_32);
+                            SEG_DESC_ACC_PL_K | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
 
     /* Descriptors that direct-map all linear space.  */
     fill_segment_descriptor(&gdt[SEG_INDEX_USER_CODE],
                             0x00000000, 0xffffffff,
-                            ACC_PL_U | ACC_CODE_R, SZ_32);
+                            SEG_DESC_ACC_PL_U | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
     fill_segment_descriptor(&gdt[SEG_INDEX_USER_DATA],
                             0x00000000, 0xffffffff,
-                            ACC_PL_U | ACC_DATA_W, SZ_32);
+                            SEG_DESC_ACC_PL_U | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
 }
 
 
@@ -107,6 +107,12 @@ gdt_load() {
      */
     set_fs(segment_selector(SEG_INDEX_NULL, 0, 0));
     set_gs(segment_selector(SEG_INDEX_NULL, 0, 0));
+}
+
+void gdt_print() {
+    gdt_desc_t gdt_des = get_gdtr();
+    printf("GDT: %#x %#x CS: %#x DS: %#x ES: %#x SS: %#x FS: %#x GS: %#x \n", \
+        gdt_des.base, gdt_des.limit, get_cs(), get_ds(), get_es(), get_ss(), get_fs(), get_gs());
 }
 
 

@@ -5,49 +5,49 @@
 #include <stdint.h>
 #include <compiler.h>
 
-#define	SZ_32		0x4			/* 32-bit segment */
-#define SZ_16		0x0			/* 16-bit segment */
-#define	SZ_G		0x8			/* 4K limit field */
+#define	SEG_SZ_32		0x4			        /* 32-bit segment */
+#define SEG_SZ_16		0x0			        /* 16-bit segment */
+#define	SEG_SZ_GRANULARITY		0x8			/* 4K limit field */
 
-#define	ACC_A		0x01			/* accessed */
-#define	ACC_TYPE	0x1e			/* type field: */
+#define	SEG_DESC_ACC_A		0x01			/* accessed */
+#define	SEG_DESC_ACC_TYPE	0x1e			/* type field: */
 
-#define	ACC_TYPE_SYSTEM	0x00			/* system descriptors: */
+#define	SEG_DESC_ACC_TYPE_SYSTEM	0x00			/* system descriptors: */
 
-#define	ACC_LDT		0x02			    /* LDT */
-#define	ACC_CALL_GATE_16 0x04			    /* 16-bit call gate */
-#define	ACC_TASK_GATE	0x05			    /* task gate */
-#define	ACC_TSS		0x09			    /* task segment */
-#define	ACC_CALL_GATE	0x0c			    /* call gate */
-#define	ACC_INTR_GATE	0x0e			    /* interrupt gate */
-#define	ACC_TRAP_GATE	0x0f			    /* trap gate */
+#define	SEG_DESC_ACC_LDT		0x02			    /* LDT */
+#define	SEG_DESC_ACC_CALL_GATE_16 0x04			    /* 16-bit call gate */
+#define	SEG_DESC_ACC_TASK_GATE	0x05			    /* task gate */
+#define	SEG_DESC_ACC_TSS		0x09			    /* task segment */
+#define	SEG_DESC_ACC_CALL_GATE	0x0c			    /* call gate */
+#define	SEG_DESC_ACC_INTR_GATE	0x0e			    /* interrupt gate */
+#define	SEG_DESC_ACC_TRAP_GATE	0x0f			    /* trap gate */
 
-#define	ACC_TSS_BUSY	0x02			    /* task busy */
+#define	SEG_DESC_ACC_TSS_BUSY	0x02			    /* task busy */
 
-#define	ACC_TYPE_USER	0x10			/* user descriptors */
+#define	SEG_DESC_ACC_TYPE_USER	0x10			/* user descriptors */
 
-#define	ACC_DATA	0x10			    /* data */
-#define	ACC_DATA_W	0x12			    /* data, writable */
-#define	ACC_DATA_E	0x14			    /* data, expand-down */
-#define	ACC_DATA_EW	0x16			    /* data, expand-down, writable */
+#define	SEG_DESC_ACC_DATA	0x10			    /* data */
+#define	SEG_DESC_ACC_DATA_W	0x12			    /* data, writable */
+#define	SEG_DESC_ACC_DATA_E	0x14			    /* data, expand-down */
+#define	SEG_DESC_ACC_DATA_EW	0x16			/* data, expand-down, writable */
 
-#define	ACC_CODE	0x18			    /* code */
-#define	ACC_CODE_R	0x1a			    /* code, readable */
-#define	ACC_CODE_C	0x1c			    /* code, conforming */
-#define	ACC_CODE_CR	0x1e			    /* code, conforming, readable */
+#define	SEG_DESC_ACC_CODE	0x18			    /* code */
+#define	SEG_DESC_ACC_CODE_R	0x1a			    /* code, readable */
+#define	SEG_DESC_ACC_CODE_C	0x1c			    /* code, conforming */
+#define	SEG_DESC_ACC_CODE_CR	0x1e			/* code, conforming, readable */
 
-#define	ACC_PL		0x60			/* access rights: */
-#define	ACC_PL_K	0x00			/* kernel access only */
-#define	ACC_PL_U	0x60			/* user access */
-#define	ACC_P		0x80			/* segment present */
+#define	SEG_DESC_ACC_PL		0x60			/* access rights: */
+#define	SEG_DESC_ACC_PL_K	0x00			/* kernel access only */
+#define	SEG_DESC_ACC_PL_U	0x60			/* user access */
+#define	SEG_DESC_ACC_P		0x80			/* segment present */
 
 /*
  * Components of a selector
  */
-#define	SEL_LDT		0x04			/* local selector */
-#define	SEL_PL		0x03			/* privilege level: */
-#define	SEL_PL_K	0x00			    /* kernel selector */
-#define	SEL_PL_U	0x03			    /* user selector */
+#define	SEG_SEL_LDT		0x04			    /* local selector */
+#define	SEG_SEL_PL		0x03			    /* privilege level: */
+#define	SEG_SEL_PL_K	0x00			    /* kernel selector */
+#define	SEG_SEL_PL_U	0x03			    /* user selector */
 
 /*
  * Convert selector to descriptor table index.
@@ -56,10 +56,10 @@
 
 
 /* Return the privilege level of a segment selector */
-#define ISPL(s)         ((s) & SEL_PL)
+#define ISPL(s)         ((s) & SEG_SEL_PL)
 
-#define USERMODE(s, f)          (ISPL(s) == SEL_PL_U || ((f) & EFL_VM) != 0)
-#define KERNELMODE(s, f)        (ISPL(s) == SEL_PL_K && ((f) & EFL_VM) == 0)
+#define USERMODE(s, f)          (ISPL(s) == SEG_SEL_PL_U || ((f) & EFL_VM) != 0)
+#define KERNELMODE(s, f)        (ISPL(s) == SEG_SEL_PL_K && ((f) & EFL_VM) == 0)
 
 #define SEG_INDEX_NULL          0x00
 #define SEG_INDEX_KERNEL_CODE	0x01
@@ -67,7 +67,7 @@
 #define SEG_INDEX_USER_CODE	    0x03	/* Kernel's PL0 data segment */
 #define SEG_INDEX_USER_DATA 	0x04	/* 16-bit version of KERNEL_CS */
 
-typedef struct  segment_selector_t {
+typedef struct {
     uint16_t rpl                 :2,
              table_indicator     :1,
              index               :13
@@ -81,7 +81,7 @@ typedef struct  segment_selector_t {
 #define GDT_SIZE		(0x28/8) /* 5 GTP entries */
 
 
-typedef struct segment_descriptor_t {
+typedef struct {
     uint32_t	limit_low       :16,	/* size 0..15 */
                 base_low        :16,	/* base  0..15 */
                 base_med        :8,	/* base  16..23 */
@@ -94,7 +94,7 @@ typedef struct segment_descriptor_t {
 /*
  * Trap, interrupt, or call gate.
  */
-typedef struct x86_gate_t {
+typedef struct {
     uint32_t	offset_low      :16,	/* gdt_address 0..15 */
                 selector        :16,
                 word_count      :8,
@@ -127,6 +127,7 @@ extern void gdt_init(void);
 
 /* Load the base GDT into the CPU.  */
 extern void gdt_load(void);
+extern void gdt_print();
 
 
 

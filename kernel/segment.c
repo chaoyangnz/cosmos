@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 segment_descriptor_t gdt[GDT_SIZE];
-//static descriptor_table_descriptor_t gdt_desc;
+//static descriptor_table_desc_t gdt_desc;
 
 /* Fill a segment descriptor.  */
 void
@@ -86,13 +86,13 @@ gdt_init()
 
 void
 gdt_load() {
-    descriptor_table_descriptor_t gdt_desc = {
+    descriptor_table_desc_t gdt_desc = {
        .base = (addr_t)(&gdt),
        .limit = GDT_SIZE * 8 - 1
     };
 
     /* Load it into the CPU.  */
-    set_gdtr(&gdt_desc);
+    set_gdtr(gdt_desc);
     /*
      * Reload all the segment registers from the new GDT.
      */

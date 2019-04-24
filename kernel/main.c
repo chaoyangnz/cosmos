@@ -30,11 +30,11 @@ void kernel_main(void)
     printf("Memory: 0 - %dK **** 1M - %dM \n", mbi->mem_lower + 1, 1 + (mbi->mem_upper/1024) + 1);
     printf("Video: 0x%x %d x %d %d\n", mbi->framebuffer_addr, mbi->framebuffer_width, mbi->framebuffer_height, mbi->framebuffer_type);
 
-    printf("Memory map: %#x (%d)", mbi->mmap_addr, mbi->mmap_length);
-    volatile multiboot_memory_map_t* mmap = mbi->mmap_addr;
-    for(size_t i = 0; i < 7; i++) {
+    printf("Memory map: %#x (%d) \n", mbi->mmap_addr, mbi->mmap_length);
+    multiboot_memory_map_t* mmap = mbi->mmap_addr;
+    for(size_t i = 0; i < mbi->mmap_length / 24; i++) {
+        printf("size: %u addr: %#llx  len: %#llx type: %u \n", mmap->size,  mmap->addr, mmap->len, mmap->type);
         mmap = (void*)mmap + mmap->size + 4;
-        printf("size: %#x len: %lx, addr: %#lx \n", mmap->size, mmap->len, mmap->addr);
     }
 
     /* Segments setting */

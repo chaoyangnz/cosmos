@@ -1,9 +1,11 @@
 #ifndef _C_STDIO_H
 #define _C_STDIO_H
 
+#include <stdarg.h>
+#include <stddef.h>
+
 #include "kernel/i386/types.h"
 #include "compiler.h"
-#include "stdarg.h"
 
 /* This is a very naive standard I/O implementation
    which simply chains to the low-level I/O routines
@@ -97,38 +99,44 @@ extern FILE __sF[];
 
 
 extern int putchar(int __c);
-extern int puts(const char *__str);
-extern int printf(const char *__format, ...);
-extern int vprintf(const char *__format, va_list __vl);
-extern int sprintf(char *__dest, const char *__format, ...);
-extern int snprintf(char *__dest, int __size, const char *__format, ...);
-extern int vsprintf(char *__dest, const char *__format, va_list __vl);
-extern int vsnprintf(char *__dest, int __size, const char *__format, va_list __vl);
+extern int puts(const char *str);
+
+extern int printf(const char *format, ...);
+extern int vprintf(const char* format, va_list va);
+extern int sprintf(char* buffer, const char* format, ...);
+extern int snprintf(char* buffer, size_t count, const char* format, ...);
+extern int vsprintf(char *buffer, const char *format, va_list va);
+extern int vsnprintf(char* buffer, size_t count, const char* format, va_list va);
+//  printf with output function
+extern int fctprintf(void (*out)(char character, void* arg), void* arg, const char* format, ...);
+
 extern int getchar(void);
-extern char *gets(char *__str);
-extern char *fgets(char *__str, int __size, FILE *__stream);
-extern FILE *fopen(const char *__path, const char *__mode);
-extern FILE *fdopen(int fd, const char *__mode);
+extern char *gets(char *str);
+
+extern char *fgets(char *str, int __size, FILE *stream);
+extern FILE *fopen(const char *path, const char *mode);
+extern FILE *fdopen(int fd, const char *mode);
 extern int fflush(FILE *stream);
-extern int fclose(FILE *__stream);
-extern int fread(void *__buf, int __size, int __count, FILE *__stream);
-extern int fwrite(void *__buf, int __size, int __count, FILE *__stream);
-extern int fputc(int __c, FILE *__stream);
+extern int fclose(FILE *stream);
+extern int fread(void *buf, int __size, int __count, FILE *stream);
+extern int fwrite(void *buf, int __size, int __count, FILE *stream);
+extern int fputc(int __c, FILE *stream);
 extern int fputs(const char *str, FILE *stream);
-extern int fgetc(FILE *__stream);
-extern int fprintf(FILE *__stream, const char *__format, ...);
-extern int vfprintf(FILE *__stream, const char *__format, va_list __vl);
-extern int fscanf(FILE *__stream, const char *__format, ...);
-extern int sscanf(const char *__str, const char *__format, ...);
-extern int fseek(FILE *__stream, long __offset, int __whence);
-extern long ftell(FILE *__stream);
-extern void rewind(FILE *__stream);
-extern int rename(const char *__from, const char *__to);
-extern int remove(const char *__path);
-void dohexdump(void *__base, void *__buf, int __len, int __bytes);
+extern int fgetc(FILE *stream);
+extern int fprintf(FILE *stream, const char *format, ...);
+extern int vfprintf(FILE *stream, const char *format, va_list __vl);
+extern int fscanf(FILE *stream, const char *format, ...);
+extern int sscanf(const char *str, const char *format, ...);
+extern int fseek(FILE *stream, long __offset, int __whence);
+extern long ftell(FILE *stream);
+extern void rewind(FILE *stream);
+extern int rename(const char *from, const char *to);
+extern int remove(const char *path);
+
+void dohexdump(void *base, void *buf, int __len, int __bytes);
 #define hexdumpb(base, buf, nbytes) dohexdump(base, buf, nbytes, 0)
 #define hexdumpw(base, buf, nwords) dohexdump(base, buf, nwords, 1)
-void perror(const char *__string);
+void perror(const char *string);
 
 #define putc(c, stream) fputc(c, stream)
 

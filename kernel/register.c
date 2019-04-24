@@ -225,10 +225,9 @@ void set_tr(uint16_t seg)
     asm volatile("ltr %0" : : "rm" ((uint16_t)(seg)) );
 }
 
-//extern void set_gdtr(uint32_t base, uint16_t limit);
-void set_gdtr(descriptor_table_descriptor_t* gdt_desc)
+void set_gdtr(descriptor_table_desc_t gdt_desc)
 {
-	asm volatile("lgdt %0" : : "m" ((gdt_desc)->limit));
+	asm volatile("lgdt %0" : : "m" (gdt_desc));
 }
 
 //uint16_t get_gdtr()
@@ -238,9 +237,9 @@ void set_gdtr(descriptor_table_descriptor_t* gdt_desc)
 //    return _seg__;
 //}
 
-void set_idt(descriptor_table_descriptor_t* pseudo_desc)
+void set_idt(descriptor_table_desc_t pseudo_desc)
 {
-	asm volatile("lidt %0" : : "m" ((pseudo_desc)->limit));
+	asm volatile("lidt %0" : : "m" (pseudo_desc));
 }
 
 uint16_t get_ldt()

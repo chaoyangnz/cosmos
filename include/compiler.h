@@ -17,4 +17,6 @@
 #define NORETURN
 #endif
 
+#define PACKED	__attribute__((packed))
+
 #endif /* _SYS_COMPILER_H_ */

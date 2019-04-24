@@ -3,6 +3,7 @@
 
 
 #include <stdint.h>
+#include <compiler.h>
 
 #define	SZ_32		0x4			/* 32-bit segment */
 #define SZ_16		0x0			/* 16-bit segment */
@@ -102,12 +103,11 @@ typedef struct x86_gate_t {
 } x86_gate_t;
 
 /* Format of a "gdt-descriptor", used for loading the IDT and GDT.  */
-typedef struct descriptor_table_descriptor_t
+typedef struct
 {
-    short pad;
     uint16_t limit;
     uint32_t base;
-} descriptor_table_descriptor_t;
+} PACKED descriptor_table_desc_t;
 
 extern segment_descriptor_t gdt[GDT_SIZE];
 

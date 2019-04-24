@@ -34,9 +34,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-//#include "_printf.h"
-
-
 // define this globally (e.g. gcc -DPRINTF_INCLUDE_CONFIG_H ...) to include the
 // printf_config.h header file
 // default: undefined
@@ -116,9 +113,6 @@
 // import float.h for DBL_MAX
 #if defined(PRINTF_SUPPORT_FLOAT)
 #include <float.h>
-#include <kernel/console.h>
-#include <stdarg.h>
-
 #endif
 
 
@@ -149,12 +143,12 @@ static inline void _out_null(char character, void* buffer, size_t idx, size_t ma
 }
 
 
-// internal _putchar wrapper
+// internal putchar wrapper
 static inline void _out_char(char character, void* buffer, size_t idx, size_t maxlen)
 {
     (void)buffer; (void)idx; (void)maxlen;
     if (character) {
-        _putchar(character);
+        putchar(character);
     }
 }
 

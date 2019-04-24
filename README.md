@@ -7,7 +7,7 @@ Cosmos is my world in bare bone - a kernel running as you like. This is my own a
 
 ```
 # Install cmake, qemu
-brew install qemu cmake
+brew install qemu cmake cdrtools
 
 # install cross build toolchain
 brew install i386-elf-binutils i386-elf-gcc i386-elf-gdb i386-elf-grub

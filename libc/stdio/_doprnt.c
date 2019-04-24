@@ -463,7 +463,7 @@ void _doprnt(fmt, args, radix, putc, putc_arg)
 		    goto print_unsigned;
 
 		print_signed:
-		    n = va_arg(args, long);
+		    n = va_arg(args, long long);
 		    if (n >= 0) {
 			u = n;
 			sign_char = plus_sign;
@@ -475,7 +475,7 @@ void _doprnt(fmt, args, radix, putc, putc_arg)
 		    goto print_num;
 
 		print_unsigned:
-		    u = va_arg(args, unsigned long);
+		    u = va_arg(args, unsigned long long);
 		    goto print_num;
 
 		print_num:
@@ -485,7 +485,7 @@ void _doprnt(fmt, args, radix, putc, putc_arg)
 		    static char digits[] = "0123456789abcdef";
 		    char *prefix = 0;
 
-		    if (truncate) u = (long)((int)(u));
+		    if (truncate) u = (long long)((int)(u));
 
 		    if (u != 0 && altfmt) {
 			if (base == 8)

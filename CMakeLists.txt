@@ -30,7 +30,7 @@ if(CMAKE_BUILD_TYPE MATCHES Debug)
 endif()
 add_custom_command (TARGET ${CMAKE_PROJECT_NAME}
         POST_BUILD
-        COMMAND /usr/local/bin/qemu-system-i386 -m 512M -monitor stdio -no-reboot -no-shutdown ${QEMU_FLAGS} -kernel ${CMAKE_BINARY_DIR}/cosmos
+        COMMAND /usr/local/bin/qemu-system-i386 -monitor stdio -m 512M -no-reboot -no-shutdown ${QEMU_FLAGS} -kernel ${CMAKE_BINARY_DIR}/cosmos
         COMMENT "Running cosmos kernel...")
 
 # Grub

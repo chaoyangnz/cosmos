@@ -7,3 +7,4 @@
 cmake-build-*
 bin
 .DS_Store
+.idea/workspace.xml

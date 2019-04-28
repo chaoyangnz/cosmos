@@ -4,9 +4,6 @@ extern kernel_main
 PHYSICAL_START equ 0x0
 VIRTUAL_START equ 0xC0000000
 
-extern kernel_virtual_end
-extern kernel_physical_end
-
 MULTIBOOT_PAGE_ALIGN    equ     1<<0
 MULTIBOOT_MEMORY_INFO   equ     1<<1
 MULTIBOOT_VIDEO_MODE    equ     1<<2

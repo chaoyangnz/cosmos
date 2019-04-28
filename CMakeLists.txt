@@ -24,6 +24,12 @@ add_executable(${CMAKE_PROJECT_NAME} ${KERNEL_SRCS})
 target_link_libraries(${CMAKE_PROJECT_NAME} c)
 
 
+add_custom_command (TARGET ${CMAKE_PROJECT_NAME}
+        POST_BUILD
+        COMMAND cp cosmos cosmos.elf && i386-elf-objdump -d -D cosmos.elf > elfdump.txt && hexdump cosmos.elf > hexdu
+        COMMENT "COPY kernel to another file")
+
+
 # run kernel in QEMU
 if(CMAKE_BUILD_TYPE MATCHES Debug)
     set(QEMU_FLAGS "-s;-S")

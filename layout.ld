@@ -1,39 +1,44 @@
 ENTRY(start)
 
 SECTIONS {
-    /* Begin putting sections at 1 MiB, a conventional place for kernels to be loaded at by the bootloader. */
-    . = 1M;
+    virtual_start = 0xC0000000;
+    physical_start = 0x0;
+    kernel_offset = 0x100000;
+    kernel_virtual_start = virtual_start + kernel_offset;
+    kernel_physical_start = kernel_offset;
 
-    .boot :
+    . = kernel_offset;
+
+    .boot 0x100000 : AT(0x100000) ALIGN(4K)
     {
-        /* ensure that the multiboot header is at the beginning */
         *(.multiboot)
+        *(.boot)
+        *(.boot_data)
     }
 
-    .text BLOCK(4K) : ALIGN(4K)
+
+    . += virtual_start;
+    .text ALIGN(4K) : AT(ADDR(.text) - virtual_start)
     {
         *(.text)
     }
 
     /* Read-only data. */
-    .rodata BLOCK(4K) : ALIGN(4K)
+    .rodata ALIGN(4K) : AT(ADDR(.rodata) - virtual_start)
     {
         *(.rodata)
     }
 
     /* Read-write data (initialized) */
-    .data BLOCK(4K) : ALIGN(4K)
+    .data ALIGN(4K) : AT(ADDR(.data) - virtual_start)
     {
         *(.data)
     }
 
     /* Read-write data (uninitialized) and stack */
-    .bss BLOCK(4K) : ALIGN(4K)
+    .bss ALIGN(4K) : AT(ADDR(.bss) - virtual_start)
     {
         *(COMMON)
         *(.bss)
     }
-
-    /* The compiler may produce other sections, put them in the proper place in
-       in this file, if you'd like to include them in the final kernel. */
 }

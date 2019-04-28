@@ -14,6 +14,7 @@ SECTIONS {
         *(.multiboot)
         *(.boot)
         *(.boot_data)
+        *(.boot_bss)
     }
 
 

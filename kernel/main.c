@@ -16,7 +16,7 @@
 #error "This kernel needs to be compiled with a i386-elf compiler"
 #endif
 
-void kernel_main(void)
+void kernel_main()
 {
     /* Initialize terminal interface */
     vga_initialize();

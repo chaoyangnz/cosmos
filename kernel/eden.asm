@@ -13,10 +13,6 @@ MULTIBOOT_FLAGS         equ     MULTIBOOT_PAGE_ALIGN | MULTIBOOT_MEMORY_INFO | M
 MULTIBOOT_MAGIC         equ     0x1BADB002
 MULTIBOOT_CHECKSUM      equ     -(MULTIBOOT_MAGIC + MULTIBOOT_FLAGS)
 
-RED         equ 0x04
-VGA_BASE    equ 0xb8000                         ; VGA area base
-VGA_SIZE    equ 80 * 25                         ; console size
-
 section .boot
 bits 32
 align 0x1000
@@ -25,6 +21,7 @@ multiboot:
     dd MULTIBOOT_FLAGS
     dd MULTIBOOT_CHECKSUM
 start:
+        ;; !! DON'T USE ebx which is holding the multiboot info
         ;;;------------ENABLE SEGMENT--------------------
         ; setup GDT
         mov eax, boot_gdt_desc
@@ -43,7 +40,8 @@ start:
         ;;;------------PAGE DIRECTORY--------------------
         mov edi, boot_page_directory
         ;;; setup initial blank page directories (not present)
-        mov esi, boot_page_table_blank ; not present bit
+        mov esi, boot_page_table_blank
+        or esi, 0x002       ; not present bit
         mov ecx, 0          ; 0 - 1023
 .pde:   mov [edi + ecx * 4], esi
         inc ecx
@@ -94,6 +92,10 @@ start:
         or eax, 0x80000000
         mov cr0, eax
 
+        ; recycle identity mapping of lower 4M
+        mov eax, cr3
+        mov dword [eax], 0x00000002
+
         ;;;------------HAPPY WORLD--------------------
         ; set up stack
         mov esp, stack_top
@@ -101,13 +103,15 @@ start:
 
         hlt
 
-section .boot_data
+section .boot_bss
 align 0x1000
-        boot_page_directory: times 1024 db 0x00, 0x00, 0x00, 0x02
-        boot_page_table_blank: times 1024 db 0x00, 0x00, 0x00, 0x02
-        boot_page_table_0: times 1024 db 0x00, 0x00, 0x00, 0x02
-        boot_page_table_768: times 1024 db 0x00, 0x00, 0x00, 0x02
+        boot_page_directory: resd 1024
+        boot_page_table_blank: resd 1024
+        boot_page_table_0: resd 1024
+        boot_page_table_768: resd 1024
 
+section .boot_data
+align 4
         boot_gdt_desc:
                 db 3 * 8 - 1, 0x00
                 dd boot_gdt

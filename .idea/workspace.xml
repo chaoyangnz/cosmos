@@ -14,10 +14,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel/eden.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/eden.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout.ld" beforeDir="false" afterPath="$PROJECT_DIR$/layout.ld" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/vga.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/vga.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -49,8 +47,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="120" column="12" lean-forward="true" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+            <state relative-caret-position="217">
+              <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/vga.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>volatile</find>
       <find>layout</find>
       <find>\\</find>
       <find>set_gdt</find>
@@ -122,9 +131,9 @@
       <find>PHYSICAL_START</find>
       <find>VIRTUAL_START</find>
       <find>KERNEL_VIRTUAL_START</find>
+      <find>boot_page_table1</find>
     </findStrings>
     <replaceStrings>
-      <replace>console_</replace>
       <replace>sys_</replace>
       <replace>sys/x86/types.h</replace>
       <replace>false</replace>
@@ -154,6 +163,7 @@
       <replace>*</replace>
       <replace>vga_</replace>
       <replace>virtual_start</replace>
+      <replace>boot_page_table_768</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -194,7 +204,6 @@
         <option value="$PROJECT_DIR$/toolchain.cmake" />
         <option value="$PROJECT_DIR$/flags.cmake" />
         <option value="$PROJECT_DIR$/include/stdio.h" />
-        <option value="$PROJECT_DIR$/kernel/vga.c" />
         <option value="$PROJECT_DIR$/include/kernel/vga.h" />
         <option value="$PROJECT_DIR$/libc/stdio/putchar.c" />
         <option value="$PROJECT_DIR$/kernel/register.c" />
@@ -212,6 +221,7 @@
         <option value="$PROJECT_DIR$/bochsrc.txt" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/layout.ld" />
+        <option value="$PROJECT_DIR$/kernel/vga.c" />
         <option value="$PROJECT_DIR$/kernel/eden.asm" />
       </list>
     </option>
@@ -239,11 +249,6 @@
             <path>
               <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
-              <item name="kernel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -331,7 +336,7 @@
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3154717" />
       <window_info anchor="bottom" id="CMake" order="7" sideWeight="0.49980307" weight="0.32830188" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.32226416" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4988086" visible="true" weight="0.24109589" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4988086" visible="true" weight="0.3849315" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50119144" side_tool="true" weight="0.38339624" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32981133" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -667,16 +672,6 @@
     <entry file="file://$PROJECT_DIR$/libc/stdio/_doprnt.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/vga.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/kernel/i386/multiboot.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="695">
@@ -767,10 +762,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/vga.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="120" column="12" lean-forward="true" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+        <state relative-caret-position="217">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
         </state>
       </provider>
     </entry>

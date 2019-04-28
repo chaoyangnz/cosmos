@@ -28,41 +28,43 @@ multiboot:
     dd MULTIBOOT_FLAGS
     dd MULTIBOOT_CHECKSUM
 start:
+        ;;;------------ENABLE SEGMENT--------------------
         ; setup GDT
-        mov eax, gdt_desc
+        mov eax, boot_gdt_desc
         lgdt [eax]
 
-        jmp	0x08:.cs_loaded
+        jmp	0x08:.cs_loaded ; long jump to reload cs
 .cs_loaded:
-        mov dx, 0x10
-        mov ds, dx
-        mov es, dx
-        mov ss, dx
-        mov dx, 0
-        mov fs, dx
-        mov gs, dx
+        mov ax, 0x10
+        mov ds, ax   ; ds -> kernel data
+        mov es, ax   ; es -> kernel data
+        mov ss, ax   ; ss -> kernel code
+        mov ax, 0
+        mov fs, ax   ; fs -> null seg
+        mov gs, ax   ; gs -> null seg
 
-        ; setup kernel page directory
+        ;;;------------PAGE DIRECTORY--------------------
         mov edi, boot_page_directory
-        mov esi, 0x00000002 ; not present
-        mov ecx, 0
-        ; set all page tables not present
+        ;;; setup initial blank page directories (not present)
+        mov esi, boot_page_table_blank ; not present bit
+        mov ecx, 0          ; 0 - 1023
 .pde:   mov [edi + ecx * 4], esi
         inc ecx
         cmp ecx, 1024
         jl .pde
 
-        ; identity mapping
+        ;;; put identity mapping page table of low 4M memory
         mov esi, boot_page_table_0
         or esi, 0x003
-        mov [edi], esi
-        ; kernel page table to directory
+        mov [edi + 0], esi
+        ;;; put page table of higher half 4M memory: 0xC0100000 << 22 = 768 (0x300)
         mov esi, boot_page_table_768
         or esi, 0x003
         mov [edi + 0x300 * 4], esi
 
 
-        ; setup identity mapping page table (4M: 0x000000~0x400000 -> 0x000000 ~ 0x400000 including frame buffer 0xb8000 )
+        ;;;------------PAGE TABLE--------------------
+        ;;; setup identity mapping page table (4M: 0x000000~0x400000 -> 0x000000 ~ 0x400000 including frame buffer 0xb8000 )
         mov edi, boot_page_table_0
         mov esi, PHYSICAL_START
         or esi, 0x003
@@ -74,7 +76,7 @@ start:
         cmp ecx, 1024
         jl .pte_0
 
-        ; setup kernel page table (4M: 0xC0000000~0xC0400000 -> 0x000000 ~ 0x400000 including frame buffer 0xb8000 )
+        ;;; setup kernel page table (4M: 0xC0000000~0xC0400000 -> 0x000000 ~ 0x400000 including frame buffer 0xb8000 )
         mov edi, boot_page_table_768
         mov esi, PHYSICAL_START
         or esi, 0x003
@@ -86,7 +88,8 @@ start:
         cmp ecx, 1024
         jl .pte_768
 
-        ; enable paging
+        ;;;------------ENABLE PAGING--------------------
+        ;;; enable paging
         mov eax, boot_page_directory
         mov cr3, eax
 
@@ -94,7 +97,7 @@ start:
         or eax, 0x80000000
         mov cr0, eax
 
-.after_page_enabled:
+        ;;;------------HAPPY WORLD--------------------
         ; set up stack
         mov esp, stack_top
         call kernel_main
@@ -103,20 +106,19 @@ start:
 
 section .boot_data
 align 0x1000
-        boot_page_directory: times 4096 db 0
-        boot_page_table_0: times 4096 db 0
-        boot_page_table_768: times 4096 db 0
+        boot_page_directory: times 1024 db 0x00, 0x00, 0x00, 0x02
+        boot_page_table_blank: times 1024 db 0x00, 0x00, 0x00, 0x02
+        boot_page_table_0: times 1024 db 0x00, 0x00, 0x00, 0x02
+        boot_page_table_768: times 1024 db 0x00, 0x00, 0x00, 0x02
 
-        gdt_desc:
-                db 0x27, 0x00
-                dd gdt
+        boot_gdt_desc:
+                db 3 * 8 - 1, 0x00
+                dd boot_gdt
 
-        gdt:
-        seg_null: dq 0
-        seg_kernel_code: db 0xff, 0xff, 0x00, 0x00, 0x00, 0x9a, 0xcf, 0x00
-        seg_kernel_data: db 0xff, 0xff, 0x00, 0x00, 0x00, 0x93, 0xcf, 0x00
-        seg_user_code:   db 0xff, 0xff, 0x00, 0x00, 0x00, 0xfa, 0xcf, 0x00
-        seg_user_data:   db 0xff, 0xff, 0x00, 0x00, 0x00, 0xf2, 0xcf, 0x00
+        boot_gdt:
+                dq 0 ; seg_null
+                db 0xff, 0xff, 0x00, 0x00, 0x00, 0x9a, 0xcf, 0x00 ; seg_kernel_code
+                db 0xff, 0xff, 0x00, 0x00, 0x00, 0x93, 0xcf, 0x00 ; seg_kernel_data
 
 section .bss
         stack_bottom: resb 4096               ; 4k

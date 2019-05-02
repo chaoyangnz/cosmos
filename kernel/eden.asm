@@ -1,5 +1,7 @@
 global start
 extern kernel_main
+extern page_directory
+extern page_tables
 
 PHYSICAL_START equ 0x0
 VIRTUAL_START equ 0xC0000000
@@ -38,54 +40,35 @@ start:
         mov gs, ax   ; gs -> null seg
 
         ;;;------------PAGE DIRECTORY--------------------
-        mov edi, boot_page_directory
         ;;; setup initial blank page directories (not present)
-        mov esi, boot_page_table_blank
-        or esi, 0x002       ; not present bit
+        mov esi, page_tables
+        or esi, 0x00000002       ; not present bit
         mov ecx, 0          ; 0 - 1023
-.pde:   mov [edi + ecx * 4], esi
+.pde:   mov [page_directory + ecx * 4], esi
         inc ecx
+        add esi, 4096
         cmp ecx, 1024
         jl .pde
 
-        ;;; put identity mapping page table of low 4M memory
-        mov esi, boot_page_table_0
-        or esi, 0x003
-        mov [edi + 0], esi
-        ;;; put page table of higher half 4M memory: 0xC0100000 << 22 = 768 (0x300)
-        mov esi, boot_page_table_768
-        or esi, 0x003
-        mov [edi + 0x300 * 4], esi
-
-
         ;;;------------PAGE TABLE--------------------
         ;;; setup identity mapping page table (4M: 0x000000~0x400000 -> 0x000000 ~ 0x400000 including frame buffer 0xb8000 )
-        mov edi, boot_page_table_0
-        mov esi, PHYSICAL_START
-        or esi, 0x003
         mov ecx, 0
-.pte_0:
-        mov [edi + ecx * 4], esi
-        add esi, 4096
-        inc ecx
-        cmp ecx, 1024
-        jl .pte_0
+        call map_page_table
+
+        mov ecx, 1
+        call map_page_table
 
         ;;; setup kernel page table (4M: 0xC0000000~0xC0400000 -> 0x000000 ~ 0x400000 including frame buffer 0xb8000 )
-        mov edi, boot_page_table_768
-        mov esi, PHYSICAL_START
-        or esi, 0x003
-        mov ecx, 0
-.pte_768:
-        mov [edi + ecx * 4], esi
-        add esi, 4096
-        inc ecx
-        cmp ecx, 1024
-        jl .pte_768
+        mov ecx, 768
+        call map_page_table
+
+        ;;; setup kernel page table (4M: 0xC0400000~0xC0800000 -> 0xC0400000 ~ 0x800000 including frame buffer 0xb8000 )
+        mov ecx, 769
+        call map_page_table
 
         ;;;------------ENABLE PAGING--------------------
         ;;; enable paging
-        mov eax, boot_page_directory
+        mov eax, page_directory
         mov cr3, eax
 
         mov eax, cr0
@@ -94,7 +77,8 @@ start:
 
         ; recycle identity mapping of lower 4M
         mov eax, cr3
-        mov dword [eax], 0x00000002
+        mov dword [eax + 0 * 4], 0x00000002
+        mov dword [eax + 1 * 4], 0x00000002
 
         ;;;------------HAPPY WORLD--------------------
         ; set up stack
@@ -103,12 +87,45 @@ start:
 
         hlt
 
+; ecx: index in page directory
+map_page_table:
+        ; calculate page table address by index
+        mov edi, page_tables ; page_tables + cx * 4096
+        mov edx, ecx
+        imul edx, 4096
+        add edi, edx
+
+        ; set present in page directory
+        mov edx, edi
+        or edx, 0x00000003
+        mov [page_directory + ecx * 4], edx
+
+        ; calculate physical address to map
+        mov esi, PHYSICAL_START
+        mov edx, ecx
+        cmp edx, 768
+        jl .1
+        sub edx, 768
+    .1: imul edx, 0x400000  ; PHYSICAL_START + ecx x 4M
+        add esi, edx
+
+        ;;;;;; fill every entry in a page table
+        or esi, 0x00000003
+        mov ecx, 0
+;
+  .pte: mov [edi + ecx * 4], esi
+        add esi, 4096
+        inc ecx
+        cmp ecx, 1024
+        jl .pte
+        ret
+
 section .boot_bss
 align 0x1000
-        boot_page_directory: resd 1024
-        boot_page_table_blank: resd 1024
-        boot_page_table_0: resd 1024
-        boot_page_table_768: resd 1024
+        page_directory: ; 4K
+            resd 1024
+        page_tables:  ; 4K * 1024 = 4M
+            times 1024 resd 1024 ; 1024 tables, each table has 1024 entry x 4 bytes
 
 section .boot_data
 align 4

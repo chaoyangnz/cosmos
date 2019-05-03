@@ -1,10 +1,16 @@
 global start
+global page_directory
+global page_tables
+
+extern boot_init_page_directory
+extern boot_map_high_half_pages
 extern kernel_main
-extern page_directory
-extern page_tables
 
 PHYSICAL_START equ 0x0
 VIRTUAL_START equ 0xC0000000
+
+KERNEL_MAPPED_4M equ 4 ; 16M
+KERNEL_MAP_SIZE equ 4 * 1024 * 1024 * KERNEL_MAPPED_4M
 
 MULTIBOOT_PAGE_ALIGN    equ     1<<0
 MULTIBOOT_MEMORY_INFO   equ     1<<1
@@ -40,31 +46,12 @@ start:
         mov gs, ax   ; gs -> null seg
 
         ;;;------------PAGE DIRECTORY--------------------
-        ;;; setup initial blank page directories (not present)
-        mov esi, page_tables
-        or esi, 0x00000002       ; not present bit
-        mov ecx, 0          ; 0 - 1023
-.pde:   mov [page_directory + ecx * 4], esi
-        inc ecx
-        add esi, 4096
-        cmp ecx, 1024
-        jl .pde
+        ;;; setup initial blank page directories (all page table pages present)
+        call boot_init_page_directory
 
         ;;;------------PAGE TABLE--------------------
-        ;;; setup identity mapping page table (4M: 0x000000~0x400000 -> 0x000000 ~ 0x400000 including frame buffer 0xb8000 )
-        mov ecx, 0
-        call map_page_table
-
-        mov ecx, 1
-        call map_page_table
-
-        ;;; setup kernel page table (4M: 0xC0000000~0xC0400000 -> 0x000000 ~ 0x400000 including frame buffer 0xb8000 )
-        mov ecx, 768
-        call map_page_table
-
-        ;;; setup kernel page table (4M: 0xC0400000~0xC0800000 -> 0xC0400000 ~ 0x800000 including frame buffer 0xb8000 )
-        mov ecx, 769
-        call map_page_table
+        ;;; setup mapped page table (16M: including frame buffer 0xb8000 )
+        call boot_map_high_half_pages
 
         ;;;------------ENABLE PAGING--------------------
         ;;; enable paging
@@ -75,50 +62,12 @@ start:
         or eax, 0x80000000
         mov cr0, eax
 
-        ; recycle identity mapping of lower 4M
-        mov eax, cr3
-        mov dword [eax + 0 * 4], 0x00000002
-        mov dword [eax + 1 * 4], 0x00000002
-
         ;;;------------HAPPY WORLD--------------------
         ; set up stack
         mov esp, stack_top
         call kernel_main
 
         hlt
-
-; ecx: index in page directory
-map_page_table:
-        ; calculate page table address by index
-        mov edi, page_tables ; page_tables + cx * 4096
-        mov edx, ecx
-        imul edx, 4096
-        add edi, edx
-
-        ; set present in page directory
-        mov edx, edi
-        or edx, 0x00000003
-        mov [page_directory + ecx * 4], edx
-
-        ; calculate physical address to map
-        mov esi, PHYSICAL_START
-        mov edx, ecx
-        cmp edx, 768
-        jl .1
-        sub edx, 768
-    .1: imul edx, 0x400000  ; PHYSICAL_START + ecx x 4M
-        add esi, edx
-
-        ;;;;;; fill every entry in a page table
-        or esi, 0x00000003
-        mov ecx, 0
-;
-  .pte: mov [edi + ecx * 4], esi
-        add esi, 4096
-        inc ecx
-        cmp ecx, 1024
-        jl .pte
-        ret
 
 section .boot_bss
 align 0x1000

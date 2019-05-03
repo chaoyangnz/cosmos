@@ -15,7 +15,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/kernel/i386/eden.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/i386/eden.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/kernel/i386/page.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/i386/page.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel/eden.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/eden.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/eden.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/eden.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/page.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/page.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -33,13 +38,65 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="cosmos" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+            <state relative-caret-position="130">
+              <caret line="71" selection-start-line="71" selection-end-line="76" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/eden.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="3" column="85" lean-forward="true" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/kernel/i386/eden.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kernel/main.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="53" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#479#545#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/kernel/i386/page.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="14" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/page.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" selection-start-line="1" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -48,9 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>set_gdt</find>
-      <find>'l'</find>
-      <find>int printf</find>
       <find>vprintf_</find>
       <find>printf_</find>
       <find>snprintf</find>
@@ -78,9 +132,11 @@
       <find>kernel_physical_end</find>
       <find>kernel_virtual_end</find>
       <find>boot_page_directory</find>
+      <find>set_page_table</find>
+      <find>map_page_table</find>
+      <find>page_tables</find>
     </findStrings>
     <replaceStrings>
-      <replace>sys/x86/types.h</replace>
       <replace>false</replace>
       <replace>\n</replace>
       <replace>u_char_t</replace>
@@ -110,6 +166,7 @@
       <replace>virtual_start</replace>
       <replace>boot_page_table_768</replace>
       <replace>page_directory</replace>
+      <replace>map_page_table</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -118,12 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/include/stdlib.h" />
-        <option value="$PROJECT_DIR$/include/unistd.h" />
-        <option value="$PROJECT_DIR$/kernel/register.asm" />
-        <option value="$PROJECT_DIR$/include/kernel/i386/eflags.h" />
-        <option value="$PROJECT_DIR$/include/kernel/i386/cpuid.h" />
-        <option value="$PROJECT_DIR$/include/kernel/i386/stack.h" />
         <option value="$PROJECT_DIR$/include/kernel/i386/tss.h" />
         <option value="$PROJECT_DIR$/include/kernel/i386/vm.h" />
         <option value="$PROJECT_DIR$/include/kernel/i386/interrupt.h" />
@@ -166,15 +217,21 @@
         <option value="$PROJECT_DIR$/kernel/vga.c" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/layout.ld" />
-        <option value="$PROJECT_DIR$/kernel/main.c" />
         <option value="$PROJECT_DIR$/kernel/multiboot.c" />
+        <option value="$PROJECT_DIR$/kernel/paging.c" />
+        <option value="$PROJECT_DIR$/include/kernel/i386/paging.h" />
+        <option value="$PROJECT_DIR$/include/kernel/i386/eden.h" />
+        <option value="$PROJECT_DIR$/kernel/eden.c" />
         <option value="$PROJECT_DIR$/kernel/eden.asm" />
+        <option value="$PROJECT_DIR$/include/kernel/i386/page.h" />
+        <option value="$PROJECT_DIR$/kernel/page.c" />
+        <option value="$PROJECT_DIR$/kernel/main.c" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-c" />
+    <option name="configuration" value="0-cosmos" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
@@ -206,6 +263,13 @@
               <item name="cosmos" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
               <item name="kernel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="i386" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
@@ -286,19 +350,19 @@
     <frame x="0" y="23" width="1440" height="822" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49940687" visible="true" weight="0.15081044" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989899" visible="true" weight="0.16420014" />
       <window_info id="Structure" order="1" sideWeight="0.5005931" side_tool="true" weight="0.20492454" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.5010101" side_tool="true" weight="0.16420014" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32677165" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32981133" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32876712" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32876712" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3154717" />
-      <window_info anchor="bottom" id="CMake" order="7" sideWeight="0.49980307" weight="0.32830188" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.3219178" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4988086" visible="true" weight="0.46027398" />
+      <window_info anchor="bottom" id="CMake" order="7" sideWeight="0.49980307" weight="0.31917807" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4671233" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4988086" visible="true" weight="0.47671232" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50119144" side_tool="true" weight="0.38339624" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32981133" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -337,15 +401,39 @@
     </option>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/kernel/main.c</url>
+          <line>35</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CLion_Remote">
-        <watch expression="&amp;((gdt_desc)-&gt;limit)" language="ObjectiveC" />
-        <watch expression="gdt_desc" language="ObjectiveC" />
+        <watch expression="page_directory" language="ObjectiveC" />
+        <watch expression="page_tables" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>page_table_index</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>page_tables</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>page_directory</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>gdt_desc</expression-string>
         <language-id>ObjectiveC</language-id>
@@ -376,21 +464,6 @@
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>segment_selector(SEG_INDEX_KERNEL_CODE, 0, 0)</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>*fmt</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>va_arg(args, unsigned long long)</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
@@ -411,26 +484,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/include/ctype.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/math.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-497" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/setjmp.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/signal.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kernel/util.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -512,13 +565,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/libc/stdio/sprintf.c" />
     <entry file="file://$PROJECT_DIR$/libc/stdio/_printf.h" />
-    <entry file="file://$PROJECT_DIR$/include/stddef.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/stdbool.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -558,13 +604,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kernel/drivers/frame_buffer.c" />
-    <entry file="file://$PROJECT_DIR$/include/stdint.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/stdarg.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="579">
@@ -673,16 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/i386/segment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="89" column="53" lean-forward="true" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
-          <folding>
-            <element signature="e#56#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -717,16 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/segment.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="101" column="7" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layout.ld">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -744,20 +763,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/main.c">
+    <entry file="file://$PROJECT_DIR$/include/kernel/i386/segment.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+        <state relative-caret-position="-315">
+          <caret line="89" column="53" lean-forward="true" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#56#75#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/segment.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="111" column="5" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/stddef.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/stdint.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/eden.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="3" column="85" lean-forward="true" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+        <state relative-caret-position="130">
+          <caret line="71" selection-start-line="71" selection-end-line="76" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/i386/eden.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/i386/page.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="14" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/page.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="53" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#479#545#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

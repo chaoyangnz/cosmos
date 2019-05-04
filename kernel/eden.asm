@@ -6,8 +6,7 @@ extern boot_init_page_directory
 extern boot_map_high_half_pages
 extern kernel_main
 
-PHYSICAL_START equ 0x0
-VIRTUAL_START equ 0xC0000000
+KERNEL_BASE equ 0xC0000000
 
 MULTIBOOT_PAGE_ALIGN    equ     1<<0
 MULTIBOOT_MEMORY_INFO   equ     1<<1
@@ -52,7 +51,7 @@ start:
 
         ;;;------------ENABLE PAGING--------------------
         ;;; enable paging
-        mov eax, page_directory
+        mov eax, page_directory - KERNEL_BASE
         mov cr3, eax
 
         mov eax, cr0
@@ -66,12 +65,6 @@ start:
 
         hlt
 
-section .boot_bss
-align 0x1000
-        page_directory: ; 4K
-            resd 1024
-        page_tables:  ; 4K * 1024 = 4M
-            times 1024 resd 1024 ; 1024 tables, each table has 1024 entry x 4 bytes
 
 section .boot_data
 align 4
@@ -85,6 +78,11 @@ align 4
                 db 0xff, 0xff, 0x00, 0x00, 0x00, 0x93, 0xcf, 0x00 ; seg_kernel_data
 
 section .bss
+align 0x1000
+        page_directory: ; 4K
+            resd 1024
+        page_tables:  ; 4K * 1024 = 4M
+            times 1024 resd 1024 ; 1024 tables, each table has 1024 entry x 4 bytes
         stack_bottom: resb 4096               ; 4k
         stack_top:
 

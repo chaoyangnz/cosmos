@@ -2,7 +2,7 @@
 #define COSMOS_VMM_H
 
 #include <stdint.h>
-#include <kernel/i386/page.h>
+#include <kernel/page.h>
 
 //extern uint8_t page_bitmap[ALL_PAGES / 8];
 

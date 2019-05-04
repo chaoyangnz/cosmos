@@ -1,4 +1,4 @@
-#include <kernel/i386/register.h>
+#include <kernel/register.h>
 
 
 

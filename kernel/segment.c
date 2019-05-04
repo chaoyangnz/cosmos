@@ -1,6 +1,6 @@
-#include <kernel/i386/segment.h>
-#include <kernel/i386/register.h>
-#include <kernel/i386/types.h>
+#include <kernel/segment.h>
+#include <kernel/register.h>
+#include <kernel/types.h>
 #include <stddef.h>
 #include <stdio.h>
 

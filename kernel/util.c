@@ -2,7 +2,7 @@
 // Created by Chao Yang on 2019-04-22.
 //
 
-#include <kernel/i386/util.h>
+#include <kernel/util.h>
 #include <stddef.h>
 
 uint32_t

@@ -1,4 +1,4 @@
-#include <kernel/i386/page.h>
+#include <kernel/page.h>
 
 page_directory_t *page_directory_ptr = (page_directory_t *) va_to_pa(&page_directory);
 page_tables_t *page_tables_ptr = (page_tables_t *) va_to_pa(&page_tables);

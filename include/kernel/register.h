@@ -6,7 +6,7 @@
 
 #include <compiler.h>
 #include <stdint.h>
-#include <kernel/i386/segment.h>
+#include <kernel/segment.h>
 
 /*
  * CR0

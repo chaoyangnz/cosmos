@@ -2,7 +2,7 @@
 #define _C_UNISTD_H_
 
 #include <stddef.h>
-#include <kernel/i386/types.h>
+#include <kernel/types.h>
 #include "compiler.h"
 
 #ifndef _SIZE_T

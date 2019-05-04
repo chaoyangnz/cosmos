@@ -1,4 +1,4 @@
-#include <kernel/i386/multiboot.h>
+#include <kernel/multiboot.h>
 #include <stdio.h>
 
 void* fix_address(void *addr) {

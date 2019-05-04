@@ -1,4 +1,4 @@
-#include <kernel/i386/vmm.h>
+#include <kernel/vmm.h>
 
 uint8_t page_bitmap[ALL_PAGES / 8];
 

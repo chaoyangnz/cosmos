@@ -115,7 +115,8 @@ typedef struct
     uint32_t base;
 } PACKED idt_desc_t;
 
-extern segment_descriptor_t gdt[GDT_SIZE];
+typedef segment_descriptor_t gdt_t[GDT_SIZE];
+extern gdt_t gdt;
 
 
 /* Initialize the base GDT descriptors with sensible defaults.  */

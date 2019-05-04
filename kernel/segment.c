@@ -4,7 +4,7 @@
 #include <stddef.h>
 #include <stdio.h>
 
-segment_descriptor_t gdt[GDT_SIZE];
+gdt_t gdt;
 //static gdt_desc_t gdt_desc;
 
 /* Fill a segment descriptor.  */
@@ -24,42 +24,6 @@ segment__fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint
     desc->limit_high = limit >> 16;
     desc->granularity = sizebits;
     desc->base_high = base >> 24;
-}
-
-/* Set the base address in a segment descriptor.  */
-static void
-segment__fill_descriptor_base(segment_descriptor_t *desc, uint32_t base)
-{
-    desc->base_low = base & 0xffff;
-    desc->base_med = (base >> 16) & 0xff;
-    desc->base_high = base >> 24;
-}
-
-/* Set the size in a segment descriptor.  */
-static void
-segment__fill_descriptor_limit(segment_descriptor_t *desc, uint32_t limit)
-{
-    if (limit > 0xfffff)
-    {
-        limit >>= 12;
-        desc->granularity |= SEG_SZ_GRANULARITY;
-    }
-    else
-        desc->granularity &= ~SEG_SZ_GRANULARITY;
-    desc->limit_low = limit & 0xffff;
-    desc->limit_high = limit >> 16;
-}
-
-/* Fill a gate with particular values.  */
-static void
-segment__fill_gate(x86_gate_t *gate, uint32_t offset, uint16_t selector,
-                   uint8_t access, uint8_t word_count)
-{
-    gate->offset_low = offset & 0xffff;
-    gate->selector = selector;
-    gate->word_count = word_count;
-    gate->access = access | SEG_DESC_ACC_P;
-    gate->offset_high = (offset >> 16) & 0xffff;
 }
 
 void

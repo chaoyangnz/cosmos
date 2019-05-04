@@ -26,7 +26,6 @@ void kernel_main()
     printf("%s", "               Hello, Cosmos!\n");
     vga__set_fg(VGA_COLOR_BROWN);
 
-    multiboot__setup();
     multiboot__info();
 
     /* re-setup GDT after paging is enabled */

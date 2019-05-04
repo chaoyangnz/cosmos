@@ -2,6 +2,7 @@ global start
 global page_directory
 global page_tables
 
+extern multiboot__setup
 extern page__setup
 extern kernel_main
 
@@ -24,7 +25,7 @@ multiboot:
     dd MULTIBOOT_FLAGS
     dd MULTIBOOT_CHECKSUM
 start:
-        ;; !! DON'T USE ebx which is holding the multiboot info
+        call multiboot__setup
         ;;;------------ENABLE SEGMENT--------------------
         ; setup GDT
         call .segment__setup

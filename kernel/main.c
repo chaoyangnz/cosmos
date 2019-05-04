@@ -33,7 +33,7 @@ void kernel_main()
     gdt_load();
     gdt_print();
 
-    page_init();
+    page_map_init();
 //    printf("%d \n", page_is_mapped(page_index(0, 0)));
 //    printf("%d \n", page_is_mapped(page_index(0, 1)));
 //    printf("%d \n", page_is_mapped(page_index(768, 0)));

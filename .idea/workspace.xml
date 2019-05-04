@@ -15,10 +15,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/kernel/i386/eden.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/i386/eden.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/kernel/i386/eden.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/include/kernel/i386/page.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/i386/page.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel/eden.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/eden.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/eden.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/eden.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/eden.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel/page.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/page.c" afterDir="false" />
     </list>
@@ -46,35 +46,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="71" selection-start-line="71" selection-end-line="76" selection-end-column="83" />
+            <state relative-caret-position="-687">
+              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kernel/eden.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="3" column="85" lean-forward="true" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/kernel/i386/eden.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="18" column="31" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kernel/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="53" selection-end-column="41" />
+            <state relative-caret-position="226">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#479#545#0" expanded="true" />
@@ -84,19 +66,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/kernel/i386/page.h">
+        <entry file="file://$PROJECT_DIR$/kernel/page.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="14" selection-end-column="45" />
+            <state relative-caret-position="45">
+              <caret line="3" column="45" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kernel/page.c">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/include/kernel/i386/page.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" selection-start-line="1" selection-end-line="4" />
+            <state relative-caret-position="291">
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+              <folding>
+                <element signature="e#45#64#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,8 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>vprintf_</find>
-      <find>printf_</find>
       <find>snprintf</find>
       <find>sprint</find>
       <find>vsprintf</find>
@@ -125,7 +108,6 @@
       <find>BLOCK(4K) :</find>
       <find>virtual_start</find>
       <find>PHYSICAL_START</find>
-      <find>VIRTUAL_START</find>
       <find>KERNEL_VIRTUAL_START</find>
       <find>boot_page_table1</find>
       <find>get_gd</find>
@@ -135,6 +117,9 @@
       <find>set_page_table</find>
       <find>map_page_table</find>
       <find>page_tables</find>
+      <find>KERNEL_START</find>
+      <find>recycle_identity_mapping</find>
+      <find>VIRTUAL_START</find>
     </findStrings>
     <replaceStrings>
       <replace>false</replace>
@@ -220,12 +205,12 @@
         <option value="$PROJECT_DIR$/kernel/multiboot.c" />
         <option value="$PROJECT_DIR$/kernel/paging.c" />
         <option value="$PROJECT_DIR$/include/kernel/i386/paging.h" />
+        <option value="$PROJECT_DIR$/kernel/main.c" />
+        <option value="$PROJECT_DIR$/kernel/eden.asm" />
         <option value="$PROJECT_DIR$/include/kernel/i386/eden.h" />
         <option value="$PROJECT_DIR$/kernel/eden.c" />
-        <option value="$PROJECT_DIR$/kernel/eden.asm" />
-        <option value="$PROJECT_DIR$/include/kernel/i386/page.h" />
         <option value="$PROJECT_DIR$/kernel/page.c" />
-        <option value="$PROJECT_DIR$/kernel/main.c" />
+        <option value="$PROJECT_DIR$/include/kernel/i386/page.h" />
       </list>
     </option>
   </component>
@@ -347,10 +332,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="822" extended-state="6" />
+    <frame x="-501" y="-1417" width="2560" height="1417" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989899" visible="true" weight="0.16420014" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989899" visible="true" weight="0.091768414" />
       <window_info id="Structure" order="1" sideWeight="0.5005931" side_tool="true" weight="0.20492454" />
       <window_info id="Favorites" order="2" sideWeight="0.5010101" side_tool="true" weight="0.16420014" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -361,8 +346,8 @@
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32876712" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3154717" />
       <window_info anchor="bottom" id="CMake" order="7" sideWeight="0.49980307" weight="0.31917807" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4671233" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4988086" visible="true" weight="0.47671232" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4535849" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4988086" visible="true" weight="0.30490565" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50119144" side_tool="true" weight="0.38339624" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32981133" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -408,17 +393,51 @@
           <line>35</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/kernel/page.c</url>
+          <line>12</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CLion_Remote">
-        <watch expression="page_directory" language="ObjectiveC" />
-        <watch expression="page_tables" language="ObjectiveC" />
+        <watch expression="(addr_t)&amp;page_tables + 0xC0000000" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>(addr_t)&amp;page_tables + 0xC0000000</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&amp;page_tables + 0xC0000000</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&amp;page_directory + VIRTUAL_START</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&amp;page_directory + (addr_t)VIRTUAL_START</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&amp;page_directory</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>page_directory</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>page_table_index</expression-string>
         <language-id>ObjectiveC</language-id>
@@ -430,37 +449,12 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>page_directory</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
         <expression-string>gdt_desc</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
         <expression-string>&amp;((gdt_desc)-&gt;limit)</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(gdt_desc)-&gt;limit</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(&amp;gdt_desc)-&gt;limit</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>&amp;gdt_desc.limit</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>&amp;gdt_desc</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -797,48 +791,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/i386/eden.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kernel/eden.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="3" column="85" lean-forward="true" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
+        <state relative-caret-position="36">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="71" selection-start-line="71" selection-end-line="76" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/i386/eden.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/i386/page.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="14" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/page.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" selection-start-line="1" selection-end-line="4" />
+        <state relative-caret-position="-687">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kernel/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="53" selection-end-column="41" />
+        <state relative-caret-position="226">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#479#545#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/page.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="45" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/i386/page.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding>
+            <element signature="e#45#64#0" expanded="true" />
           </folding>
         </state>
       </provider>

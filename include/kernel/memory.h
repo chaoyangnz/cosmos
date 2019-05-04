@@ -1,6 +1,8 @@
 #ifndef COSMOS_MEMORY_H
 #define COSMOS_MEMORY_H
 
+#include "types.h"
+
 #define KERNEL_BASE 0xC0000000
 #define PHYSICAL_BASE 0x0
 
@@ -21,5 +23,7 @@
 
 #define va_to_pa(va) ((addr_t)(va) - KERNEL_BASE)
 #define pa_to_va(pa) ((addr_t)(pa) + KERNEL_BASE)
+
+extern const char *humanize_size(uint64_t bytes_len);
 
 #endif //COSMOS_MEMORY_H

@@ -1,6 +1,4 @@
 global start
-global page_directory
-global page_tables
 
 extern multiboot__setup
 extern page__setup
@@ -68,11 +66,6 @@ align 4
                 db 0xff, 0xff, 0x00, 0x00, 0x00, 0x93, 0xcf, 0x00 ; seg_kernel_data
 
 section .bss
-align 0x1000
-        page_directory: ; 4K
-            resd 1024
-        page_tables:  ; 4K * 1024 = 4M
-            times 1024 resd 1024 ; 1024 tables, each table has 1024 entry x 4 bytes
         stack_bottom: resb 4096               ; 4k
         stack_top:
 

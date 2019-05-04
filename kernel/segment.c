@@ -5,7 +5,6 @@
 #include <stdio.h>
 
 gdt_t gdt;
-//static gdt_desc_t gdt_desc;
 
 /* Fill a segment descriptor.  */
 static void

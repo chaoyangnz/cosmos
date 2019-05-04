@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <kernel/page.h>
+#include <kernel/memory.h>
 
 static uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg)
 {
@@ -28,7 +29,7 @@ void vga__setup(void)
 {
     vga_row = 0;
     vga_column = 0;
-    vga_color = vga_entry_color(VGA_COLOR_CYAN, VGA_COLOR_BLACK);
+    vga_color = vga_entry_color(VGA_COLOR_LIGHT_GREEN, VGA_COLOR_BLACK);
     vga_buffer = (uint16_t*) VGA_BASE;
     // clear
     for (size_t y = 0; y < VGA_HEIGHT; y++) {

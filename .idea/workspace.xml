@@ -14,7 +14,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/kernel/segment.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/segment.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/kernel/memory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/kernel/page.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/page.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/kernel/vmm.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/kernel/vmm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/eden.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/eden.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/multiboot.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/multiboot.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/page.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/page.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/vga.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/vga.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -37,23 +44,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kernel/main.c">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kernel/page.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="15" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="15" />
+            <state relative-caret-position="139">
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/register.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="71" column="39" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flags.cmake">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/vga.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kernel/page.c">
+        <entry file="file://$PROJECT_DIR$/include/kernel/segment.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="16" />
+            <state relative-caret-position="476">
+              <caret line="117" selection-start-line="117" selection-end-line="117" selection-end-column="42" />
+              <folding>
+                <element signature="e#56#75#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/kernel/page.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+              <folding>
+                <element signature="e#45#64#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/kernel/memory.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -61,17 +119,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            <state relative-caret-position="491">
+              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/kernel/segment.c">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/vmm.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
+            <state>
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/kernel/vmm.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+              <folding>
+                <element signature="e#43#62#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -150,8 +220,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/kernel/util.c" />
-        <option value="$PROJECT_DIR$/include/kernel/i386/util.h" />
         <option value="$PROJECT_DIR$/include/kernel/i386/types.h" />
         <option value="$PROJECT_DIR$/include/kernel/console.h" />
         <option value="$PROJECT_DIR$/kernel/console.c" />
@@ -166,7 +234,6 @@
         <option value="$PROJECT_DIR$/libc/stdio/fprintf.c" />
         <option value="$PROJECT_DIR$/libc/stdio/printf.c" />
         <option value="$PROJECT_DIR$/toolchain.cmake" />
-        <option value="$PROJECT_DIR$/flags.cmake" />
         <option value="$PROJECT_DIR$/include/stdio.h" />
         <option value="$PROJECT_DIR$/include/kernel/vga.h" />
         <option value="$PROJECT_DIR$/libc/stdio/putchar.c" />
@@ -195,12 +262,15 @@
         <option value="$PROJECT_DIR$/include/kernel/multiboot.h" />
         <option value="$PROJECT_DIR$/kernel/main.c" />
         <option value="$PROJECT_DIR$/kernel/vmm.c" />
-        <option value="$PROJECT_DIR$/include/kernel/page.h" />
-        <option value="$PROJECT_DIR$/kernel/multiboot.c" />
-        <option value="$PROJECT_DIR$/kernel/vga.c" />
-        <option value="$PROJECT_DIR$/kernel/page.c" />
-        <option value="$PROJECT_DIR$/kernel/eden.asm" />
         <option value="$PROJECT_DIR$/kernel/segment.c" />
+        <option value="$PROJECT_DIR$/flags.cmake" />
+        <option value="$PROJECT_DIR$/kernel/vga.c" />
+        <option value="$PROJECT_DIR$/kernel/multiboot.c" />
+        <option value="$PROJECT_DIR$/include/kernel/memory.h" />
+        <option value="$PROJECT_DIR$/include/kernel/page.h" />
+        <option value="$PROJECT_DIR$/include/kernel/vmm.h" />
+        <option value="$PROJECT_DIR$/kernel/eden.asm" />
+        <option value="$PROJECT_DIR$/kernel/page.c" />
       </list>
     </option>
   </component>
@@ -231,6 +301,17 @@
             <path>
               <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="cosmos" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cosmos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cosmos" type="462c0819:PsiDirectoryNode" />
               <item name="kernel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -246,7 +327,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/include/kernel/i386" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -307,24 +388,24 @@
     <frame x="-501" y="-1417" width="2560" height="1417" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945712" visible="true" weight="0.14257582" />
-      <window_info id="Structure" order="1" sideWeight="0.5005429" side_tool="true" visible="true" weight="0.14257582" />
-      <window_info id="Favorites" order="2" sideWeight="0.5010101" side_tool="true" weight="0.16420014" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49912128" visible="true" weight="0.1437649" />
+      <window_info id="Favorites" order="1" sideWeight="0.50087875" side_tool="true" weight="0.1437649" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32603773" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32876712" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" weight="0.32876712" />
-      <window_info anchor="bottom" id="Version Control" order="6" weight="0.3154717" />
-      <window_info anchor="bottom" id="CMake" order="7" sideWeight="0.49980307" weight="0.31849056" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.48150945" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4988086" visible="true" weight="0.30490565" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50119144" side_tool="true" weight="0.38339624" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32981133" />
+      <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49960285" weight="0.48150945" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50119144" side_tool="true" weight="0.38339624" />
+      <window_info anchor="bottom" id="Messages" order="6" weight="0.32981133" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49960285" side_tool="true" weight="0.32830188" />
+      <window_info anchor="bottom" id="CMake" order="8" sideWeight="0.4992057" weight="0.31849056" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.50039715" weight="0.31849056" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.5015886" side_tool="true" weight="0.31849056" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49841145" visible="true" weight="0.31849056" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Structure" order="3" sideWeight="0.50037736" visible="true" weight="0.14257348" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49940687" visible="true" weight="0.15081044" />
@@ -447,13 +528,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/include/kernel/stack.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/iso/boot/grub/menu.lst">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -498,13 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flags.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="1" column="159" selection-start-line="1" selection-start-column="159" selection-end-line="1" selection-end-column="159" />
         </state>
       </provider>
     </entry>
@@ -674,26 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/register.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="48" column="16" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="16" />
-          <folding>
-            <element signature="e#114#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/vmm.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#41#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/kernel/util.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -706,26 +753,6 @@
         <state relative-caret-position="-215" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/segment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
-          <folding>
-            <element signature="e#56#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/kernel/page.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-          <folding>
-            <element signature="e#45#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/kernel/multiboot.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -736,23 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/multiboot.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/register.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kernel/util.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -760,51 +770,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/vmm.c">
+    <entry file="file://$PROJECT_DIR$/kernel/segment.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/vga.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/page.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="16" />
+        <state relative-caret-position="333">
+          <caret line="99" column="6" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kernel/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="15" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="15" />
+        <state relative-caret-position="378">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
+    <entry file="file://$PROJECT_DIR$/include/kernel/register.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="-504">
+          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+          <folding>
+            <element signature="e#114#135#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/segment.c">
+    <entry file="file://$PROJECT_DIR$/kernel/multiboot.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
+        <state relative-caret-position="500">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flags.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/vga.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/segment.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="117" selection-start-line="117" selection-end-line="117" selection-end-column="42" />
+          <folding>
+            <element signature="e#56#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/memory.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/vmm.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/vmm.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding>
+            <element signature="e#43#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/register.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="71" column="39" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/kernel/page.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding>
+            <element signature="e#45#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/page.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
         </state>
       </provider>
     </entry>

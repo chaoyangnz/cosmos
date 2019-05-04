@@ -1,6 +1,6 @@
 #include <kernel/multiboot.h>
 #include <stdio.h>
-#include <kernel/page.h>
+#include <kernel/memory.h>
 
 multiboot_info_t *multiboot_info_ptr;
 

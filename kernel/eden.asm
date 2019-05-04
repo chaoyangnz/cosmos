@@ -27,32 +27,11 @@ start:
         ;; !! DON'T USE ebx which is holding the multiboot info
         ;;;------------ENABLE SEGMENT--------------------
         ; setup GDT
-        mov eax, boot_gdt_desc
-        lgdt [eax]
+        call .segment__setup
 
-        jmp	0x08:.cs_loaded ; long jump to reload cs
-.cs_loaded:
-        mov ax, 0x10
-        mov ds, ax   ; ds -> kernel data
-        mov es, ax   ; es -> kernel data
-        mov ss, ax   ; ss -> kernel code
-        mov ax, 0
-        mov fs, ax   ; fs -> null seg
-        mov gs, ax   ; gs -> null seg
-
-        ;;;------------PAGE DIRECTORY--------------------
-        ;;; setup initial blank page directories (all page table pages present)
-        ;;; setup mapped page table (16M: including frame buffer 0xb8000 )
+        ;;;------------PAGING SETUP--------------------
+        ; setup paging
         call page__setup
-
-        ;;;------------ENABLE PAGING--------------------
-        ;;; enable paging
-        mov eax, page_directory - KERNEL_BASE
-        mov cr3, eax
-
-        mov eax, cr0
-        or eax, 0x80000000
-        mov cr0, eax
 
         ;;;------------HAPPY WORLD--------------------
         ; set up stack
@@ -61,6 +40,20 @@ start:
 
         hlt
 
+.segment__setup:
+       mov eax, boot_gdt_desc
+               lgdt [eax]
+
+               jmp	0x08:.cs_loaded ; long jump to reload cs
+       .cs_loaded:
+               mov ax, 0x10
+               mov ds, ax   ; ds -> kernel data
+               mov es, ax   ; es -> kernel data
+               mov ss, ax   ; ss -> kernel code
+               mov ax, 0
+               mov fs, ax   ; fs -> null seg
+               mov gs, ax   ; gs -> null seg
+               ret
 
 section .boot_data
 align 4

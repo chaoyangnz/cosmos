@@ -2,8 +2,7 @@ global start
 global page_directory
 global page_tables
 
-extern boot_init_page_directory
-extern boot_map_high_half_pages
+extern page__setup
 extern kernel_main
 
 KERNEL_BASE equ 0xC0000000
@@ -43,11 +42,8 @@ start:
 
         ;;;------------PAGE DIRECTORY--------------------
         ;;; setup initial blank page directories (all page table pages present)
-        call boot_init_page_directory
-
-        ;;;------------PAGE TABLE--------------------
         ;;; setup mapped page table (16M: including frame buffer 0xb8000 )
-        call boot_map_high_half_pages
+        call page__setup
 
         ;;;------------ENABLE PAGING--------------------
         ;;; enable paging

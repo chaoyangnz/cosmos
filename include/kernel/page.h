@@ -43,8 +43,8 @@ extern page_tables_t page_tables;
 extern page_directory_t *page_directory_ptr __attribute__((section (".boot_bss")));
 extern page_tables_t *page_tables_ptr __attribute__((section (".boot_bss")));
 
-extern void boot_init_page_directory() __attribute__((section (".boot")));
-extern void boot_map_page_table(uint32_t page_table_index) __attribute__((section (".boot")));
-extern void boot_map_high_half_pages() __attribute__((section (".boot")));
+extern void page__setup() __attribute__((section (".boot")));
+extern void page__map_page_table(uint32_t page_table_index) __attribute__((section (".boot")));
+extern void page__map_high_half_pages() __attribute__((section (".boot")));
 
 #endif //COSMOS_PAGE_H

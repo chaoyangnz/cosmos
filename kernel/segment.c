@@ -85,8 +85,6 @@ segment__setup()
     segment__load_gdt();
 }
 
-
-
 void
 segment__load_gdt() {
     gdt_desc_t gdt_desc = {

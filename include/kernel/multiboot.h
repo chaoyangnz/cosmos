@@ -235,8 +235,9 @@ struct multiboot_mod_list
 };
 typedef struct multiboot_mod_list multiboot_module_t;
 
+extern multiboot_info_t* multiboot_info_ptr;
 
-extern multiboot_info_t* multiboot_get();
-extern void multiboot_print();
+extern void multiboot__setup();
+extern void multiboot__info();
 
 #endif /* _COSMOS_X86_MULTIBOOT_H_ */

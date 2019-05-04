@@ -6,5 +6,5 @@
  */
 int getchar()
 {
-	return vga_getchar();
+	return vga__getchar();
 }

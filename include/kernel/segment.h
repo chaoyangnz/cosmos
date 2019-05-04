@@ -117,17 +117,13 @@ typedef struct
 
 extern segment_descriptor_t gdt[GDT_SIZE];
 
-extern void fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limit, uint8_t access, uint8_t sizebits);
-extern void fill_descriptor_base(segment_descriptor_t *desc, uint32_t base);
-extern void fill_descriptor_limit(segment_descriptor_t *desc, uint32_t limit);
-extern void fill_gate(x86_gate_t *gate, uint32_t offset, uint16_t selector, uint8_t access, uint8_t word_count);
 
 /* Initialize the base GDT descriptors with sensible defaults.  */
-extern void gdt_init(void);
+extern void segment__setup(void);
 
 /* Load the base GDT into the CPU.  */
-extern void gdt_load(void);
-extern void gdt_print();
+extern void segment__load_gdt(void);
+extern void segment__info();
 
 
 

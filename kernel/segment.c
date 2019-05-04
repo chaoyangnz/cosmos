@@ -8,8 +8,9 @@ segment_descriptor_t gdt[GDT_SIZE];
 //static gdt_desc_t gdt_desc;
 
 /* Fill a segment descriptor.  */
-void
-fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limit, uint8_t access, uint8_t sizebits)
+static void
+segment__fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limit, uint8_t access,
+                                 uint8_t sizebits)
 {
     if (limit > 0xfffff)
     {
@@ -26,8 +27,8 @@ fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limi
 }
 
 /* Set the base address in a segment descriptor.  */
-void
-fill_descriptor_base(segment_descriptor_t *desc, uint32_t base)
+static void
+segment__fill_descriptor_base(segment_descriptor_t *desc, uint32_t base)
 {
     desc->base_low = base & 0xffff;
     desc->base_med = (base >> 16) & 0xff;
@@ -35,8 +36,8 @@ fill_descriptor_base(segment_descriptor_t *desc, uint32_t base)
 }
 
 /* Set the size in a segment descriptor.  */
-void
-fill_descriptor_limit(segment_descriptor_t *desc, uint32_t limit)
+static void
+segment__fill_descriptor_limit(segment_descriptor_t *desc, uint32_t limit)
 {
     if (limit > 0xfffff)
     {
@@ -50,9 +51,9 @@ fill_descriptor_limit(segment_descriptor_t *desc, uint32_t limit)
 }
 
 /* Fill a gate with particular values.  */
-void
-fill_gate(x86_gate_t *gate, uint32_t offset, uint16_t selector,
-          uint8_t access, uint8_t word_count)
+static void
+segment__fill_gate(x86_gate_t *gate, uint32_t offset, uint16_t selector,
+                   uint8_t access, uint8_t word_count)
 {
     gate->offset_low = offset & 0xffff;
     gate->selector = selector;
@@ -62,30 +63,32 @@ fill_gate(x86_gate_t *gate, uint32_t offset, uint16_t selector,
 }
 
 void
-gdt_init()
+segment__setup()
 {
     /* Initialize the 32-bit kernel code and data segment descriptors
        to point to the base of the kernel linear space region.  */
-    fill_segment_descriptor(&gdt[SEG_INDEX_KERNEL_CODE],
-                            0x00000000, 0xffffffff,
-                            SEG_DESC_ACC_PL_K | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
-    fill_segment_descriptor(&gdt[SEG_INDEX_KERNEL_DATA],
-                            0x00000000, 0xffffffff,
-                            SEG_DESC_ACC_PL_K | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
+    segment__fill_segment_descriptor(&gdt[SEG_INDEX_KERNEL_CODE],
+                                     0x00000000, 0xffffffff,
+                                     SEG_DESC_ACC_PL_K | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
+    segment__fill_segment_descriptor(&gdt[SEG_INDEX_KERNEL_DATA],
+                                     0x00000000, 0xffffffff,
+                                     SEG_DESC_ACC_PL_K | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
 
     /* Descriptors that direct-map all linear space.  */
-    fill_segment_descriptor(&gdt[SEG_INDEX_USER_CODE],
-                            0x00000000, 0xffffffff,
-                            SEG_DESC_ACC_PL_U | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
-    fill_segment_descriptor(&gdt[SEG_INDEX_USER_DATA],
-                            0x00000000, 0xffffffff,
-                            SEG_DESC_ACC_PL_U | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
+    segment__fill_segment_descriptor(&gdt[SEG_INDEX_USER_CODE],
+                                     0x00000000, 0xffffffff,
+                                     SEG_DESC_ACC_PL_U | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
+    segment__fill_segment_descriptor(&gdt[SEG_INDEX_USER_DATA],
+                                     0x00000000, 0xffffffff,
+                                     SEG_DESC_ACC_PL_U | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
+
+    segment__load_gdt();
 }
 
 
 
 void
-gdt_load() {
+segment__load_gdt() {
     gdt_desc_t gdt_desc = {
        .base = (addr_t)(&gdt),
        .limit = GDT_SIZE * 8 - 1
@@ -109,7 +112,7 @@ gdt_load() {
     set_gs(segment_selector(SEG_INDEX_NULL, 0, 0));
 }
 
-void gdt_print() {
+void segment__info() {
     gdt_desc_t gdt_des = get_gdtr();
     printf("GDT: %#x %#x CS: %#x DS: %#x ES: %#x SS: %#x FS: %#x GS: %#x \n", \
         gdt_des.base, gdt_des.limit, get_cs(), get_ds(), get_es(), get_ss(), get_fs(), get_gs());

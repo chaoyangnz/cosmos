@@ -27,12 +27,12 @@ enum vga_color {
  * Exported console functions from the machine dependent code. These need
  * to be defined for simple console output to work.
  */
-extern void vga_initialize();
-extern void vga_set_fg(enum vga_color fg);
-extern void vga_set_bg(enum vga_color bg);
-extern int	vga_putchar(char c);
-extern int	vga_getchar();
-extern int	vga_puts(const char *s);
-extern int	vga_putbytes(const char *s, size_t len);
+extern void vga__setup();
+extern void vga__set_fg(enum vga_color fg);
+extern void vga__set_bg(enum vga_color bg);
+extern int	vga__putchar(char c);
+extern int	vga__getchar();
+extern int	vga__puts(const char *s);
+extern int	vga__putbytes(const char *data, size_t size);
 
 #endif /* _SYS_CONSOLE_H_ */

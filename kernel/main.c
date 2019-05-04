@@ -20,26 +20,26 @@
 void kernel_main()
 {
     /* Initialize terminal interface */
-    vga_initialize();
+    vga__setup();
     /* Welcome screen */
     printf("%s", "   ___   ___    __  ___  ___   ___    __ \n  //    // \\\\  (( \\ ||\\\\//||  // \\\\  (( \\\n ((    ((   ))  \\\\  || \\/ || ((   ))  \\\\ \n  \\\\__  \\\\_//  \\_)) ||    ||  \\\\_//  \\_))\n\n");
     printf("%s", "               Hello, Cosmos!\n");
-    vga_set_fg(VGA_COLOR_BROWN);
+    vga__set_fg(VGA_COLOR_BROWN);
 
-    multiboot_print();
+    multiboot__setup();
+    multiboot__info();
 
     /* re-setup GDT after paging is enabled */
-    gdt_init();
-    gdt_load();
-    gdt_print();
+    segment__setup();;
+    segment__info();
 
-    mm_init();
-    printf("%d \n", mm_is_page_mapped(mm_page_index(0, 0)));
-    printf("%d \n", mm_is_page_mapped(mm_page_index(0, 1)));
-    printf("%d \n", mm_is_page_mapped(mm_page_index(768, 0)));
-    printf("%d \n", mm_is_page_mapped(mm_page_index(768, 1)));
-    printf("%d \n", mm_is_page_mapped(mm_page_index(769, 0)));
-    printf("%d \n", mm_is_page_mapped(mm_page_index(772, 0)));
+    vmm__setup();
+    printf("%d \n", vmm__is_page_mapped(vmm__page_index(0, 0)));
+    printf("%d \n", vmm__is_page_mapped(vmm__page_index(0, 1)));
+    printf("%d \n", vmm__is_page_mapped(vmm__page_index(768, 0)));
+    printf("%d \n", vmm__is_page_mapped(vmm__page_index(768, 1)));
+    printf("%d \n", vmm__is_page_mapped(vmm__page_index(769, 0)));
+    printf("%d \n", vmm__is_page_mapped(vmm__page_index(772, 0)));
     printf("%#x \n", &page_directory);
     printf("%#x \n", &page_tables);
 }

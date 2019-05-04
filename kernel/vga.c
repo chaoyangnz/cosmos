@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <string.h>
+#include <kernel/page.h>
 
 static uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg)
 {
@@ -14,7 +15,7 @@ static uint16_t vga_entry(unsigned char uc, uint8_t color)
     return (uint16_t) uc | (uint16_t) color << 8;
 }
 
-static const uint32_t VGA_BASE = 0xB8000 + 0xC0000000; // now frame buffer mapped to higher half
+static const uint32_t VGA_BASE = pa_to_va(0xB8000); // now frame buffer mapped to higher half
 static const size_t VGA_WIDTH = 80;
 static const size_t VGA_HEIGHT = 25;
 
@@ -23,7 +24,7 @@ size_t vga_column;
 uint8_t vga_color;
 uint16_t* vga_buffer;
 
-void vga_initialize(void)
+void vga__setup(void)
 {
     vga_row = 0;
     vga_column = 0;
@@ -38,23 +39,23 @@ void vga_initialize(void)
     }
 }
 
-void vga_set_fg(enum vga_color fg)
+void vga__set_fg(enum vga_color fg)
 {
     vga_color = ( vga_color & 0xF0 ) | fg;
 }
 
-void vga_set_bg(enum vga_color bg)
+void vga__set_bg(enum vga_color bg)
 {
     vga_color = (vga_color & 0x0F ) | bg << 4;
 }
 
-void vga_put_entry_at(char c, uint8_t color, size_t x, size_t y)
+void vga__put_entry_at(char c, uint8_t color, size_t x, size_t y)
 {
     const size_t index = y * VGA_WIDTH + x;
     vga_buffer[index] = vga_entry(c, color);
 }
 
-int vga_putchar(char c)
+int vga__putchar(char c)
 {
     if(c == '\n') {
         vga_column = 0;
@@ -63,7 +64,7 @@ int vga_putchar(char c)
             vga_row = 0;
         }
     } else {
-        vga_put_entry_at(c, vga_color, vga_column, vga_row);
+        vga__put_entry_at(c, vga_color, vga_column, vga_row);
         vga_column++;
         if(vga_column == VGA_WIDTH) {
             vga_row++;
@@ -75,18 +76,18 @@ int vga_putchar(char c)
     return 0;
 }
 
-int vga_putbytes(const char* data, size_t size)
+int vga__putbytes(const char *data, size_t size)
 {
     for (size_t i = 0; i < size; i++)
-        vga_putchar(data[i]);
+        vga__putchar(data[i]);
     return size;
 }
 
-int vga_puts(const char *data)
+int vga__puts(const char *data)
 {
-    return vga_putbytes(data, strlen(data));
+    return vga__putbytes(data, strlen(data));
 }
 
-int vga_getchar() {
+int vga__getchar() {
     return NULL;
 }

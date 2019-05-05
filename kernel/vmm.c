@@ -39,7 +39,7 @@ void vmm__info() {
     printf("GDT: %#x %#x CS: %#x DS: %#x ES: %#x SS: %#x FS: %#x GS: %#x \n", \
         gdt_des.base, gdt_des.limit, get_cs(), get_ds(), get_es(), get_ss(), get_fs(), get_gs());
 
-    printf("PD: %#x PDT: %#x mapped tables: ", &page_directory, &page_tables);
+    printf("PD: %#x PT: %#x mapped tables: ", &page_directory, &page_tables);
     for(uint32_t i = 0; i < KERNEL_HIGH_HALF_SIZE; ++i) {
         if(vmm__is_page_mapped(vmm__page_index(i, 0))) {
             printf("%d ", i);

@@ -1,4 +1,5 @@
 #include <kernel/vmm.h>
+#include <kernel/register.h>
 
 uint8_t page_bitmap[ALL_PAGES / 8];
 
@@ -9,6 +10,10 @@ static void vmm__recycle_identity_mapping() {
         }
     }
 }
+
+//static void vmm__fix_gdt_va() {
+//    set_gdtr()
+//}
 
 uint32_t
 vmm__page_index(uint32_t page_table_index, uint32_t page_index_in_table) {

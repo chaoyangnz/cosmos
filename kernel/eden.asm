@@ -1,10 +1,10 @@
 global start
 
+extern stack_top
 extern multiboot__setup
+extern segment__setup
 extern page__setup
 extern kernel_main
-
-KERNEL_BASE equ 0xC0000000
 
 MULTIBOOT_PAGE_ALIGN    equ     1<<0
 MULTIBOOT_MEMORY_INFO   equ     1<<1
@@ -26,7 +26,7 @@ start:
         call multiboot__setup
         ;;;------------ENABLE SEGMENT--------------------
         ; setup GDT
-        call .segment__setup
+        call segment__setup
 
         ;;;------------PAGING SETUP--------------------
         ; setup paging
@@ -38,34 +38,4 @@ start:
         call kernel_main
 
         hlt
-
-.segment__setup:
-       mov eax, boot_gdt_desc
-               lgdt [eax]
-
-               jmp	0x08:.cs_loaded ; long jump to reload cs
-       .cs_loaded:
-               mov ax, 0x10
-               mov ds, ax   ; ds -> kernel data
-               mov es, ax   ; es -> kernel data
-               mov ss, ax   ; ss -> kernel code
-               mov ax, 0
-               mov fs, ax   ; fs -> null seg
-               mov gs, ax   ; gs -> null seg
-               ret
-
-section .boot_data
-align 4
-        boot_gdt_desc:
-                db 3 * 8 - 1, 0x00
-                dd boot_gdt
-
-        boot_gdt:
-                dq 0 ; seg_null
-                db 0xff, 0xff, 0x00, 0x00, 0x00, 0x9a, 0xcf, 0x00 ; seg_kernel_code
-                db 0xff, 0xff, 0x00, 0x00, 0x00, 0x93, 0xcf, 0x00 ; seg_kernel_data
-
-section .bss
-        stack_bottom: resb 4096               ; 4k
-        stack_top:
 

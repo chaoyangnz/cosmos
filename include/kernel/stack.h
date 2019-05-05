@@ -1,11 +1,14 @@
 #ifndef _COSMOS_X86_BASE_STACK_H_
 #define _COSMOS_X86_BASE_STACK_H_
 
-#define BASE_STACK_SIZE		65536
+#include <stdint.h>
 
-extern char base_stack_start[], base_stack_end[];
+#define STACK_SIZE 4 * 1024
 
-/* For the sake of unix mode, where stacks are not always BASE_STACK_SIZE. */
-extern int  base_stack_size;
+typedef uint8_t stack_t[STACK_SIZE];
+
+extern stack_t stack;
+extern addr_t stack_bottom;
+extern addr_t stack_top;
 
 #endif /* _COSMOS_X86_BASE_STACK_H_ */

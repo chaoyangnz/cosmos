@@ -29,7 +29,6 @@ void kernel_main()
     multiboot__info();
 
     /* re-setup GDT after paging is enabled */
-    segment__setup();;
     segment__info();
 
     vmm__setup();

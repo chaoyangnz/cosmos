@@ -99,14 +99,9 @@ typedef struct
 } PACKED gdt_desc_t;
 
 typedef segment_descriptor_t gdt_t[GDT_SIZE];
-extern gdt_t gdt;
 
+extern gdt_t gdt __attribute__((aligned(4)));
 
-/* Initialize the base GDT descriptors with sensible defaults.  */
-extern void segment__setup(void);
-
-/* Load the base GDT into the CPU.  */
-extern void segment__load_gdt(void);
 extern void segment__info();
 
 

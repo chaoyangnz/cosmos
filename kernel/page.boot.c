@@ -1,3 +1,5 @@
+#include "eden.h"
+
 #include <kernel/page.h>
 #include <compiler.h>
 
@@ -11,7 +13,7 @@ static void page__map_page_table(uint32_t page_table_index) BOOT_SECTION;
 static void page__map_high_half_pages() BOOT_SECTION;
 static void page__enable_paging() BOOT_SECTION;
 
-extern void page__setup() BOOT_SECTION;
+
 
 // 1) setup directory entries (each points to a page table and all present)
 // 2) all pages are not present except mapped pages (16M: including frame buffer 0xb8000 )
@@ -51,8 +53,7 @@ page__map_high_half_pages() {
 static void
 page__enable_paging() {
     asm volatile (
-    "movl %0, %%eax  \n"
-    "movl %%eax, %%cr3   \n"
+    "movl %0, %%cr3   \n"
     "movl %%cr0, %%eax   \n"
     "orl $0x80000000, %%eax \n"
     "movl %%eax, %%cr0"
@@ -60,7 +61,7 @@ page__enable_paging() {
     );
 }
 
-extern void page__after_boot() {
+void page__after_boot() {
     // recycle identity mapping
     for(uint32_t page_table_index = 0; page_table_index < KERNEL_HIGH_HALF_SIZE; ++page_table_index) {
         for(uint32_t page_index = 0; page_index < 1024; ++page_index) {

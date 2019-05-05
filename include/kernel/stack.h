@@ -8,7 +8,7 @@
 typedef uint8_t stack_t[STACK_SIZE];
 
 extern stack_t stack;
-extern addr_t stack_bottom;
-extern addr_t stack_top;
+extern uint8_t *stack_bottom;
+extern uint8_t *stack_top;
 
 #endif /* _COSMOS_X86_BASE_STACK_H_ */

@@ -1,3 +1,5 @@
+#include "eden.h"
+
 #include <kernel/segment.h>
 #include <kernel/register.h>
 #include <stdint.h>
@@ -10,9 +12,6 @@ static void segment__fill_segment_descriptor(segment_descriptor_t *desc, uint32_
 
 /* Load the base GDT into the CPU.  */
 static void segment__load_gdt() BOOT_SECTION;
-
-/* Initialize the base GDT descriptors with sensible defaults.  */
-extern void segment__setup() BOOT_SECTION;
 
 void
 segment__setup()
@@ -94,7 +93,7 @@ segment__load_gdt() {
     );
 }
 
-extern void segment__after_boot() {
+void segment__after_boot() {
     // fix gdtr to virtual address
     gdt_desc_t gdt_desc = {
             .base = (addr_t)(&gdt),

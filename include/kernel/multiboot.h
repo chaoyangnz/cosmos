@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include <kernel/types.h>
+#include <compiler.h>
 
 /* How many bytes from the start of the file we search for the header.  */
 #define MULTIBOOT_SEARCH			8192
@@ -237,7 +238,7 @@ typedef struct multiboot_mod_list multiboot_module_t;
 
 extern multiboot_info_t multiboot_info;
 
-extern void multiboot__setup() __attribute__((section (".boot")));
+extern void multiboot__setup() BOOT_SECTION;
 extern void multiboot__info();
 
 #endif /* _COSMOS_X86_MULTIBOOT_H_ */

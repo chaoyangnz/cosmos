@@ -94,5 +94,14 @@ segment__load_gdt() {
     );
 }
 
+extern void segment__after_boot() {
+    // fix gdtr to virtual address
+    gdt_desc_t gdt_desc = {
+            .base = (addr_t)(&gdt),
+            .limit = GDT_SIZE * 8 - 1
+    };
+    asm volatile("lgdt %0" : : "m" (gdt_desc));
+}
+
 
 

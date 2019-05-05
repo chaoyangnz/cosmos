@@ -60,3 +60,12 @@ page__enable_paging() {
     );
 }
 
+extern void page__after_boot() {
+    // recycle identity mapping
+    for(uint32_t page_table_index = 0; page_table_index < KERNEL_HIGH_HALF_SIZE; ++page_table_index) {
+        for(uint32_t page_index = 0; page_index < 1024; ++page_index) {
+            page_tables[page_table_index][page_index] &= ~0x00000001;
+        }
+    }
+}
+

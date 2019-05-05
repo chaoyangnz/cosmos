@@ -3,7 +3,9 @@ global start
 extern stack_top
 extern multiboot__setup
 extern segment__setup
+extern segment__after_boot
 extern page__setup
+extern page__after_boot
 extern kernel_main
 
 MULTIBOOT_PAGE_ALIGN    equ     1<<0
@@ -23,18 +25,23 @@ multiboot:
     dd MULTIBOOT_FLAGS
     dd MULTIBOOT_CHECKSUM
 start:
+        ;;; stack in identity mapping
+        mov esp, stack_top - 0xC0000000
         call multiboot__setup
         ;;;------------ENABLE SEGMENT--------------------
-        ; setup GDT
+        ;;; setup GDT
         call segment__setup
 
         ;;;------------PAGING SETUP--------------------
-        ; setup paging
+        ;;; setup paging
         call page__setup
 
+        ;;;-------------------------------------------
         ;;;------------HAPPY WORLD--------------------
-        ; set up stack
+        ;;; re-setup stack
         mov esp, stack_top
+        call segment__after_boot
+        call page__after_boot
         call kernel_main
 
         hlt

@@ -102,8 +102,6 @@ typedef segment_descriptor_t gdt_t[GDT_SIZE];
 
 extern gdt_t gdt __attribute__((aligned(4)));
 
-extern void segment__info();
-
 
 
 #endif	/* _COSMOS_X86_SEG_H_ */

@@ -11,4 +11,6 @@ extern uint32_t vmm__page_index(uint32_t page_table_index, uint32_t page_index_i
 extern void vmm__set_page_mapped(uint32_t page_index);
 extern bool_t vmm__is_page_mapped(uint32_t page_index);
 
+extern void vmm__info();
+
 #endif //COSMOS_VMM_H

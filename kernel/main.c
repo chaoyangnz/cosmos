@@ -17,27 +17,18 @@
 #error "This kernel needs to be compiled with a i386-elf compiler"
 #endif
 
-void kernel_main()
-{
-    /* Initialize terminal interface */
-    vga__setup();
-    /* Welcome screen */
+static void welcome() {
     printf("%s", "   ___   ___    __  ___  ___   ___    __ \n  //    // \\\\  (( \\ ||\\\\//||  // \\\\  (( \\\n ((    ((   ))  \\\\  || \\/ || ((   ))  \\\\ \n  \\\\__  \\\\_//  \\_)) ||    ||  \\\\_//  \\_))\n\n");
     printf("%s", "               Hello, Cosmos!\n");
     vga__set_fg(VGA_COLOR_BROWN);
+}
 
+void kernel_main()
+{
+    vga__setup();
+    welcome();
     multiboot__info();
 
-    /* re-setup GDT after paging is enabled */
-    segment__info();
-
     vmm__setup();
-    printf("%d \n", vmm__is_page_mapped(vmm__page_index(0, 0)));
-    printf("%d \n", vmm__is_page_mapped(vmm__page_index(0, 1)));
-    printf("%d \n", vmm__is_page_mapped(vmm__page_index(768, 0)));
-    printf("%d \n", vmm__is_page_mapped(vmm__page_index(768, 1)));
-    printf("%d \n", vmm__is_page_mapped(vmm__page_index(769, 0)));
-    printf("%d \n", vmm__is_page_mapped(vmm__page_index(772, 0)));
-    printf("%#x \n", &page_directory);
-    printf("%#x \n", &page_tables);
+    vmm__info();
 }

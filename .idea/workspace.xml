@@ -14,8 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/vmm.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/vmm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/eden.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/eden.asm" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -38,14 +37,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kernel/vmm.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+            <state relative-caret-position="225">
+              <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -164,7 +172,6 @@
         <option value="$PROJECT_DIR$/include/kernel/stack.h" />
         <option value="$PROJECT_DIR$/kernel/stack.c" />
         <option value="$PROJECT_DIR$/kernel/eden.h" />
-        <option value="$PROJECT_DIR$/kernel/eden.asm" />
         <option value="$PROJECT_DIR$/kernel/stack.boot.c" />
         <option value="$PROJECT_DIR$/kernel/page.boot.c" />
         <option value="$PROJECT_DIR$/kernel/multiboot.boot.c" />
@@ -175,6 +182,7 @@
         <option value="$PROJECT_DIR$/kernel/vga.c" />
         <option value="$PROJECT_DIR$/kernel/main.c" />
         <option value="$PROJECT_DIR$/kernel/vmm.c" />
+        <option value="$PROJECT_DIR$/kernel/eden.asm" />
       </list>
     </option>
   </component>
@@ -279,9 +287,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="822" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49912128" visible="true" weight="0.21101573" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49912128" visible="true" weight="0.21101573" />
       <window_info id="Favorites" order="1" sideWeight="0.50087875" side_tool="true" weight="0.1437649" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32603773" />
@@ -294,7 +301,7 @@
       <window_info anchor="bottom" id="Run" order="8" sideWeight="0.50039715" weight="0.3178082" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.5015886" side_tool="true" weight="0.31849056" />
       <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.49960285" weight="0.4041096" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49841145" visible="true" weight="0.36438355" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49841145" visible="true" weight="0.31506848" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -660,13 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kernel/stack.boot.c" />
     <entry file="file://$PROJECT_DIR$/kernel/stack.c">
       <provider selected="true" editor-type-id="text-editor">
@@ -751,11 +751,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kernel/vmm.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+        <state relative-caret-position="225">
+          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/eden.asm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
         </state>
       </provider>
     </entry>

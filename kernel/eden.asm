@@ -22,6 +22,7 @@ multiboot:
     dd MULTIBOOT_FLAGS
     dd MULTIBOOT_CHECKSUM
 start:
+        cli
         ;;; stack in identity mapping
         mov esp, stack_top - 0xC0000000
         ;;; enable segment, paging

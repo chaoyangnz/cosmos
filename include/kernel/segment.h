@@ -42,7 +42,7 @@
 #define	SEG_DESC_ACC_P		0x80			/* segment present */
 
 /*
- * Components of a selector
+ * Components of a segment_selector
  */
 #define	SEG_SEL_LDT		0x04			    /* local selector */
 #define	SEG_SEL_PL		0x03			    /* privilege level: */
@@ -50,12 +50,12 @@
 #define	SEG_SEL_PL_U	0x03			    /* user selector */
 
 /*
- * Convert selector to descriptor table index.
+ * Convert segment_selector to descriptor table index.
  */
 #define	sel_idx(sel)	((sel)>>3)
 
 
-/* Return the privilege level of a segment selector */
+/* Return the privilege level of a segment segment_selector */
 #define ISPL(s)         ((s) & SEG_SEL_PL)
 
 #define USERMODE(s, f)          (ISPL(s) == SEG_SEL_PL_U || ((f) & EFL_VM) != 0)

@@ -232,12 +232,12 @@ void set_gdtr(gdt_desc_t gdt_desc)
 
 gdt_desc_t get_gdtr()
 {
-    gdt_desc_t _seg__;
-    asm volatile("sgdt %0" : : "m" (_seg__) );
-    return _seg__;
+    gdt_desc_t gdt_desc;
+    asm volatile("sgdt %0" : : "m" (gdt_desc) );
+    return gdt_desc;
 }
 
-void set_idt(gdt_desc_t pseudo_desc)
+void set_idt(idt_desc_t pseudo_desc)
 {
 	asm volatile("lidt %0" : : "m" (pseudo_desc));
 }
@@ -281,4 +281,20 @@ void wrmsrll(uint32_t msr, uint32_t val)
 {
 	asm volatile(".byte 0x0f; .byte 0x30"
 	: : "A" (val), "c" (msr));
+}
+
+void outb(uint16_t port, uint8_t data) {
+    asm volatile(
+    "outb %0, %1"
+    : : "a" (data), "d" (port)
+    );
+}
+
+uint8_t inb(uint16_t port) {
+    uint8_t data;
+    asm volatile(
+    "inb %1, %0"
+    : "=a" (data) : "d" (port)
+    );
+    return data;
 }

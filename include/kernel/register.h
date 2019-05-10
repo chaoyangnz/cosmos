@@ -7,6 +7,7 @@
 #include <compiler.h>
 #include <stdint.h>
 #include <kernel/segment.h>
+#include "interrupt.h"
 
 /*
  * CR0
@@ -97,7 +98,7 @@ extern uint16_t get_tr();
 extern void set_tr(uint16_t seg);
 extern void set_gdtr(gdt_desc_t gdt_desc);
 extern gdt_desc_t get_gdtr();
-extern void set_idt(gdt_desc_t pseudo_desc);
+extern void set_idt(idt_desc_t pseudo_desc);
 extern uint16_t get_ldt();
 extern void set_ldt(uint16_t seg);
 extern uint32_t get_tsc();
@@ -105,5 +106,7 @@ extern uint32_t rdmsr(uint32_t msr);
 extern void wrmsr(uint32_t msr, uint32_t high, uint32_t low);
 extern void wrmsrll(uint32_t msr, uint32_t val);
 
+extern void outb(uint16_t port, uint8_t data);
+extern uint8_t inb(uint16_t port);
 
 #endif	/* _COSMOS_X86_PROC_REG_H_ */

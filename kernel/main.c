@@ -31,4 +31,6 @@ void kernel_main()
 
     vmm__setup();
     vmm__info();
+
+    interrupt__setup();
 }

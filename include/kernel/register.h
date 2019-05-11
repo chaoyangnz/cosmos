@@ -106,7 +106,4 @@ extern uint32_t rdmsr(uint32_t msr);
 extern void wrmsr(uint32_t msr, uint32_t high, uint32_t low);
 extern void wrmsrll(uint32_t msr, uint32_t val);
 
-extern void outb(uint16_t port, uint8_t data);
-extern uint8_t inb(uint16_t port);
-
 #endif	/* _COSMOS_X86_PROC_REG_H_ */

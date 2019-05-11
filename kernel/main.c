@@ -33,4 +33,8 @@ void kernel_main()
     vmm__info();
 
     interrupt__setup();
+
+    for(;;) {
+        asm("hlt");
+    }
 }

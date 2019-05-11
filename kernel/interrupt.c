@@ -2,7 +2,9 @@
 
 #include <kernel/segment.h>
 #include <stdio.h>
-#include <kernel/register.h>
+#include "io.h"
+
+#include "keyboard.h"
 
 idt_t idt;
 
@@ -58,25 +60,42 @@ void interrupt__pic_mask_irq(uint8_t irq) {
 }
 
 void interrupt__pic_acknowledge(uint8_t irq) {
-    if (irq < 8) {
-        outb(PIC1_PORT_COMMAND, PIC_ACK);
-    } else {
+    outb(PIC1_PORT_COMMAND, PIC_ACK);
+    if (irq > 8) {
         outb(PIC2_PORT_COMMAND, PIC_ACK);
     }
 }
 
-void interrupt__handler(uint32_t interrupt, uint32_t error) {
-    if(interrupt == INTERRUPT_KEYBOARD) {
-        printf("keyboard interrupt \n");
+typedef struct interrupt_state {
+    uint32_t edi;
+    uint32_t esi;
+    uint32_t ebp;
+    uint32_t edx;
+    uint32_t ecx;
+    uint32_t ebx;
+    uint32_t eax;
+    uint32_t esp;
+    uint32_t interrupt;
+    uint32_t error_code;
+    uint32_t eip;
+    uint32_t cs;
+    uint32_t eflags;
+} __attribute__((packed)) interrupt_state;
+
+void interrupt__handler(interrupt_state state) {
+    if(state.interrupt == INTERRUPT_KEYBOARD) {
+        unsigned char scan_code = keyboard__read_scan_code();
+        char ch = keyboard__scan_code_to_ascii(scan_code);
+        if(ch > 0) {
+            printf("keyboard: %c \n", ch);
+        }
     }
-    if(interrupt >= PIC1_START_INTERRUPT && interrupt <= PIC2_END_INTERRUPT) {
-        interrupt__pic_acknowledge(interrupt);
+    if(is_irq(state.interrupt)) {
+        interrupt__pic_acknowledge(interrupt_to_irq(state.interrupt));
     }
 }
 
-typedef void (*isr_t);
-
-extern isr_t interrupt_handler_empty;
+typedef void *isr_t;
 
 extern isr_t interrupt_handler_32;
 extern isr_t interrupt_handler_33;
@@ -99,10 +118,10 @@ extern isr_t interrupt_handler_47;
 void interrupt__setup() {
     interrupt__pic_remap();
 
-    for(uint32_t i = 0; i < IDT_SIZE; ++i) {
-        if(i >= PIC1_START_INTERRUPT && i <= PIC2_END_INTERRUPT) continue;
-        interrupt__fill_interrupt_descriptor(&idt[i], &interrupt_handler_empty);
-    }
+//    for(uint32_t i = 0; i < IDT_SIZE; ++i) {
+//        if(i >= PIC1_START_INTERRUPT && i <= PIC2_END_INTERRUPT) continue;
+//        interrupt__fill_interrupt_descriptor(&idt[i], &interrupt_handler_empty);
+//    }
 
     interrupt__fill_interrupt_descriptor(&idt[irq_to_interrupt(0)], &interrupt_handler_32);
     interrupt__fill_interrupt_descriptor(&idt[irq_to_interrupt(1)], &interrupt_handler_33);
@@ -127,9 +146,13 @@ void interrupt__setup() {
     };
     set_idt(idt_desc);
 
-//    asm ("int $33");
-//    sti();
+//    asm ("int $33"); // test
 
-    printf("IDT: %#x", &idt);
+    // enable keyboard
+    outb(0x21,0xfd);
+    outb(0xa1,0xff);
+    sti();
+
+    printf("IDT: %#x \n", &idt);
 }
 

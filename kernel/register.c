@@ -1,7 +1,5 @@
 #include <kernel/register.h>
 
-
-
 void cli() { asm("cli"); }
 void sti() { asm("sti"); }
 void cld() { asm("cld"); }
@@ -283,18 +281,4 @@ void wrmsrll(uint32_t msr, uint32_t val)
 	: : "A" (val), "c" (msr));
 }
 
-void outb(uint16_t port, uint8_t data) {
-    asm volatile(
-    "outb %0, %1"
-    : : "a" (data), "d" (port)
-    );
-}
 
-uint8_t inb(uint16_t port) {
-    uint8_t data;
-    asm volatile(
-    "inb %1, %0"
-    : "=a" (data) : "d" (port)
-    );
-    return data;
-}

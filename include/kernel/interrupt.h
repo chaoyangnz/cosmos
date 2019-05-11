@@ -50,7 +50,9 @@ extern void interrupt__load_idt();
 #define PIC2_START_INTERRUPT 40  // irq8
 #define PIC2_END_INTERRUPT   47  // irq15
 
+#define is_irq(interrupt) (interrupt >= PIC1_START_INTERRUPT && interrupt <= PIC2_END_INTERRUPT)
 #define irq_to_interrupt(irq) (irq + PIC1_START_INTERRUPT)
+#define interrupt_to_irq(interrupt) (interrupt - PIC1_START_INTERRUPT)
 
 #define PIC1_PORT_COMMAND 0x20
 #define PIC2_PORT_COMMAND 0xA0

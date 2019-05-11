@@ -1,6 +1,6 @@
-#include <kernel/multiboot.h>
+#include "multiboot.h"
 #include <stdio.h>
-#include <kernel/memory.h>
+#include "memory.h"
 
 multiboot_info_t multiboot_info;
 

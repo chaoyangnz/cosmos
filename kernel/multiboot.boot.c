@@ -1,7 +1,7 @@
 #include "eden.h"
 
-#include <kernel/multiboot.h>
-#include <kernel/memory.h>
+#include "multiboot.h"
+#include "memory.h"
 
 void
 multiboot__setup() {

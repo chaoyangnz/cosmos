@@ -1,4 +1,4 @@
-#include <kernel/stack.h>
+#include "stack.h"
 
 stack_t stack;
 uint8_t *stack_bottom = &stack[0];

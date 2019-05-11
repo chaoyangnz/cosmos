@@ -1,9 +1,9 @@
 #include "eden.h"
 
-#include <kernel/segment.h>
-#include <kernel/register.h>
+#include "segment.h"
+#include "register.h"
 #include <stdint.h>
-#include <kernel/memory.h>
+#include "memory.h"
 
 static gdt_t *gdt_ptr BOOT_BSS_SECTION;
 

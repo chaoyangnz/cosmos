@@ -1,4 +1,4 @@
-#include <kernel/memory.h>
+#include "memory.h"
 #include <stdio.h>
 
 const char *humanize_size(uint64_t bytes_len)

@@ -1,6 +1,6 @@
 #include "eden.h"
 
-#include <kernel/page.h>
+#include "page.h"
 #include <compiler.h>
 
 // --------------------------------------------------------------

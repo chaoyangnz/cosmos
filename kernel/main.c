@@ -1,11 +1,10 @@
 #include <stdio.h>
-#include <kernel/vga.h>
 #include <string.h>
-#include <kernel/segment.h>
-#include <kernel/multiboot.h>
-#include <kernel/util.h>
-#include <kernel/register.h>
-#include <kernel/vmm.h>
+#include "vga.h"
+#include "segment.h"
+#include "multiboot.h"
+#include "register.h"
+#include "vmm.h"
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)

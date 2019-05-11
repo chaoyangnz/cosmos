@@ -1,5 +1,5 @@
-#include <kernel/vmm.h>
-#include <kernel/register.h>
+#include "vmm.h"
+#include "register.h"
 #include <stdio.h>
 
 uint8_t page_bitmap[ALL_PAGES / 8];

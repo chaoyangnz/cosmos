@@ -6,7 +6,7 @@
 
 #include <compiler.h>
 #include <stdint.h>
-#include <kernel/segment.h>
+#include "segment.h"
 #include "interrupt.h"
 
 /*

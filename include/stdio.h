@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 
-#include "kernel/types.h"
+#include "types.h"
 #include "compiler.h"
 
 /* This is a very naive standard I/O implementation

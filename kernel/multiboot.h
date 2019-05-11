@@ -2,7 +2,7 @@
 #define _COSMOS_X86_MULTIBOOT_H_
 
 #include <stddef.h>
-#include <kernel/types.h>
+#include <types.h>
 #include <compiler.h>
 
 /* How many bytes from the start of the file we search for the header.  */

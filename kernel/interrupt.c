@@ -1,6 +1,6 @@
-#include <kernel/interrupt.h>
+#include "interrupt.h"
 
-#include <kernel/segment.h>
+#include "segment.h"
 #include <stdio.h>
 #include "io.h"
 

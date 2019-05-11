@@ -1,4 +1,4 @@
-#include <kernel/register.h>
+#include "register.h"
 
 void cli() { asm("cli"); }
 void sti() { asm("sti"); }

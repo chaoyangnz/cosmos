@@ -1,11 +1,12 @@
-#include "kernel/vga.h"
+#include "vga.h"
 
 #include <stdbool.h>
 #include <stddef.h>
 #include <string.h>
 #include <stdio.h>
-#include <kernel/page.h>
-#include <kernel/memory.h>
+#include "page.h"
+#include "memory.h"
+#include "io.h"
 
 static uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg)
 {
@@ -57,6 +58,16 @@ void vga__put_entry_at(char c, uint8_t color, size_t x, size_t y)
     vga_buffer[index] = vga_entry(c, color);
 }
 
+void update_cursor(int row, int column)
+{
+    uint16_t pos = row * VGA_WIDTH + column;
+
+    outb(0x3D4, 0x0F);
+    outb(0x3D5, (uint8_t) (pos & 0xFF));
+    outb(0x3D4, 0x0E);
+    outb(0x3D5, (uint8_t) ((pos >> 8) & 0xFF));
+}
+
 int vga__putchar(char c)
 {
     if(c == '\n') {
@@ -75,6 +86,7 @@ int vga__putchar(char c)
             }
         }
     }
+    update_cursor(vga_row, vga_column);
     return 0;
 }
 

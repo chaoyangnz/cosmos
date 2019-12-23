@@ -1,5 +1,5 @@
-#ifndef _C_X86_FLOAT_H_
-#define _C_X86_FLOAT_H_
+#ifndef C_FLOAT_H
+#define C_FLOAT_H
 
 #define FLT_RADIX	2		/* b */
 #define FLT_ROUNDS	1		/* FP addition rounds to nearest */
@@ -34,4 +34,4 @@
 #define LDBL_MAX	DBL_MAX
 #define LDBL_MAX_10_EXP	DBL_MAX_10_EXP
 
-#endif /* _C_X86_FLOAT_H_ */
+#endif /C_FLOAT_H

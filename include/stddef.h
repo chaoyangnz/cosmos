@@ -1,5 +1,5 @@
-#ifndef _C_STDDEF_H_
-#define _C_STDDEF_H_
+#ifndef C_STDDEF_H_
+#define C_STDDEF_H_
 
 #include <stdint.h>
 
@@ -28,4 +28,4 @@ typedef int32_t		        ssize_t;
 #define	offsetof(type, member)	((size_t)(&((type *)0)->member))
 #endif
 
-#endif /* _C_STDDEF_H_ */
+#endif //C_STDDEF_H_

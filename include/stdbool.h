@@ -1,5 +1,5 @@
-#ifndef _C_STDBOOL_H
-#define _C_STDBOOL_H
+#ifndef C_STDBOOL_H
+#define C_STDBOOL_H
 
 /*
  * Just yer ordinary boolean type.
@@ -23,4 +23,4 @@ typedef unsigned char		bool_t;
 
 #define __bool_true_false_are_defined 1
 
-#endif
+#endif //C_STDBOOL_H

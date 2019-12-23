@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="cosmos" targetName="c" />
+      <config projectName="cosmos" targetName="cosmos" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_DIR="build/debug" />
+      <configuration PROFILE_NAME="Release" CONFIG_NAME="Release" GENERATION_DIR="build/release" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/main.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="cosmos" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="OCResolveContextSettings">
+    <option name="configuration" value="0-cosmos" />
+  </component>
+  <component name="ProjectId" id="1VN4XSvd8XXbpvp2RKLRiTqq00U" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/specs" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myShowDebugConsoleByDefault" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/kernel/drivers" />
+      <recent name="$PROJECT_DIR$/kernel" />
+      <recent name="$PROJECT_DIR$/libc" />
+      <recent name="$PROJECT_DIR$/build" />
+      <recent name="$PROJECT_DIR$/include" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/specs" />
+      <recent name="$PROJECT_DIR$/kernel" />
+      <recent name="$PROJECT_DIR$/include/kernel/i386" />
+      <recent name="$PROJECT_DIR$/include/sys/i386" />
+      <recent name="$PROJECT_DIR$/include/sys/x86" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Remote Debug" type="CLion_Remote" remoteCommand="localhost:1234" symbolFile="$PROJECT_DIR$/build/debug/cosmos.elf" sysroot="">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577112497702">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="184" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.822@0.23.1440.822" timestamp="1577112497702" />
+    <state x="120" y="143" width="1200" height="582" key="DiffContextDialog" timestamp="1577087462166">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="120" y="143" width="1200" height="582" key="DiffContextDialog/0.23.1440.822@0.23.1440.822" timestamp="1577087462166" />
+    <state width="1398" height="194" key="GridCell.Tab.0.bottom" timestamp="1577111495584">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="194" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1577111495584" />
+    <state width="1398" height="194" key="GridCell.Tab.0.center" timestamp="1577111495583">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="194" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1577111495583" />
+    <state width="1398" height="194" key="GridCell.Tab.0.left" timestamp="1577111495582">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="194" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1577111495582" />
+    <state width="1398" height="194" key="GridCell.Tab.0.right" timestamp="1577111495583">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="194" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1577111495583" />
+    <state width="1398" height="194" key="GridCell.Tab.1.bottom" timestamp="1577111495585">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="194" key="GridCell.Tab.1.bottom/0.23.1440.822@0.23.1440.822" timestamp="1577111495585" />
+    <state width="1398" height="194" key="GridCell.Tab.1.center" timestamp="1577111495584">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="194" key="GridCell.Tab.1.center/0.23.1440.822@0.23.1440.822" timestamp="1577111495584" />
+    <state width="1398" height="194" key="GridCell.Tab.1.left" timestamp="1577111495584">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="194" key="GridCell.Tab.1.left/0.23.1440.822@0.23.1440.822" timestamp="1577111495584" />
+    <state width="1398" height="194" key="GridCell.Tab.1.right" timestamp="1577111495585">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="194" key="GridCell.Tab.1.right/0.23.1440.822@0.23.1440.822" timestamp="1577111495585" />
+    <state x="538" y="152" key="RollbackChangesDialog" timestamp="1577169023758">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="538" y="152" key="RollbackChangesDialog/0.23.1440.822@0.23.1440.822" timestamp="1577169023758" />
+    <state x="221" y="73" key="SettingsEditor" timestamp="1577161357289">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="221" y="73" key="SettingsEditor/0.23.1440.822@0.23.1440.822" timestamp="1577161357289" />
+    <state x="378" y="191" width="683" height="486" key="find.popup" timestamp="1577167202393">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="378" y="191" width="683" height="486" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1577167202393" />
+    <state x="385" y="85" width="670" height="676" key="search.everywhere.popup" timestamp="1577110429285">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="385" y="85" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1577110429285" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/kernel/boot/multiboot.c</url>
+          <line>26</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/kernel/boot/multiboot.c</url>
+          <line>8</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/kernel/drivers/keyboard.c</url>
+          <line>95</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CLion_Remote">
+        <watch expression="keyboard__scan_code_to_ascii(scan_code)" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>keyboard__scan_code_to_ascii(scan_code)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&amp;interrupt_handler_empty</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&amp;interrupt_handler_33</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>interrupt_handler_33</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>interrupt_handler_32</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>interrupt_handler_empty</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>idt[32]</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>idt[33]</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(addr_t)isr_table[0]</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>isr &gt;&gt; 16</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>multiboot_info</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>args</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>state.buf</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>gdt_desc</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+</project>

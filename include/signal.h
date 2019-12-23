@@ -1,5 +1,5 @@
-#ifndef _SYS_X86_C_SIGNAL_H_
-#define	_SYS_X86_C_SIGNAL_H_
+#ifndef C_SIGNAL_H
+#define	C_SIGNAL_H
 
 /*
  * Machine-dependent signal definitions
@@ -44,4 +44,4 @@ typedef struct sigcontext sigcontext_t;
 
 void sigcontext_dump(struct sigcontext *scp);
 
-#endif /* _SYS_X86_C_SIGNAL_H_ */
+#endif //C_SIGNAL_H

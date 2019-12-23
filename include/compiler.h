@@ -1,5 +1,5 @@
-#ifndef _COMPILER_H_
-#define _COMPILER_H_
+#ifndef C_COMPILER_H
+#define C_COMPILER_H
 
 /*
  * Other handy attributes that are specific to GCC,
@@ -21,4 +21,4 @@
 #define BOOT_SECTION __attribute__((section (".boot")))
 #define BOOT_BSS_SECTION __attribute__((section (".boot_bss")))
 
-#endif /* _SYS_COMPILER_H_ */
+#endif //C_COMPILER_H

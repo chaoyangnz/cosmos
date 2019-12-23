@@ -16,8 +16,8 @@
  * and such a C library would probably use more traditional errno values,
  * doing appropriate translation when interacting with COM interfaces.
  */
-#ifndef _C_ERRNO_H_
-#define _C_ERRNO_H_
+#ifndef C_ERRNO_H
+#define C_ERRNO_H
 
 #if !defined(errno) && !defined(ASSEMBLER)
 extern int errno;			/* global error number */
@@ -122,7 +122,7 @@ extern int errno;			/* global error number */
 #define ETXTBSY		0x8f100221	/* Text file busy */
 #define EWOULDBLOCK	0x8f100222	/* Operation would block */
 
-#endif /* _C_ERRNO_H_ */
+#endif //C_ERRNO_H
 
 
 

@@ -8,4 +8,3 @@ cmake-build-*
 build
 bin
 .DS_Store
-.idea

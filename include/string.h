@@ -1,5 +1,5 @@
-#ifndef _C_STRING_H_
-#define _C_STRING_H_
+#ifndef C_STRING_H
+#define C_STRING_H
 
 #include <stddef.h>
 #include "compiler.h"
@@ -62,4 +62,4 @@ char *strsep(char **stringp, const char *delim);
 
 
 
-#endif /* _C_STRING_H_ */
+#endif //C_STRING_H

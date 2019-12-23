@@ -1,5 +1,5 @@
-#ifndef	_COSMOS_X86_TYPES_H_
-#define _COSMOS_X86_TYPES_H_
+#ifndef	C_TYPES_H
+#define C_TYPES_H
 
 #include <stdint.h>
 
@@ -23,4 +23,4 @@ typedef uint32_t	gid_t;	/* Group ID */
 typedef uint16_t	f_mode_t;	/* File type and access permissions */
 typedef int64_t	    f_offset_t;	/* File gdt_address */
 
-#endif	/* _COSMOS_X86_TYPES_H_ */
+#endif	//C_TYPES_H

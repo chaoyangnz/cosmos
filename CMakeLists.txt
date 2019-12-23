@@ -26,7 +26,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME} c)
 
 add_custom_command (TARGET ${CMAKE_PROJECT_NAME}
         POST_BUILD
-        COMMAND ln -s cosmos cosmos.elf && i386-elf-objdump -d -D cosmos.elf > cosmos.elfdump && hexdump cosmos.elf > cosmos.hexdump
+        COMMAND i386-elf-objdump -d -D cosmos > cosmos.elfdump && hexdump cosmos > cosmos.hexdump
         COMMENT "COPY kernel to another file")
 
 

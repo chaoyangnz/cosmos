@@ -10,7 +10,7 @@
 #define KERNEL_PAGE_TABLE_INDEX (KERNEL_BASE >> 22)
 
 // 4K mapping per page
-#define SIZE_PER_PAGE (4 * 1024)
+#define SIZE_PER_PAGE (4u * 1024)
 // 4M mapping per page table
 #define SIZE_PER_PAGE_TABLE (SIZE_PER_PAGE * 1024)
 // 4G mapper per page directory

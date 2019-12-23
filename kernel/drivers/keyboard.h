@@ -65,6 +65,7 @@
 #define KBD_SC_CAPSLOCK 0x3a
 #define KBD_SC_TAB      0x0f
 
+extern void keyboard__driver();
 extern uint8_t keyboard__read_scan_code();
 extern char keyboard__scan_code_to_ascii(uint8_t scan_code);
 

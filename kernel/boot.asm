@@ -5,6 +5,8 @@ extern boot
 extern after_boot
 extern kernel_main
 
+KERNEL_BASE     equ     0xC0000000
+
 MULTIBOOT_PAGE_ALIGN    equ     1<<0
 MULTIBOOT_MEMORY_INFO   equ     1<<1
 MULTIBOOT_VIDEO_MODE    equ     1<<2
@@ -24,7 +26,7 @@ multiboot:
 start:
     cli
     ;;; stack in identity mapping
-    mov esp, stack_top - 0xC0000000
+    mov esp, stack_top - KERNEL_BASE
     ;;; enable segment, paging
     call boot
 

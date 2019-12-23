@@ -1,5 +1,5 @@
-#ifndef _C_MATH_H_
-#define _C_MATH_H_
+#ifndef C_MATH_H
+#define C_MATH_H
 
 #include "compiler.h"
 
@@ -71,4 +71,4 @@ double remainder(double x, double y) PURE;
 double rint(double l) PURE;
 double scalb(double x, double n) PURE;
 
-#endif /* _C_MATH_H_ */
+#endif //C_MATH_H

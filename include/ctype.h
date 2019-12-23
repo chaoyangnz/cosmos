@@ -1,5 +1,5 @@
-#ifndef _C_CTYPE_H_
-#define _C_CTYPE_H_
+#ifndef C_CTYPE_H
+#define C_CTYPE_H
 
 #include "compiler.h"
 
@@ -20,4 +20,4 @@ extern int toupper(int c);
 extern int tolower(int c);
 
 
-#endif /* _C_CTYPE_H_ */
+#endif //C_CTYPE_H

@@ -15,7 +15,7 @@ const char *humanize_size(uint64_t bytes_len)
     }
 
     static char buffer[5][50];
-    static buffer_index = 0;
+    static unsigned int buffer_index = 0;
     buffer_index %= 5;
 
     char *output = buffer[buffer_index];

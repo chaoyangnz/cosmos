@@ -14,7 +14,7 @@ boot__setup_multiboot() {
     // memcopy
     uint8_t *src = (uint8_t *)multiboot_info_ptr_origin;
     uint8_t *dst = (uint8_t *)multiboot_info_ptr;
-    for(int i = 0; i < sizeof(multiboot_info_t); ++i) {
+    for(size_t i = 0; i < sizeof(multiboot_info_t); ++i) {
         *dst++ = *src++;
     }
     // copy and fix address

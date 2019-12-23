@@ -26,7 +26,7 @@ boot__setup_page() {
         for(uint32_t page_index = 0; page_index < 1024; ++page_index) {
             (*page_tables_ptr)[page_table_index][page_index] = 0x00000002; // pages not present bit
         }
-        addr_t page_table_pa = &(*page_tables_ptr)[page_table_index];
+        addr_t page_table_pa = addr((*page_tables_ptr)[page_table_index]);
         (*page_directory_ptr)[page_table_index] = page_table_pa | 0x00000003; // page table present
     }
     page__map_high_half_pages();
@@ -53,9 +53,9 @@ page__map_high_half_pages() {
 static void
 page__enable_paging() {
     asm volatile (
-    "movl %0, %%cr3   \n"
-    "movl %%cr0, %%eax   \n"
-    "orl $0x80000000, %%eax \n"
+    "movl %0, %%cr3 ;"
+    "movl %%cr0, %%eax ;"
+    "orl $0x80000000, %%eax ;"
     "movl %%eax, %%cr0"
     : : "r" (page_directory_ptr)
     );

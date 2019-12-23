@@ -1,5 +1,5 @@
-#ifndef _C_ASSERT_H_
-#define _C_ASSERT_H_
+#ifndef C_ASSERT_H
+#define C_ASSERT_H
 
 #ifdef NDEBUG
 
@@ -20,4 +20,4 @@ extern void panic(const char *format, ...) SYS_NORETURN;
 
 #endif
 
-#endif /* _C_ASSERT_H_ */
+#endif //C_ASSERT_H

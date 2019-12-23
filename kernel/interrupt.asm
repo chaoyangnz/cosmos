@@ -1,16 +1,16 @@
 extern interrupt__handler
 
 %macro no_error_code_handler 1
-global interrupt_handler_%1
-interrupt_handler_%1:
+global isr%1
+isr%1:
 	push	dword 0
 	push	dword %1
 	jmp		common_interrupt_handler
 %endmacro
 
 %macro error_code_handler 1
-global interrupt_handler_%1
-interrupt_handler_%1:
+global isr%1
+isr%1:
 	push	dword %1
 	jmp		common_interrupt_handler
 %endmacro

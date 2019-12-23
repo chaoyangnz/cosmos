@@ -1,5 +1,6 @@
+#include <stdio.h>
 #include "keyboard.h"
-#include "io.h"
+#include "../io.h"
 
 static uint8_t is_lshift_down       = 0;
 static uint8_t is_rshift_down       = 0;
@@ -293,4 +294,12 @@ char keyboard__scan_code_to_ascii(uint8_t scan_code)
     }
 
     return ch;
+}
+
+void keyboard__driver() {
+    unsigned char scan_code = keyboard__read_scan_code();
+    char ch = keyboard__scan_code_to_ascii(scan_code);
+    if(ch > 0) {
+        printf("keyboard: %c \n", ch);
+    }
 }

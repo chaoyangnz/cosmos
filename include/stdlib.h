@@ -1,5 +1,5 @@
-#ifndef _C_STDLIB_H_
-#define _C_STDLIB_H_
+#ifndef C_STDLIB_H
+#define C_STDLIB_H
 
 #include <stddef.h>
 #include "compiler.h"
@@ -58,4 +58,4 @@ void qsort(void *__array, size_t __nelt, size_t __eltsize,
 
 
 
-#endif /* _C_STDLIB_H_ */
+#endif //C_STDLIB_H

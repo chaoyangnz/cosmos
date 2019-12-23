@@ -1,5 +1,5 @@
-#ifndef _SYS_X86_C_LIMITS_H_
-#define	_SYS_X86_C_LIMITS_H_
+#ifndef C_LIMITS_H
+#define	C_LIMITS_H
 
 #define	CHAR_BIT	8		/* number of bits in a char */
 
@@ -33,4 +33,4 @@
 
 #define	SSIZE_MAX	INT_MAX		/* max value for a ssize_t */
 
-#endif /* _SYS_X86_C_LIMITS_H_ */
+#endif //C_LIMITS_H

@@ -1,0 +1,18 @@
+<component name="ProjectDictionaryState">
+  <dictionary name="chaoyang">
+    <words>
+      <w>bootloader</w>
+      <w>dcmake</w>
+      <w>eflags</w>
+      <w>framebuffer</w>
+      <w>gdtr</w>
+      <w>lgdt</w>
+      <w>memcopy</w>
+      <w>multiboot</w>
+      <w>mustknow</w>
+      <w>sreg</w>
+      <w>stdfloat</w>
+      <w>strlen</w>
+    </words>
+  </dictionary>
+</component>

@@ -36,9 +36,7 @@ brew install i386-elf-binutils i386-elf-gcc i386-elf-gdb i386-elf-grub
 ## Build & Run
 
 ```
-cmake -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" .
-cd cmake-build-release
-make
+./build.sh
 ```
 
 ## Debug

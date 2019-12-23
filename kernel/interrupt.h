@@ -38,10 +38,6 @@ typedef struct
     uint32_t base;
 } PACKED idt_desc_t;
 
-extern void interrupt__setup();
-extern void interrupt__fill_interrupt_descriptor(gate_descriptor_t *gate_desc, uint32_t isr);
-extern void interrupt__load_idt();
-
 #define IRQ_START 0
 #define IRQ_END 15
 
@@ -62,5 +58,45 @@ extern void interrupt__load_idt();
 #define INTERRUPT_KEYBOARD PIC1_START_INTERRUPT + 1
 
 #define PIC_ACK     0x20 /* End-of-interrupt command code */
+
+typedef void *isr_t;
+
+typedef struct interrupt_state {
+    uint32_t edi;
+    uint32_t esi;
+    uint32_t ebp;
+    uint32_t edx;
+    uint32_t ecx;
+    uint32_t ebx;
+    uint32_t eax;
+    uint32_t esp;
+    uint32_t interrupt;
+    uint32_t error_code;
+    uint32_t eip;
+    uint32_t cs;
+    uint32_t eflags;
+} __attribute__((packed)) interrupt_state;
+
+// --- these interrupt service routines are defined in interrupt.asm
+// PIC1
+extern isr_t isr32;
+extern isr_t isr33;
+extern isr_t isr34;
+extern isr_t isr35;
+extern isr_t isr36;
+extern isr_t isr37;
+extern isr_t isr38;
+extern isr_t isr39;
+// PIC2
+extern isr_t isr40;
+extern isr_t isr41;
+extern isr_t isr42;
+extern isr_t isr43;
+extern isr_t isr44;
+extern isr_t isr45;
+extern isr_t isr46;
+extern isr_t isr47;
+
+extern void interrupt__setup();
 
 #endif //COSMOS_INTERRUPT_H

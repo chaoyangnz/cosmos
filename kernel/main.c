@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <string.h>
 #include "vga.h"
-#include "segment.h"
 #include "multiboot.h"
 #include "register.h"
 #include "vmm.h"

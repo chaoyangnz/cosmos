@@ -1,5 +1,5 @@
-#ifndef _C_STDIO_H
-#define _C_STDIO_H
+#ifndef C_STDIO_H
+#define C_STDIO_H
 
 #include <stdarg.h>
 #include <stddef.h>
@@ -141,4 +141,4 @@ void perror(const char *string);
 #define putc(c, stream) fputc(c, stream)
 
 
-#endif /* _C_STDIO_H */
+#endif //C_STDIO_H

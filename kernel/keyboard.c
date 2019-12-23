@@ -1,8 +1,6 @@
 #include "keyboard.h"
 #include "io.h"
 
-#include "register.h"
-
 static uint8_t is_lshift_down       = 0;
 static uint8_t is_rshift_down       = 0;
 static uint8_t is_caps_lock_pressed = 0;

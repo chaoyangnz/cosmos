@@ -1,9 +1,9 @@
 #include "interrupt.h"
 
-#include "segment.h"
 #include <stdio.h>
+#include "segment.h"
 #include "io.h"
-
+#include "register.h"
 #include "keyboard.h"
 
 idt_t idt;

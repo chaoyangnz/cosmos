@@ -1,5 +1,5 @@
-#ifndef	_COSMOS_X86_EFLAGS_H_
-#define	_COSMOS_X86_EFLAGS_H_
+#ifndef	COSMOS_EFLAGS_H
+#define	COSMOS_EFLAGS_H
 
 /*
  *	i386 flags register
@@ -24,4 +24,4 @@
 #define	EFL_VIP		0x00100000		/* virtual interrupt pending */
 #define	EFL_ID		0x00200000		/* CPUID instruction support */
 
-#endif	/* _COSMOS_X86_EFLAGS_H_ */
+#endif	//COSMOS_EFLAGS_H

@@ -1,5 +1,5 @@
-#ifndef _COSMOS_INTERRUPT_H_
-#define _COSMOS_INTERRUPT_H_
+#ifndef COSMOS_INTERRUPT_H
+#define COSMOS_INTERRUPT_H
 
 #include <compiler.h>
 #include <stdint.h>
@@ -63,4 +63,4 @@ extern void interrupt__load_idt();
 
 #define PIC_ACK     0x20 /* End-of-interrupt command code */
 
-#endif /* _COSMOS_INTERRUPT_H_ */
+#endif //COSMOS_INTERRUPT_H

@@ -1,5 +1,5 @@
-#ifndef	_COSMOS_X86_SEG_H_
-#define	_COSMOS_X86_SEG_H_
+#ifndef	COSMOS_SEGMENT_H
+#define	COSMOS_SEGMENT_H
 
 
 #include <stdint.h>
@@ -104,4 +104,4 @@ extern gdt_t gdt __attribute__((aligned(4)));
 
 
 
-#endif	/* _COSMOS_X86_SEG_H_ */
+#endif	//COSMOS_SEGMENT_H

@@ -1,5 +1,5 @@
-#ifndef _SYS_CONSOLE_H_
-#define _SYS_CONSOLE_H_
+#ifndef COSMOS_VGA_H
+#define COSMOS_VGA_H
 
 #include <stddef.h>
 
@@ -35,4 +35,4 @@ extern int	vga__getchar();
 extern int	vga__puts(const char *s);
 extern int	vga__putbytes(const char *data, size_t size);
 
-#endif /* _SYS_CONSOLE_H_ */
+#endif //COSMOS_VGA_H

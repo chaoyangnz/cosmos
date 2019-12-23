@@ -18,8 +18,8 @@
  * Functions for setting up and activating
  * a basic x86 protected-mode kernel execution environment.
  */
-#ifndef _COSMOS_X86_BASE_CPU_H_
-#define _COSMOS_X86_BASE_CPU_H_
+#ifndef COSMOS_CPU_H
+#define COSMOS_CPU_H
 
 #include <oskit/compiler.h>
 
@@ -156,4 +156,4 @@ extern void base_fpu_init(void);
  */
 #define base_cpu_setup() (base_cpu_init(), base_cpu_load())
 
-#endif /* _COSMOS_X86_BASE_CPU_H_ */
+#endif //COSMOS_CPU_H

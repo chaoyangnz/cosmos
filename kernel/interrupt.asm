@@ -62,7 +62,7 @@ error_code_handler 17
 no_error_code_handler 18
 no_error_code_handler 19
 
-; irqs
+; IRQs
 no_error_code_handler 32
 no_error_code_handler 33
 no_error_code_handler 34

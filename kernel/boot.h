@@ -4,12 +4,6 @@
 #include <compiler.h>
 #include <stdint.h>
 
-#define STACK_SIZE 4 * 1024
-
-typedef uint8_t stack_t[STACK_SIZE];
-
-extern stack_t stack;
-extern uint8_t *stack_bottom;
 extern uint8_t *stack_top;
 
 extern void boot() BOOT_SECTION;

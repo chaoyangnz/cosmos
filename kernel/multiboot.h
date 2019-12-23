@@ -1,5 +1,5 @@
-#ifndef _COSMOS_X86_MULTIBOOT_H_
-#define _COSMOS_X86_MULTIBOOT_H_
+#ifndef COSMOS_MULTIBOOT_H
+#define COSMOS_MULTIBOOT_H
 
 #include <stddef.h>
 #include <types.h>
@@ -240,4 +240,4 @@ extern multiboot_info_t multiboot_info;
 
 extern void multiboot__info();
 
-#endif /* _COSMOS_X86_MULTIBOOT_H_ */
+#endif //COSMOS_MULTIBOOT_H

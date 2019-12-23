@@ -1,4 +1,4 @@
-#include "eden.h"
+#include "boot.h"
 
 #include "page.h"
 #include <compiler.h>
@@ -9,7 +9,7 @@
 static page_directory_t *page_directory_ptr BOOT_BSS_SECTION;
 static page_tables_t *page_tables_ptr BOOT_BSS_SECTION;
 
-static void page__map_page_table(uint32_t page_table_index) BOOT_SECTION;
+static void boot__map_page_table(uint32_t page_table_index) BOOT_SECTION;
 static void page__map_high_half_pages() BOOT_SECTION;
 static void page__enable_paging() BOOT_SECTION;
 
@@ -19,7 +19,7 @@ static void page__enable_paging() BOOT_SECTION;
 // 2) all pages are not present except mapped pages (16M: including frame buffer 0xb8000 )
 // 3) enable paging
 void
-page__setup() {
+boot__setup_page() {
     page_directory_ptr = (page_directory_t *) va_to_pa(&page_directory);
     page_tables_ptr = (page_tables_t *) va_to_pa(&page_tables);
     for(uint32_t page_table_index = 0; page_table_index < 1024; ++page_table_index) {
@@ -34,7 +34,7 @@ page__setup() {
 }
 
 static void
-page__map_page_table(uint32_t page_table_index) {
+boot__map_page_table(uint32_t page_table_index) {
     uint32_t page_table_physical_start = PHYSICAL_BASE + page_table_index * SIZE_PER_PAGE_TABLE;
     for(uint32_t page_index = 0; page_index < 1024; ++page_index) {
         uint32_t page_table_entry = (page_table_physical_start + page_index * SIZE_PER_PAGE) | 0x00000003;
@@ -46,7 +46,7 @@ page__map_page_table(uint32_t page_table_index) {
 static void
 page__map_high_half_pages() {
     for(uint32_t page_table_index = 0; page_table_index < KERNEL_HIGH_HALF_SIZE; ++page_table_index) {
-        page__map_page_table(page_table_index);
+        boot__map_page_table(page_table_index);
     }
 }
 
@@ -61,7 +61,7 @@ page__enable_paging() {
     );
 }
 
-void page__after_boot() {
+void boot__fix_page_after_boot() {
     // recycle identity mapping
     for(uint32_t page_table_index = 0; page_table_index < KERNEL_HIGH_HALF_SIZE; ++page_table_index) {
         for(uint32_t page_index = 0; page_index < 1024; ++page_index) {

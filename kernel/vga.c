@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "page.h"
-#include "memory.h"
+#include "layout.h"
 #include "io.h"
 
 static uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg)

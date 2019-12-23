@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "memory.h"
+#include "layout.h"
 #include "page.h"
 
 extern void vmm__setup();

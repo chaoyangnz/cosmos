@@ -1,5 +1,5 @@
-#ifndef COSMOS_MEMORY_H
-#define COSMOS_MEMORY_H
+#ifndef COSMOS_LAYOUT_H
+#define COSMOS_LAYOUT_H
 
 #include "types.h"
 
@@ -26,4 +26,4 @@
 
 extern const char *humanize_size(uint64_t bytes_len);
 
-#endif //COSMOS_MEMORY_H
+#endif //COSMOS_LAYOUT_H

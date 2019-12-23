@@ -1,10 +1,10 @@
-#include "eden.h"
+#include "boot.h"
 
 #include "multiboot.h"
-#include "memory.h"
+#include "layout.h"
 
 void
-multiboot__setup() {
+boot__setup_multiboot() {
     multiboot_info_t *multiboot_info_ptr_origin;
     asm(
     "movl %%ebx, %0"

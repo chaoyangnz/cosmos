@@ -1,46 +1,46 @@
-#include "eden.h"
+#include "boot.h"
 
 #include "segment.h"
 #include "register.h"
 #include <stdint.h>
-#include "memory.h"
+#include "layout.h"
 
 static gdt_t *gdt_ptr BOOT_BSS_SECTION;
 
-static void segment__fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limit, uint8_t access,
-        uint8_t sizebits) BOOT_SECTION;
+static void boot__fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limit, uint8_t access,
+                                          uint8_t sizebits) BOOT_SECTION;
 
 /* Load the base GDT into the CPU.  */
-static void segment__load_gdt() BOOT_SECTION;
+static void boot__load_gdt() BOOT_SECTION;
 
 void
-segment__setup()
+boot__setup_segment()
 {
     gdt_ptr = (gdt_t *)va_to_pa(&gdt);
     /* Initialize the 32-bit kernel code and data segment descriptors
        to point to the base of the kernel linear space region.  */
-    segment__fill_segment_descriptor(&(*gdt_ptr)[SEG_INDEX_KERNEL_CODE],
-                                     0x00000000, 0xffffffff,
-                                     SEG_DESC_ACC_PL_K | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
-    segment__fill_segment_descriptor(&(*gdt_ptr)[SEG_INDEX_KERNEL_DATA],
-                                     0x00000000, 0xffffffff,
-                                     SEG_DESC_ACC_PL_K | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
+    boot__fill_segment_descriptor(&(*gdt_ptr)[SEG_INDEX_KERNEL_CODE],
+                                  0x00000000, 0xffffffff,
+                                  SEG_DESC_ACC_PL_K | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
+    boot__fill_segment_descriptor(&(*gdt_ptr)[SEG_INDEX_KERNEL_DATA],
+                                  0x00000000, 0xffffffff,
+                                  SEG_DESC_ACC_PL_K | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
 
     /* Descriptors that direct-map all linear space.  */
-    segment__fill_segment_descriptor(&(*gdt_ptr)[SEG_INDEX_USER_CODE],
-                                     0x00000000, 0xffffffff,
-                                     SEG_DESC_ACC_PL_U | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
-    segment__fill_segment_descriptor(&(*gdt_ptr)[SEG_INDEX_USER_DATA],
-                                     0x00000000, 0xffffffff,
-                                     SEG_DESC_ACC_PL_U | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
+    boot__fill_segment_descriptor(&(*gdt_ptr)[SEG_INDEX_USER_CODE],
+                                  0x00000000, 0xffffffff,
+                                  SEG_DESC_ACC_PL_U | SEG_DESC_ACC_CODE_R, SEG_SZ_32);
+    boot__fill_segment_descriptor(&(*gdt_ptr)[SEG_INDEX_USER_DATA],
+                                  0x00000000, 0xffffffff,
+                                  SEG_DESC_ACC_PL_U | SEG_DESC_ACC_DATA_W, SEG_SZ_32);
 
-    segment__load_gdt();
+    boot__load_gdt();
 }
 
 /* Fill a segment descriptor.  */
 static void
-segment__fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limit, uint8_t access,
-                                 uint8_t sizebits)
+boot__fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint32_t limit, uint8_t access,
+                              uint8_t sizebits)
 {
     if (limit > 0xfffff)
     {
@@ -57,7 +57,7 @@ segment__fill_segment_descriptor(segment_descriptor_t *desc, uint32_t base, uint
 }
 
 static void
-segment__load_gdt() {
+boot__load_gdt() {
     gdt_desc_t gdt_desc = {
        .base = (addr_t)(gdt_ptr),
        .limit = GDT_SIZE * 8 - 1
@@ -93,7 +93,7 @@ segment__load_gdt() {
     );
 }
 
-void segment__after_boot() {
+void boot__fix_segment_after_boot() {
     // fix gdtr to virtual address
     gdt_desc_t gdt_desc = {
             .base = (addr_t)(&gdt),

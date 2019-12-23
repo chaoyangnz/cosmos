@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "memory.h"
+#include "layout.h"
 
 typedef uint32_t page_table_t[1024]; // (1024 pages) * 4k = 4M
 typedef uint32_t page_directory_t[1024];

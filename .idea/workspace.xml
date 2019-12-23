@@ -15,19 +15,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/eden.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/boot.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/eden.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/boot.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/eden.h" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/boot.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/memory.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/layout.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/memory.h" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/layout.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/multiboot.boot.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/multiboot.boot.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/multiboot.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/multiboot.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/page.boot.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/boot.page.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/page.h" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/page.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/segment.boot.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/boot.segment.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/vga.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/vga.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/vmm.h" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/vmm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/boot.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/boot.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/boot.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/boot.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/boot.h" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/boot.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/multiboot.boot.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/boot.multiboot.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/stack.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/stack.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,15 +131,14 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="221" y="73" key="SettingsEditor/0.23.1440.822@0.23.1440.822" timestamp="1577082643221" />
+    <state x="378" y="191" width="683" height="486" key="find.popup" timestamp="1577085667082">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="378" y="191" width="683" height="486" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1577085667082" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/kernel/layout.h</url>
-          <line>26</line>
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/kernel/boot/multiboot.c</url>
           <line>26</line>

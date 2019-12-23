@@ -1,5 +1,9 @@
 #include "boot.h"
 
+stack_t stack;
+uint8_t *stack_bottom = &stack[0];
+uint8_t *stack_top = &stack[STACK_SIZE-1];
+
 void boot() {
     boot__setup_multiboot();
     boot__setup_segment();

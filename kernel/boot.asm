@@ -33,7 +33,7 @@ start:
     ;;;------------------------------------------
     ;;; re-setup stack
     mov esp, stack_top
-    ;;; fix virtual address
+    ;;; fix virtual address & recycle identity page table
     call after_boot
 
     ;;;------------HAPPY WORLD--------------------

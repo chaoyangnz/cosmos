@@ -14,8 +14,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/libc/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/assert.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/assert.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/compiler.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/compiler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/ctype.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/ctype.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/errno.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/errno.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/float.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/float.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/limits.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/limits.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/math.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/math.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/setjmp.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/setjmp.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/signal.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/signal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/stdarg.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/stdarg.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/stdbool.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/stdbool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/stddef.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/stddef.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/stdfloat.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/stdfloat.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/stdint.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/stdint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/stdio.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/stdio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/stdlib.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/stdlib.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/string.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/string.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/time.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/time.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/unistd.h" beforeDir="false" afterPath="$PROJECT_DIR$/libc/include/unistd.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,30 +67,31 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/specs" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myShowDebugConsoleByDefault" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/kernel/drivers" />
-      <recent name="$PROJECT_DIR$/kernel" />
-      <recent name="$PROJECT_DIR$/libc" />
-      <recent name="$PROJECT_DIR$/build" />
-      <recent name="$PROJECT_DIR$/include" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/specs" />
       <recent name="$PROJECT_DIR$/kernel" />
       <recent name="$PROJECT_DIR$/include/kernel/i386" />
       <recent name="$PROJECT_DIR$/include/sys/i386" />
       <recent name="$PROJECT_DIR$/include/sys/x86" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/libc" />
+      <recent name="$PROJECT_DIR$/kernel/libc" />
+      <recent name="$PROJECT_DIR$/kernel" />
+      <recent name="$PROJECT_DIR$/kernel/drivers" />
+      <recent name="$PROJECT_DIR$/build" />
     </key>
   </component>
   <component name="RunManager">
@@ -88,6 +111,18 @@
       </list>
     </option>
   </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2f635a38-ef10-44c9-8ba0-9f53f6b9c523" name="Default Changelist" comment="" />
+      <created>1585553063034</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585553063034</updated>
+      <workItem from="1585553064889" duration="2063000" />
+      <workItem from="1585628172984" duration="4346000" />
+    </task>
+    <servers />
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -96,6 +131,9 @@
       <are-packages-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -152,14 +190,20 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="538" y="152" key="RollbackChangesDialog/0.23.1440.822@0.23.1440.822" timestamp="1577169023758" />
-    <state x="221" y="73" key="SettingsEditor" timestamp="1577161357289">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="393" y="105" key="SettingsEditor" timestamp="1585630200445">
+      <screen x="0" y="23" width="2560" height="1353" />
     </state>
     <state x="221" y="73" key="SettingsEditor/0.23.1440.822@0.23.1440.822" timestamp="1577161357289" />
-    <state x="378" y="191" width="683" height="486" key="find.popup" timestamp="1577167202393">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="393" y="105" key="SettingsEditor/0.23.2560.1353@0.23.2560.1353" timestamp="1585630200445" />
+    <state x="957" y="532" key="com.intellij.ide.util.TipDialog" timestamp="1585628176300">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="957" y="532" key="com.intellij.ide.util.TipDialog/0.23.2560.1353@0.23.2560.1353" timestamp="1585628176300" />
+    <state x="672" y="300" width="1215" height="800" key="find.popup" timestamp="1585635933829">
+      <screen x="0" y="23" width="2560" height="1353" />
     </state>
     <state x="378" y="191" width="683" height="486" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1577167202393" />
+    <state x="672" y="300" width="1215" height="800" key="find.popup/0.23.2560.1353@0.23.2560.1353" timestamp="1585635933829" />
     <state x="385" y="85" width="670" height="676" key="search.everywhere.popup" timestamp="1577110429285">
       <screen x="0" y="23" width="1440" height="822" />
     </state>

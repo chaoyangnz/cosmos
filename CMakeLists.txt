@@ -9,7 +9,7 @@ file(GLOB_RECURSE KERNEL_SRCS "kernel/*.c" "kernel/*.asm")
 file(GLOB_RECURSE LIBC_SRCS "libc/*.c" "libc/*.asm")
 
 # headers path
-include_directories(include)
+include_directories(libc/include)
 
 # tool chain definition
 include("flags.cmake")

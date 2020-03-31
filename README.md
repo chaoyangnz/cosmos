@@ -30,7 +30,8 @@ Cosmos is my world in bare bone - a kernel running as you like. This is my own a
 brew install qemu cmake cdrtools
 
 # install cross build toolchain
-brew install i386-elf-binutils i386-elf-gcc i386-elf-gdb i386-elf-grub
+brew tap nativeos/i386-elf-toolchain
+brew install nasm i386-elf-binutils i386-elf-gcc i386-elf-gdb i386-elf-grub
 ```
 
 ## Build & Run
